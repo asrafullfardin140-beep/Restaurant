@@ -11,21 +11,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Handle form submission
-    const form = document.getElementById('bookingForm');
+    const form = document.getElementById('premium-booking-form');
     if (form) {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             // Simulate network request
             const submitBtn = form.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'PROCESSING...';
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = 'PROCESSING...';
             submitBtn.disabled = true;
 
             setTimeout(() => {
                 alert('Reservation requested successfully! We will contact you shortly.');
-                submitBtn.textContent = originalText;
+                submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
                 form.reset();
+                if(modal) {
+                    modal.classList.remove('show');
+                }
             }, 1500);
         });
     }
@@ -35,5 +38,31 @@ document.addEventListener('DOMContentLoaded', () => {
     if (dateInput) {
         const today = new Date().toISOString().split('T')[0];
         dateInput.min = today;
+    }
+
+    // Modal Logic
+    const modal = document.getElementById('booking-modal');
+    const bookBtns = document.querySelectorAll('.btn-book');
+    const closeBtn = document.querySelector('.close-modal');
+    const modalOverlay = document.querySelector('.modal-overlay');
+
+    if(modal && closeBtn) {
+        bookBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.classList.add('show');
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('show');
+        });
+
+        // Close when clicking outside content
+        window.addEventListener('click', (e) => {
+            if (e.target === modal || e.target === modalOverlay) {
+                modal.classList.remove('show');
+            }
+        });
     }
 });

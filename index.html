@@ -23,8 +23,9 @@
                 <a href="#home">HOME</a>
                 <a href="#contact">CONTACT</a>
                 <span class="nav-separator"></span>
+                <a href="assets/menu.pdf" target="_blank" class="btn-nav">MENU</a>
                 <a href="https://bambulimerick.ie/order-now" class="btn-nav">ORDER ONLINE</a>
-                <a href="#book-a-table" class="btn-nav">BOOK A TABLE</a>
+                <a href="#" class="btn-nav btn-book">BOOK A TABLE</a>
             </div>
         </div>
     </nav>
@@ -40,8 +41,8 @@
                 <h1>Two traditions,<br><em>one quiet table.</em></h1>
                 <p>The slow craft of Indian curries and the bright, wok-fired heat of<br>Thailand — served by candlelight on Bedford Row.</p>
                 <div class="hero-buttons">
-                    <a href="#book-a-table" class="btn-solid">BOOK A TABLE</a>
-                    <a href="https://bambulimerick.ie/order-now" class="btn-solid">ORDER ONLINE</a>
+                    <a href="#" class="btn-solid btn-book">BOOK A TABLE</a>
+                    <a href="https://bambulimerick.ie/order-now" class="btn-solid light">ORDER ONLINE</a>
                 </div>
             </div>
             <div class="scroll-indicator">
@@ -99,63 +100,6 @@
             </div>
         </section>
 
-        <section id="book-a-table" class="booking">
-            <div class="booking-container">
-                <div class="section-label-container center">
-                    <span class="section-label">RESERVATIONS</span>
-                </div>
-                <h2>Book a table</h2>
-                <p class="booking-subtitle">Tables are released six weeks ahead. We hold a few seats at the counter for walk-ins each evening.</p>
-                
-                <form class="booking-form" id="bookingForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>NAME</label>
-                            <input type="text" required>
-                        </div>
-                        <div class="form-group">
-                            <label>EMAIL</label>
-                            <input type="email" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>PHONE</label>
-                            <input type="tel" required>
-                        </div>
-                        <div class="form-group">
-                            <label>PARTY SIZE</label>
-                            <input type="number" value="2" min="1" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>DATE</label>
-                            <input type="date" required>
-                            <span class="input-icon"></span>
-                        </div>
-                        <div class="form-group">
-                            <label>TIME</label>
-                            <select required>
-                                <option value="" disabled selected>Select a time</option>
-                                <option>17:30</option>
-                                <option>18:00</option>
-                                <option>18:30</option>
-                                <option>19:00</option>
-                                <option>19:30</option>
-                                <option>20:00</option>
-                                <option>20:30</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group full">
-                        <label>SPECIAL REQUESTS (OPTIONAL)</label>
-                        <textarea rows="1" placeholder="Allergies, occasions, dietary preferences..."></textarea>
-                    </div>
-                    <button type="submit" class="btn-solid light">REQUEST RESERVATION</button>
-                </form>
-            </div>
-        </section>
     </main>
 
     <footer id="contact">
@@ -212,6 +156,60 @@
             </div>
         </div>
     </footer>
+
+    <!-- Booking Modal -->
+    <div id="booking-modal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content dark-theme">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <div class="modal-logo">
+                    <img src="assets/logo.jpg" alt="Bambu Logo">
+                </div>
+                <div class="modal-divider">
+                    <span class="ornament"></span>
+                </div>
+                <h2>Book Now!</h2>
+            </div>
+            
+            <form id="premium-booking-form" class="premium-form">
+                <div class="form-group-premium">
+                    <label><span class="label-icon"></span> Guests</label>
+                    <select required class="dark-input">
+                        <option value="1">1 Person</option>
+                        <option value="2" selected>2 People</option>
+                        <option value="3">3 People</option>
+                        <option value="4">4 People</option>
+                        <option value="5">5 People</option>
+                        <option value="6">6 People</option>
+                        <option value="7">7 People</option>
+                        <option value="8">8 People</option>
+                    </select>
+                </div>
+
+                <div class="form-group-premium">
+                    <label><span class="label-icon"></span> Date</label>
+                    <input type="date" required class="dark-input">
+                </div>
+
+                <div class="form-group-premium">
+                    <label><span class="label-icon"></span> Time</label>
+                    <select required class="dark-input">
+                        <option value="" disabled selected>Time</option>
+                        <option>17:30</option>
+                        <option>18:00</option>
+                        <option>18:30</option>
+                        <option>19:00</option>
+                        <option>19:30</option>
+                        <option>20:00</option>
+                        <option>20:30</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-orange"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> Contact Details</button>
+            </form>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
