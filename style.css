@@ -231,34 +231,36 @@ em {
 
 .mobile-bg { display: none; }
 
-/* Desktop animation: 5 slides × 3s each = 15s total */
-.desktop-bg .hero-slide { animation-duration: 15s; }
+/* Desktop animation: 6 slides × 4s each = 24s total */
+.desktop-bg .hero-slide { animation-duration: 24s; }
 .desktop-bg .slide-1 { animation-name: slideShowDesktop; animation-delay: 0s; }
-.desktop-bg .slide-2 { animation-name: slideShowDesktop; animation-delay: 3s; }
-.desktop-bg .slide-3 { animation-name: slideShowDesktop; animation-delay: 6s; }
-.desktop-bg .slide-4 { animation-name: slideShowDesktop; animation-delay: 9s; }
-.desktop-bg .slide-5 { animation-name: slideShowDesktop; animation-delay: 12s; }
+.desktop-bg .slide-2 { animation-name: slideShowDesktop; animation-delay: 4s; }
+.desktop-bg .slide-3 { animation-name: slideShowDesktop; animation-delay: 8s; }
+.desktop-bg .slide-4 { animation-name: slideShowDesktop; animation-delay: 12s; }
+.desktop-bg .slide-5 { animation-name: slideShowDesktop; animation-delay: 16s; }
+.desktop-bg .slide-6 { animation-name: slideShowDesktop; animation-delay: 20s; }
 
 @keyframes slideShowDesktop {
     0%   { opacity: 0; transform: scale(1); }
-    4%   { opacity: 1; }
-    16%  { opacity: 1; transform: scale(1.06); }
-    20%  { opacity: 0; transform: scale(1.08); }
-    100% { opacity: 0; }
+    2.5% { opacity: 1; transform: scale(1.01); }
+    14.16% { opacity: 1; transform: scale(1.08); }
+    16.66% { opacity: 0; transform: scale(1.10); }
+    100% { opacity: 0; transform: scale(1.10); }
 }
 
-/* Mobile animation: 3 slides × 3s each = 9s total */
-.mobile-bg .hero-slide { animation-duration: 9s; }
+/* Mobile animation: 4 slides × 4s each = 16s total */
+.mobile-bg .hero-slide { animation-duration: 16s; }
 .mobile-bg .m-slide-1 { animation-name: slideShowMobile; animation-delay: 0s; }
-.mobile-bg .m-slide-2 { animation-name: slideShowMobile; animation-delay: 3s; }
-.mobile-bg .m-slide-3 { animation-name: slideShowMobile; animation-delay: 6s; }
+.mobile-bg .m-slide-2 { animation-name: slideShowMobile; animation-delay: 4s; }
+.mobile-bg .m-slide-3 { animation-name: slideShowMobile; animation-delay: 8s; }
+.mobile-bg .m-slide-4 { animation-name: slideShowMobile; animation-delay: 12s; }
 
 @keyframes slideShowMobile {
     0%   { opacity: 0; transform: scale(1); }
-    6%   { opacity: 1; }
-    27%  { opacity: 1; transform: scale(1.06); }
-    33.33% { opacity: 0; transform: scale(1.08); }
-    100% { opacity: 0; }
+    3.75% { opacity: 1; transform: scale(1.01); }
+    21.25% { opacity: 1; transform: scale(1.08); }
+    25%  { opacity: 0; transform: scale(1.10); }
+    100% { opacity: 0; transform: scale(1.10); }
 }
 
 /* Mobile-only dropdown nav menu */
