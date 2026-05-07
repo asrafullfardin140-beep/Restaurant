@@ -1,4 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Typewriter Effect ---
+    const typewriterEl = document.getElementById('typewriter-heading');
+    if (typewriterEl) {
+        const text = 'A table worth lingering over';
+        let i = 0;
+        const speed = 70; // ms per letter
+        function type() {
+            if (i < text.length) {
+                typewriterEl.textContent += text.charAt(i);
+                i++;
+                setTimeout(type, speed);
+            } else {
+                typewriterEl.classList.add('done'); // hide cursor when finished
+            }
+        }
+        setTimeout(type, 800); // slight delay before starting
+    }
     // --- Navbar Scroll Effect ---
     const navbar = document.querySelector('.navbar');
     
