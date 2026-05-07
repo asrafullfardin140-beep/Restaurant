@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bambu Restaurant | Indian & Thai · Limerick</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo-container">
+                <img src="assets/logo.png" alt="Bambu Logo" class="logo-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/40x40/fff/000?text=B';">
+                <div class="logo-text">
+                    <span class="logo-title">Bambu</span>
+                    <span class="logo-subtitle">INDIAN & THAI · LIMERICK</span>
+                </div>
+            </a>
+            <div class="nav-links">
+                <a href="#home">HOME</a>
+                <a href="#contact">CONTACT</a>
+                <span class="nav-separator"></span>
+                <a href="https://bambulimerick.ie/order-now" class="btn-nav">ORDER ONLINE</a>
+                <a href="#book-a-table" class="btn-nav">BOOK A TABLE</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-bg">
+                <img src="assets/food1.jpg" alt="Indian Cuisine Background" onerror="this.src='https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&q=80';">
+            </div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Two traditions,<br><em>one quiet table.</em></h1>
+                <p>The slow craft of Indian curries and the bright, wok-fired heat of<br>Thailand — served by candlelight on Bedford Row.</p>
+                <div class="hero-buttons">
+                    <a href="#book-a-table" class="btn-solid">BOOK A TABLE</a>
+                    <a href="https://bambulimerick.ie/order-now" class="btn-solid">ORDER ONLINE</a>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="scroll-line"></div>
+                <span>SCROLL</span>
+            </div>
+        </section>
+
+        <section id="about" class="story">
+            <div class="story-content">
+                <div class="story-text">
+                    <div class="section-label-container">
+                        <span class="section-line"></span>
+                        <span class="section-label">OUR STORY</span>
+                    </div>
+                    <h2>Spice routes meet<br><em>the Shannon.</em></h2>
+                    <p>Bambu is a family restaurant rooted in two cuisines we love — the layered curries of India and the bright, herbal cooking of Thailand. Cooked by chefs from both traditions, served in a warm, intimate room in the heart of Limerick.</p>
+                    <a href="#about" class="btn-text">VISIT US</a>
+                </div>
+                <div class="story-image">
+                    <img src="assets/food2.jpg" alt="Restaurant Interior" onerror="this.src='https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&q=80';">
+                </div>
+            </div>
+        </section>
+
+        <section id="menu" class="dishes">
+            <div class="dishes-header">
+                <h2>Signature <em>dishes</em></h2>
+            </div>
+            <div class="dishes-grid">
+                <div class="dish-item">
+                    <span class="dish-num">01</span>
+                    <h3>Tandoori Mixed<br>Grill</h3>
+                    <p>lamb chops · chicken tikka · sheekh kebab</p>
+                </div>
+                <div class="dish-item">
+                    <span class="dish-num">02</span>
+                    <h3>Thai Green Curry</h3>
+                    <p>chicken · coconut · Thai basil · jasmine rice</p>
+                </div>
+                <div class="dish-item">
+                    <span class="dish-num">03</span>
+                    <h3>Lamb Dum Biryani</h3>
+                    <p>basmati · mint · raita · salan</p>
+                </div>
+                <div class="dish-item">
+                    <span class="dish-num">04</span>
+                    <h3>Pad Thai</h3>
+                    <p>rice noodles · prawn · tamarind · peanut</p>
+                </div>
+            </div>
+            <div class="dishes-images">
+                <img src="assets/food3.jpg" alt="Signature Dish 1" onerror="this.src='https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&q=80';">
+                <img src="assets/food4.jpg" alt="Signature Dish 2" onerror="this.src='https://images.unsplash.com/photo-1559314809-0d155014e29e?auto=format&fit=crop&q=80';">
+            </div>
+        </section>
+
+        <section id="book-a-table" class="booking">
+            <div class="booking-container">
+                <div class="section-label-container center">
+                    <span class="section-label">RESERVATIONS</span>
+                </div>
+                <h2>Book a table</h2>
+                <p class="booking-subtitle">Tables are released six weeks ahead. We hold a few seats at the counter for walk-ins each evening.</p>
+                
+                <form class="booking-form" id="bookingForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>NAME</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>EMAIL</label>
+                            <input type="email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>PHONE</label>
+                            <input type="tel" required>
+                        </div>
+                        <div class="form-group">
+                            <label>PARTY SIZE</label>
+                            <input type="number" value="2" min="1" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>DATE</label>
+                            <input type="date" required>
+                            <span class="input-icon"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>TIME</label>
+                            <select required>
+                                <option value="" disabled selected>Select a time</option>
+                                <option>17:30</option>
+                                <option>18:00</option>
+                                <option>18:30</option>
+                                <option>19:00</option>
+                                <option>19:30</option>
+                                <option>20:00</option>
+                                <option>20:30</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group full">
+                        <label>SPECIAL REQUESTS (OPTIONAL)</label>
+                        <textarea rows="1" placeholder="Allergies, occasions, dietary preferences..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-solid light">REQUEST RESERVATION</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="footer-top">
+            <div class="footer-col-center">
+                <h5>FIND US</h5>
+                <p class="big-text">14 Bedford Row</p>
+                <p>Limerick, Ireland</p>
+            </div>
+            <div class="footer-col-center border-sides">
+                <h5>OPEN</h5>
+                <p class="big-text">Tue &ndash; Sun</p>
+                <p>Dinner from 17:30</p>
+            </div>
+            <div class="footer-col-center">
+                <h5>RESERVE</h5>
+                <p class="big-text">+353 61 555 0140</p>
+                <a href="#book-a-table" class="link-text">BOOK ONLINE</a>
+            </div>
+        </div>
+        
+        <div class="footer-middle">
+            <div class="footer-info">
+                <div class="logo-container">
+                    <img src="assets/logo.png" alt="Bambu Logo" class="logo-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/40x40/fff/000?text=B';">
+                    <div class="logo-text">
+                        <span class="logo-title">Bambu</span>
+                    </div>
+                </div>
+                <p class="desc">Indian & Thai cooking on the banks of the<br>Shannon — two great traditions, one quiet dining<br>room in Limerick.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-visit">
+                    <h5>VISIT</h5>
+                    <p>14 Bedford Row<br>Limerick V94 K2P3<br>Ireland</p>
+                    <p class="mt-2">+353 61 555 0140<br>hello@bamburestaurant.ie</p>
+                </div>
+                <div class="footer-hours">
+                    <h5>HOURS</h5>
+                    <p>Tuesday - Thursday · 17:30 - 22:00<br>Friday - Saturday · 17:00 - 23:00<br>Sunday · 13:00 - 21:00<br>Monday · Closed</p>
+                    <div class="socials mt-2">
+                        <a href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                        <a href="#"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Bambu Indian & Thai Restaurant. All rights reserved.</p>
+            <div class="bottom-links">
+                <a href="#book-a-table">Book a table</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
