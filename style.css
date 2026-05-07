@@ -1,8 +1,8 @@
 :root {
     --bg-dark: #0f0d0c;
     --bg-darker: #0a0807;
-    --accent-gold: #c2a077;
-    --accent-gold-hover: #d8b68b;
+    --accent-gold: #ceaa7b;
+    --accent-gold-hover: #e0bb8b;
     --text-main: #f9f6ef;
     --text-muted: #9e958d;
     
@@ -223,13 +223,15 @@ em {
     text-transform: uppercase;
     letter-spacing: 2px;
     border-radius: 2px;
-    transition: background-color 0.3s ease;
-    border: 1px solid var(--accent-gold);
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 0 15px rgba(206, 170, 123, 0.4);
 }
 
 .btn-solid:hover {
     background-color: var(--accent-gold-hover);
-    border-color: var(--accent-gold-hover);
+    box-shadow: 0 0 25px rgba(206, 170, 123, 0.6);
+    transform: translateY(-2px);
 }
 
 .btn-solid.light {
