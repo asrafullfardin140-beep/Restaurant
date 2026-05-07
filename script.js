@@ -9,27 +9,33 @@ document.addEventListener('DOMContentLoaded', () => {
         ];
         let lineIndex = 0;
         let charIndex = 0;
-        const speed = 70; // ms per letter
+        let isDeleting = false;
         
         function type() {
-            if (lineIndex < lines.length) {
-                if (charIndex < lines[lineIndex].length) {
-                    typewriterEl.innerHTML += lines[lineIndex].charAt(charIndex);
-                    charIndex++;
-                    setTimeout(type, speed);
-                } else {
-                    lineIndex++;
-                    charIndex = 0;
-                    if (lineIndex < lines.length) {
-                        typewriterEl.innerHTML += '<br>';
-                        setTimeout(type, 400); // pause between lines
-                    } else {
-                        typewriterEl.classList.add('done'); // hide cursor when finished
-                    }
-                }
+            const currentLine = lines[lineIndex];
+            
+            if (isDeleting) {
+                typewriterEl.innerHTML = currentLine.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typewriterEl.innerHTML = currentLine.substring(0, charIndex + 1);
+                charIndex++;
             }
+            
+            let speed = isDeleting ? 40 : 80;
+            
+            if (!isDeleting && charIndex === currentLine.length) {
+                speed = 2000; // Wait 2s before erasing
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                lineIndex = (lineIndex + 1) % lines.length;
+                speed = 500; // Wait 0.5s before typing next line
+            }
+            
+            setTimeout(type, speed);
         }
-        setTimeout(type, 800); // slight delay before starting
+        setTimeout(type, 800);
     }
     // --- Navbar Scroll Effect ---
     const navbar = document.querySelector('.navbar');
@@ -65,11 +71,50 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Set minimum date for booking to today
-    const dateInput = document.querySelector('input[type="date"]');
-    if (dateInput) {
+    // Set minimum date and handle dynamic time slots
+    const dateInput = document.getElementById('booking-date');
+    const timeSelect = document.getElementById('booking-time');
+    
+    if (dateInput && timeSelect) {
         const today = new Date().toISOString().split('T')[0];
         dateInput.min = today;
+        
+        dateInput.addEventListener('change', function() {
+            if (!this.value) return;
+            
+            const selectedDate = new Date(this.value);
+            const day = selectedDate.getDay(); // 0 = Sun, 1 = Mon...
+            
+            timeSelect.innerHTML = '<option value="" disabled selected>Select Time</option>';
+            
+            let times = [];
+            if (day === 0) {
+                // Sunday: 2PM - 10PM
+                for(let h=14; h<=21; h++) {
+                    times.push(`${h}:00`);
+                    times.push(`${h}:30`);
+                }
+            } else if (day === 3) {
+                // Wednesday: 5PM - 10PM
+                for(let h=17; h<=21; h++) {
+                    times.push(`${h}:00`);
+                    times.push(`${h}:30`);
+                }
+            } else {
+                // Mon, Tue, Thu, Fri, Sat: 5PM - 10:45PM
+                for(let h=17; h<=22; h++) {
+                    times.push(`${h}:00`);
+                    times.push(`${h}:30`);
+                }
+            }
+            
+            times.forEach(t => {
+                const opt = document.createElement('option');
+                opt.value = t;
+                opt.textContent = t;
+                timeSelect.appendChild(opt);
+            });
+        });
     }
 
     // Modal Logic
