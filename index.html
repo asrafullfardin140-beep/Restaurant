@@ -12,6 +12,14 @@
 <body>
     <nav class="navbar">
         <div class="nav-container">
+            <div class="mobile-actions left">
+                <button class="mobile-icon-btn menu-toggle">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+                </button>
+                <button class="mobile-icon-btn btn-book calendar-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                </button>
+            </div>
             <a href="#" class="logo-container">
                 <img src="assets/logo.jpg" alt="Bambu Logo" class="logo-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/40x40/fff/000?text=B';">
                 <div class="logo-text">
@@ -19,6 +27,11 @@
                     <span class="logo-subtitle">INDIAN & THAI · LIMERICK</span>
                 </div>
             </a>
+            <div class="mobile-actions right">
+                <a href="https://bambulimerick.ie/order-now" class="mobile-icon-btn order-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                </a>
+            </div>
             <div class="nav-links">
                 <a href="#home">HOME</a>
                 <a href="#contact">CONTACT</a>
@@ -173,40 +186,62 @@
             </div>
             
             <form id="premium-booking-form" class="premium-form">
-                <div class="form-group-premium">
-                    <label><span class="label-icon"></span> Guests</label>
-                    <select required class="dark-input">
-                        <option value="1">1 Person</option>
-                        <option value="2" selected>2 People</option>
-                        <option value="3">3 People</option>
-                        <option value="4">4 People</option>
-                        <option value="5">5 People</option>
-                        <option value="6">6 People</option>
-                        <option value="7">7 People</option>
-                        <option value="8">8 People</option>
-                    </select>
+                <div class="premium-form-grid">
+                    <div class="form-group-premium">
+                        <label><span class="label-icon"></span> Date</label>
+                        <input type="date" required class="dark-input">
+                    </div>
+
+                    <div class="form-group-premium">
+                        <label><span class="label-icon"></span> Guests</label>
+                        <select required class="dark-input">
+                            <option value="1">1 Person</option>
+                            <option value="2" selected>2 People</option>
+                            <option value="3">3 People</option>
+                            <option value="4">4 People</option>
+                            <option value="5">5 People</option>
+                            <option value="6">6 People</option>
+                            <option value="7">7 People</option>
+                            <option value="8">8 People</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group-premium">
+                        <label><span class="label-icon"></span> Time</label>
+                        <select required class="dark-input">
+                            <option value="" disabled selected>Time</option>
+                            <option>17:30</option>
+                            <option>18:00</option>
+                            <option>18:30</option>
+                            <option>19:00</option>
+                            <option>19:30</option>
+                            <option>20:00</option>
+                            <option>20:30</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group-premium">
+                        <label><span class="label-icon"></span> Name</label>
+                        <input type="text" placeholder="Your Name" required class="dark-input">
+                    </div>
+
+                    <div class="form-group-premium">
+                        <label><span class="label-icon"></span> Phone</label>
+                        <input type="tel" placeholder="Your Phone" required class="dark-input">
+                    </div>
+
+                    <div class="form-group-premium full-width">
+                        <label><span class="label-icon"></span> Email</label>
+                        <input type="email" placeholder="Your Email" required class="dark-input">
+                    </div>
+
+                    <div class="form-group-premium full-width">
+                        <label><span class="label-icon"></span> Message</label>
+                        <textarea rows="2" placeholder="Special requests or dietary needs..." class="dark-input"></textarea>
+                    </div>
                 </div>
 
-                <div class="form-group-premium">
-                    <label><span class="label-icon"></span> Date</label>
-                    <input type="date" required class="dark-input">
-                </div>
-
-                <div class="form-group-premium">
-                    <label><span class="label-icon"></span> Time</label>
-                    <select required class="dark-input">
-                        <option value="" disabled selected>Time</option>
-                        <option>17:30</option>
-                        <option>18:00</option>
-                        <option>18:30</option>
-                        <option>19:00</option>
-                        <option>19:30</option>
-                        <option>20:00</option>
-                        <option>20:30</option>
-                    </select>
-                </div>
-
-                <button type="submit" class="btn-orange"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> Contact Details</button>
+                <button type="submit" class="btn-orange">Confirm Reservation</button>
             </form>
         </div>
     </div>
