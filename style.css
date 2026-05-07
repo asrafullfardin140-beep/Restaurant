@@ -186,7 +186,7 @@ em {
     background-size: cover;
     background-position: center;
     opacity: 0;
-    animation-duration: 4s;
+    animation-duration: 6s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
 }
@@ -197,7 +197,7 @@ em {
 
 .slide-2 {
     animation-name: zoomOutFade;
-    animation-delay: 2s;
+    animation-delay: 3s;
 }
 
 @keyframes zoomInFade {
