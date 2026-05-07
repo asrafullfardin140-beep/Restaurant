@@ -3,8 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const typewriterEl = document.getElementById('typewriter-heading');
     if (typewriterEl) {
         const lines = [
-            'Indian soul, modern elegance.',
-            'Luxury inspired by tradition'
+            'Rooted in tradition',
+            'Refined with elegance.',
+            'Served with warmth'
         ];
         let lineIndex = 0;
         let charIndex = 0;

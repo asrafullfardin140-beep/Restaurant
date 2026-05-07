@@ -225,22 +225,39 @@ em {
     background-size: cover;
     background-position: center;
     opacity: 0;
-    animation-duration: 60s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
 }
 
-/* 4 slides × 10s each = 40s total */
-.slide-1 { animation-name: slideShow; animation-delay: 0s; }
-.slide-2 { animation-name: slideShow; animation-delay: 10s; }
-.slide-3 { animation-name: slideShow; animation-delay: 20s; }
-.slide-4 { animation-name: slideShow; animation-delay: 30s; }
+.mobile-bg { display: none; }
 
-@keyframes slideShow {
+/* Desktop animation: 5 slides × 3s each = 15s total */
+.desktop-bg .hero-slide { animation-duration: 15s; }
+.desktop-bg .slide-1 { animation-name: slideShowDesktop; animation-delay: 0s; }
+.desktop-bg .slide-2 { animation-name: slideShowDesktop; animation-delay: 3s; }
+.desktop-bg .slide-3 { animation-name: slideShowDesktop; animation-delay: 6s; }
+.desktop-bg .slide-4 { animation-name: slideShowDesktop; animation-delay: 9s; }
+.desktop-bg .slide-5 { animation-name: slideShowDesktop; animation-delay: 12s; }
+
+@keyframes slideShowDesktop {
     0%   { opacity: 0; transform: scale(1); }
     4%   { opacity: 1; }
     16%  { opacity: 1; transform: scale(1.06); }
     20%  { opacity: 0; transform: scale(1.08); }
+    100% { opacity: 0; }
+}
+
+/* Mobile animation: 3 slides × 3s each = 9s total */
+.mobile-bg .hero-slide { animation-duration: 9s; }
+.mobile-bg .m-slide-1 { animation-name: slideShowMobile; animation-delay: 0s; }
+.mobile-bg .m-slide-2 { animation-name: slideShowMobile; animation-delay: 3s; }
+.mobile-bg .m-slide-3 { animation-name: slideShowMobile; animation-delay: 6s; }
+
+@keyframes slideShowMobile {
+    0%   { opacity: 0; transform: scale(1); }
+    6%   { opacity: 1; }
+    27%  { opacity: 1; transform: scale(1.06); }
+    33.33% { opacity: 0; transform: scale(1.08); }
     100% { opacity: 0; }
 }
 
@@ -876,8 +893,14 @@ footer {
     .hero {
         padding-top: 0;
     }
-    /* Zoom out slide-1 (outdoor) on mobile and center the shop front */
-    .slide-1 {
+    .desktop-bg {
+        display: none;
+    }
+    .mobile-bg {
+        display: block;
+    }
+    /* Zoom out outdoor slide on mobile and center the shop front */
+    .m-slide-1, .m-slide-3 {
         background-position: center center;
         background-size: 170%;
     }
