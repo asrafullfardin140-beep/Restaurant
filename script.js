@@ -2,16 +2,30 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Typewriter Effect ---
     const typewriterEl = document.getElementById('typewriter-heading');
     if (typewriterEl) {
-        const text = 'A table worth lingering over';
-        let i = 0;
+        const lines = [
+            'Indian soul, modern elegance.',
+            'Luxury inspired by tradition'
+        ];
+        let lineIndex = 0;
+        let charIndex = 0;
         const speed = 70; // ms per letter
+        
         function type() {
-            if (i < text.length) {
-                typewriterEl.textContent += text.charAt(i);
-                i++;
-                setTimeout(type, speed);
-            } else {
-                typewriterEl.classList.add('done'); // hide cursor when finished
+            if (lineIndex < lines.length) {
+                if (charIndex < lines[lineIndex].length) {
+                    typewriterEl.innerHTML += lines[lineIndex].charAt(charIndex);
+                    charIndex++;
+                    setTimeout(type, speed);
+                } else {
+                    lineIndex++;
+                    charIndex = 0;
+                    if (lineIndex < lines.length) {
+                        typewriterEl.innerHTML += '<br>';
+                        setTimeout(type, 400); // pause between lines
+                    } else {
+                        typewriterEl.classList.add('done'); // hide cursor when finished
+                    }
+                }
             }
         }
         setTimeout(type, 800); // slight delay before starting
