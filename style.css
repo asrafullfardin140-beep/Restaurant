@@ -205,12 +205,11 @@ em {
     animation-iteration-count: infinite;
 }
 
-/* 5 slides × 10s each = 50s total */
+/* 4 slides × 10s each = 40s total */
 .slide-1 { animation-name: slideShow; animation-delay: 0s; }
 .slide-2 { animation-name: slideShow; animation-delay: 10s; }
 .slide-3 { animation-name: slideShow; animation-delay: 20s; }
 .slide-4 { animation-name: slideShow; animation-delay: 30s; }
-.slide-5 { animation-name: slideShow; animation-delay: 40s; }
 
 @keyframes slideShow {
     0%   { opacity: 0; transform: scale(1); }
@@ -218,6 +217,11 @@ em {
     16%  { opacity: 1; transform: scale(1.06); }
     20%  { opacity: 0; transform: scale(1.08); }
     100% { opacity: 0; }
+}
+
+/* Mobile-only dropdown nav menu */
+.mobile-nav-menu {
+    display: none;
 }
 
 .hero-overlay {
@@ -783,20 +787,37 @@ footer {
 
 @media (max-width: 768px) {
     .nav-links {
+        display: none !important;
+    }
+    .mobile-nav-menu {
         display: none;
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: rgba(10, 8, 7, 0.98);
+        background-color: rgba(10, 8, 7, 0.97);
         flex-direction: column;
-        padding: 2rem;
-        gap: 1.5rem;
-        border-top: 1px solid rgba(255,255,255,0.1);
-        text-align: center;
+        padding: 1.5rem 2rem;
+        gap: 1.2rem;
+        border-top: 1px solid rgba(206, 170, 123, 0.2);
+        text-align: left;
+        z-index: 999;
     }
-    .nav-links.mobile-active {
+    .mobile-nav-menu.open {
         display: flex;
+    }
+    .mobile-nav-menu a {
+        color: var(--text-main);
+        text-decoration: none;
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        transition: color 0.3s;
+    }
+    .mobile-nav-menu a:hover {
+        color: var(--accent-gold);
     }
     .mobile-actions {
         display: flex;
