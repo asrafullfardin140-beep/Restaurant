@@ -39,7 +39,7 @@
                 <a href="#home">HOME</a>
                 <a href="https://maps.app.goo.gl/QWcCknw64kSChXoe8" target="_blank">GET DIRECTIONS</a>
                 <span class="nav-separator"></span>
-                <a href="assets/menu.pdf" target="_blank" class="btn-nav">MENU</a>
+                <a href="assets/menu.pdf" target="_blank" class="btn-nav" id="open-menu-btn">MENU</a>
                 <a href="https://bambulimerick.ie/order-now" class="btn-nav">ORDER ONLINE</a>
                 <a href="#" class="btn-nav btn-book">BOOK A TABLE</a>
             </div>
@@ -47,7 +47,7 @@
             <div class="mobile-nav-menu">
                 <a href="#home">HOME</a>
                 <a href="https://maps.app.goo.gl/QWcCknw64kSChXoe8" target="_blank">GET DIRECTIONS</a>
-                <a href="assets/menu.pdf" target="_blank">MENU</a>
+                <a href="#" id="open-menu-mobile">MENU</a>
                 <a href="https://bambulimerick.ie/order-now">ORDER ONLINE</a>
                 <a href="#contact">CONTACT</a>
             </div>
@@ -224,6 +224,47 @@
 
                 <button type="submit" class="btn-orange">Confirm Reservation</button>
             </form>
+        </div>
+    </div>
+
+    <!-- Menu Viewer Modal -->
+    <div id="menu-modal" class="menu-modal">
+        <div class="menu-modal-overlay"></div>
+        <div class="menu-modal-container">
+            <div class="menu-modal-header">
+                <div class="menu-modal-title">
+                    <span class="menu-label">BAMBU</span>
+                    <span class="menu-subtitle">OUR MENU</span>
+                </div>
+                <div class="menu-page-counter"><span id="menu-current-page">1</span> / 9</div>
+                <button class="menu-close-btn" id="menu-close-btn">&times;</button>
+            </div>
+            <div class="menu-pages-wrapper" id="menu-pages-wrapper">
+                <div class="menu-page" data-page="1"><img src="assets/menu/menu-1.jpg" alt="Menu Page 1" loading="lazy"></div>
+                <div class="menu-page" data-page="2"><img src="assets/menu/menu-2.jpg" alt="Menu Page 2" loading="lazy"></div>
+                <div class="menu-page" data-page="3"><img src="assets/menu/menu-3.jpg" alt="Menu Page 3" loading="lazy"></div>
+                <div class="menu-page" data-page="4"><img src="assets/menu/menu-4.jpg" alt="Menu Page 4" loading="lazy"></div>
+                <div class="menu-page" data-page="5"><img src="assets/menu/menu-5.jpg" alt="Menu Page 5" loading="lazy"></div>
+                <div class="menu-page" data-page="6"><img src="assets/menu/menu-6.jpg" alt="Menu Page 6" loading="lazy"></div>
+                <div class="menu-page" data-page="7"><img src="assets/menu/menu-7.jpg" alt="Menu Page 7" loading="lazy"></div>
+                <div class="menu-page" data-page="8"><img src="assets/menu/menu-8.jpg" alt="Menu Page 8" loading="lazy"></div>
+                <div class="menu-page" data-page="9"><img src="assets/menu/menu-9.jpg" alt="Menu Page 9" loading="lazy"></div>
+            </div>
+            <div class="menu-modal-footer">
+                <button class="menu-nav-btn" id="menu-prev">&#8592; PREV</button>
+                <div class="menu-thumbnails">
+                    <span class="menu-thumb-dot active" data-page="1"></span>
+                    <span class="menu-thumb-dot" data-page="2"></span>
+                    <span class="menu-thumb-dot" data-page="3"></span>
+                    <span class="menu-thumb-dot" data-page="4"></span>
+                    <span class="menu-thumb-dot" data-page="5"></span>
+                    <span class="menu-thumb-dot" data-page="6"></span>
+                    <span class="menu-thumb-dot" data-page="7"></span>
+                    <span class="menu-thumb-dot" data-page="8"></span>
+                    <span class="menu-thumb-dot" data-page="9"></span>
+                </div>
+                <button class="menu-nav-btn" id="menu-next">NEXT &#8594;</button>
+            </div>
         </div>
     </div>
 

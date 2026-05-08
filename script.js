@@ -158,4 +158,72 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // ===== MENU VIEWER MODAL =====
+    const menuModal = document.getElementById('menu-modal');
+    const menuCloseBtn = document.getElementById('menu-close-btn');
+    const menuPrevBtn = document.getElementById('menu-prev');
+    const menuNextBtn = document.getElementById('menu-next');
+    const menuCurrentPageEl = document.getElementById('menu-current-page');
+    const menuPages = document.querySelectorAll('.menu-page');
+    const menuDots = document.querySelectorAll('.menu-thumb-dot');
+    let currentMenuPage = 1;
+    const totalMenuPages = 9;
+
+    function openMenuModal() {
+        menuModal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+        goToMenuPage(1);
+    }
+
+    function closeMenuModal() {
+        menuModal.classList.remove('show');
+        document.body.style.overflow = '';
+    }
+
+    function goToMenuPage(page) {
+        currentMenuPage = page;
+        // Update pages
+        menuPages.forEach(p => p.classList.remove('active'));
+        const target = document.querySelector(`.menu-page[data-page="${page}"]`);
+        if (target) target.classList.add('active');
+        // Update counter
+        if (menuCurrentPageEl) menuCurrentPageEl.textContent = page;
+        // Update dots
+        menuDots.forEach(d => {
+            d.classList.toggle('active', parseInt(d.dataset.page) === page);
+        });
+        // Update buttons
+        if (menuPrevBtn) menuPrevBtn.disabled = page === 1;
+        if (menuNextBtn) menuNextBtn.disabled = page === totalMenuPages;
+    }
+
+    // Open triggers
+    const openMenuBtnDesktop = document.getElementById('open-menu-btn');
+    const openMenuBtnMobile = document.getElementById('open-menu-mobile');
+    if (openMenuBtnDesktop) openMenuBtnDesktop.addEventListener('click', (e) => { e.preventDefault(); openMenuModal(); });
+    if (openMenuBtnMobile) openMenuBtnMobile.addEventListener('click', (e) => { e.preventDefault(); openMenuModal(); });
+
+    // Close triggers
+    if (menuCloseBtn) menuCloseBtn.addEventListener('click', closeMenuModal);
+    if (menuModal) {
+        document.querySelector('.menu-modal-overlay')?.addEventListener('click', closeMenuModal);
+    }
+
+    // Prev / Next
+    if (menuPrevBtn) menuPrevBtn.addEventListener('click', () => { if (currentMenuPage > 1) goToMenuPage(currentMenuPage - 1); });
+    if (menuNextBtn) menuNextBtn.addEventListener('click', () => { if (currentMenuPage < totalMenuPages) goToMenuPage(currentMenuPage + 1); });
+
+    // Dot navigation
+    menuDots.forEach(dot => {
+        dot.addEventListener('click', () => goToMenuPage(parseInt(dot.dataset.page)));
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (!menuModal?.classList.contains('show')) return;
+        if (e.key === 'ArrowRight' && currentMenuPage < totalMenuPages) goToMenuPage(currentMenuPage + 1);
+        if (e.key === 'ArrowLeft' && currentMenuPage > 1) goToMenuPage(currentMenuPage - 1);
+        if (e.key === 'Escape') closeMenuModal();
+    });
 });
