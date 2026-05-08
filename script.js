@@ -48,66 +48,49 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Handle form submission
-    const form = document.getElementById('premium-booking-form');
-    if (form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            // Simulate network request
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.innerHTML = 'PROCESSING...';
-            submitBtn.disabled = true;
-
-            setTimeout(() => {
-                alert('Reservation requested successfully! We will contact you shortly.');
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-                form.reset();
-                if(modal) {
-                    modal.classList.remove('show');
-                }
-            }, 1500);
-        });
-    }
-
-    // Set minimum date and handle dynamic time slots
+    // --- Date input: set min to today + populate time slots dynamically ---
     const dateInput = document.getElementById('booking-date');
     const timeSelect = document.getElementById('booking-time');
-    
+
     if (dateInput && timeSelect) {
+        // Prevent past dates
         const today = new Date().toISOString().split('T')[0];
         dateInput.min = today;
-        
+
         dateInput.addEventListener('change', function() {
             if (!this.value) return;
-            
-            const selectedDate = new Date(this.value);
-            const day = selectedDate.getDay(); // 0 = Sun, 1 = Mon...
-            
+
+            // Use UTC to avoid timezone day-shift bug
+            const parts = this.value.split('-');
+            const selectedDate = new Date(Date.UTC(parts[0], parts[1]-1, parts[2]));
+            const day = selectedDate.getUTCDay(); // 0=Sun, 1=Mon ... 6=Sat
+
             timeSelect.innerHTML = '<option value="" disabled selected>Select Time</option>';
-            
             let times = [];
+
             if (day === 0) {
-                // Sunday: 2PM - 10PM
-                for(let h=14; h<=21; h++) {
-                    times.push(`${h}:00`);
-                    times.push(`${h}:30`);
+                // Sunday: 14:00 – 22:00
+                for (let h = 14; h <= 21; h++) {
+                    times.push(`${String(h).padStart(2,'0')}:00`);
+                    times.push(`${String(h).padStart(2,'0')}:30`);
                 }
-            } else if (day === 3) {
-                // Wednesday: 5PM - 10PM
-                for(let h=17; h<=21; h++) {
-                    times.push(`${h}:00`);
-                    times.push(`${h}:30`);
+                times.push('22:00');
+            } else if (day === 6) {
+                // Saturday: 17:00 – 22:45
+                for (let h = 17; h <= 22; h++) {
+                    times.push(`${String(h).padStart(2,'0')}:00`);
+                    if (h < 22) times.push(`${String(h).padStart(2,'0')}:30`);
                 }
+                times.push('22:45');
             } else {
-                // Mon, Tue, Thu, Fri, Sat: 5PM - 10:45PM
-                for(let h=17; h<=22; h++) {
-                    times.push(`${h}:00`);
-                    times.push(`${h}:30`);
+                // Mon–Fri: 17:00 – 22:45
+                for (let h = 17; h <= 22; h++) {
+                    times.push(`${String(h).padStart(2,'0')}:00`);
+                    if (h < 22) times.push(`${String(h).padStart(2,'0')}:30`);
                 }
+                times.push('22:45');
             }
-            
+
             times.forEach(t => {
                 const opt = document.createElement('option');
                 opt.value = t;
@@ -117,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Modal Logic
+    // Modal Logic — declared FIRST so form handler can reference it
     const modal = document.getElementById('booking-modal');
     const bookBtns = document.querySelectorAll('.btn-book');
     const closeBtn = document.querySelector('.close-modal');
@@ -135,11 +118,62 @@ document.addEventListener('DOMContentLoaded', () => {
             modal.classList.remove('show');
         });
 
-        // Close when clicking outside content
         window.addEventListener('click', (e) => {
             if (e.target === modal || e.target === modalOverlay) {
                 modal.classList.remove('show');
             }
+        });
+    }
+
+    // Handle form submission — sends real WhatsApp message to restaurant
+    const form = document.getElementById('premium-booking-form');
+    if (form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const date     = document.getElementById('booking-date')?.value || '';
+            const time     = document.getElementById('booking-time')?.value || '';
+            const guests   = document.getElementById('booking-guests')?.value || '';
+            const name     = form.querySelector('input[type="text"]')?.value || '';
+            const phone    = form.querySelector('input[type="tel"]')?.value || '';
+            const email    = form.querySelector('input[type="email"]')?.value || '';
+            const message  = form.querySelector('textarea')?.value || '';
+
+            // Validate time was selected
+            if (!time) {
+                alert('Please select a date first to see available times.');
+                return;
+            }
+
+            submitBtn.innerHTML = 'SENDING...';
+            submitBtn.disabled = true;
+
+            // Build WhatsApp message to the restaurant
+            const waText = encodeURIComponent(
+                `🍽️ *New Table Reservation — Bambu Restaurant*\n\n` +
+                `👤 Name: ${name}\n` +
+                `📅 Date: ${date}\n` +
+                `🕐 Time: ${time}\n` +
+                `👥 Guests: ${guests}\n` +
+                `📞 Phone: ${phone}\n` +
+                `📧 Email: ${email}\n` +
+                `💬 Notes: ${message || 'None'}`
+            );
+
+            const waNumber = '35361217661'; // Restaurant number without +
+            const waUrl = `https://wa.me/${waNumber}?text=${waText}`;
+
+            setTimeout(() => {
+                window.open(waUrl, '_blank');
+                submitBtn.innerHTML = 'Confirm Reservation';
+                submitBtn.disabled = false;
+                form.reset();
+                // Reset time dropdown
+                const timeSelect = document.getElementById('booking-time');
+                if (timeSelect) timeSelect.innerHTML = '<option value="" disabled selected>Select a Date First</option>';
+                modal.classList.remove('show');
+            }, 500);
         });
     }
 
