@@ -231,40 +231,48 @@ em {
 
 .mobile-bg { display: none; }
 
-/* Desktop + Mobile animation: 7 slides × 7s each = 49s total */
-.desktop-bg .hero-slide { animation-duration: 49s; }
-.desktop-bg .slide-1 { animation-name: slideShowDesktop; animation-delay: 0s; }
-.desktop-bg .slide-2 { animation-name: slideShowDesktop; animation-delay: 7s; }
-.desktop-bg .slide-3 { animation-name: slideShowDesktop; animation-delay: 14s; }
-.desktop-bg .slide-4 { animation-name: slideShowDesktop; animation-delay: 21s; }
-.desktop-bg .slide-5 { animation-name: slideShowDesktop; animation-delay: 28s; }
-.desktop-bg .slide-6 { animation-name: slideShowDesktop; animation-delay: 35s; }
-.desktop-bg .slide-7 { animation-name: slideShowDesktop; animation-delay: 42s; }
+/* Desktop + Mobile animation: 11 slides × 7s each = 77s total */
+.desktop-bg .hero-slide { animation-duration: 77s; }
+.desktop-bg .slide-1  { animation-name: slideShowDesktop; animation-delay: 0s; }
+.desktop-bg .slide-2  { animation-name: slideShowDesktop; animation-delay: 7s; }
+.desktop-bg .slide-3  { animation-name: slideShowDesktop; animation-delay: 14s; }
+.desktop-bg .slide-4  { animation-name: slideShowDesktop; animation-delay: 21s; }
+.desktop-bg .slide-5  { animation-name: slideShowDesktop; animation-delay: 28s; }
+.desktop-bg .slide-6  { animation-name: slideShowDesktop; animation-delay: 35s; }
+.desktop-bg .slide-7  { animation-name: slideShowDesktop; animation-delay: 42s; }
+.desktop-bg .slide-8  { animation-name: slideShowDesktop; animation-delay: 49s; }
+.desktop-bg .slide-9  { animation-name: slideShowDesktop; animation-delay: 56s; }
+.desktop-bg .slide-10 { animation-name: slideShowDesktop; animation-delay: 63s; }
+.desktop-bg .slide-11 { animation-name: slideShowDesktop; animation-delay: 70s; }
 
 @keyframes slideShowDesktop {
-    0%     { opacity: 0; transform: scale(1); }
-    1.5%   { opacity: 1; transform: scale(1.01); }
-    12.5%  { opacity: 1; transform: scale(1.08); }
-    14.3%  { opacity: 0; transform: scale(1.10); }
-    100%   { opacity: 0; transform: scale(1.10); }
+    0%    { opacity: 0; transform: scale(1); }
+    1%    { opacity: 1; transform: scale(1.01); }
+    8%    { opacity: 1; transform: scale(1.07); }
+    9.1%  { opacity: 0; transform: scale(1.09); }
+    100%  { opacity: 0; transform: scale(1.09); }
 }
 
-/* Mobile animation: 7 slides × 7s each = 49s total */
-.mobile-bg .hero-slide { animation-duration: 49s; }
-.mobile-bg .m-slide-1 { animation-name: slideShowMobile; animation-delay: 0s; }
-.mobile-bg .m-slide-2 { animation-name: slideShowMobile; animation-delay: 7s; }
-.mobile-bg .m-slide-3 { animation-name: slideShowMobile; animation-delay: 14s; }
-.mobile-bg .m-slide-4 { animation-name: slideShowMobile; animation-delay: 21s; }
-.mobile-bg .m-slide-5 { animation-name: slideShowMobile; animation-delay: 28s; }
-.mobile-bg .m-slide-6 { animation-name: slideShowMobile; animation-delay: 35s; }
-.mobile-bg .m-slide-7 { animation-name: slideShowMobile; animation-delay: 42s; }
+/* Mobile animation: 11 slides × 7s each = 77s total */
+.mobile-bg .hero-slide { animation-duration: 77s; }
+.mobile-bg .m-slide-1  { animation-name: slideShowMobile; animation-delay: 0s; }
+.mobile-bg .m-slide-2  { animation-name: slideShowMobile; animation-delay: 7s; }
+.mobile-bg .m-slide-3  { animation-name: slideShowMobile; animation-delay: 14s; }
+.mobile-bg .m-slide-4  { animation-name: slideShowMobile; animation-delay: 21s; }
+.mobile-bg .m-slide-5  { animation-name: slideShowMobile; animation-delay: 28s; }
+.mobile-bg .m-slide-6  { animation-name: slideShowMobile; animation-delay: 35s; }
+.mobile-bg .m-slide-7  { animation-name: slideShowMobile; animation-delay: 42s; }
+.mobile-bg .m-slide-8  { animation-name: slideShowMobile; animation-delay: 49s; }
+.mobile-bg .m-slide-9  { animation-name: slideShowMobile; animation-delay: 56s; }
+.mobile-bg .m-slide-10 { animation-name: slideShowMobile; animation-delay: 63s; }
+.mobile-bg .m-slide-11 { animation-name: slideShowMobile; animation-delay: 70s; }
 
 @keyframes slideShowMobile {
-    0%     { opacity: 0; transform: scale(1); }
-    1.5%   { opacity: 1; transform: scale(1.01); }
-    12.5%  { opacity: 1; transform: scale(1.08); }
-    14.3%  { opacity: 0; transform: scale(1.10); }
-    100%   { opacity: 0; transform: scale(1.10); }
+    0%    { opacity: 0; transform: scale(1); }
+    1%    { opacity: 1; transform: scale(1.01); }
+    8%    { opacity: 1; transform: scale(1.07); }
+    9.1%  { opacity: 0; transform: scale(1.09); }
+    100%  { opacity: 0; transform: scale(1.09); }
 }
 
 /* Dropdown nav menu */
