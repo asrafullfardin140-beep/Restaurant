@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuPages = document.querySelectorAll('.menu-page');
     const menuDots = document.querySelectorAll('.menu-thumb-dot');
     let currentMenuPage = 1;
-    const totalMenuPages = 9;
+    const totalMenuPages = 10;
 
     function openMenuModal() {
         menuModal.classList.add('show');
