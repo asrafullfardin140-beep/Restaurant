@@ -231,8 +231,8 @@ em {
 
 .mobile-bg { display: none; }
 
-/* Desktop + Mobile animation: 8 slides × 7s each = 56s total */
-.desktop-bg .hero-slide { animation-duration: 56s; }
+/* Desktop + Mobile animation: 7 slides × 7s each = 49s total */
+.desktop-bg .hero-slide { animation-duration: 49s; }
 .desktop-bg .slide-1 { animation-name: slideShowDesktop; animation-delay: 0s; }
 .desktop-bg .slide-2 { animation-name: slideShowDesktop; animation-delay: 7s; }
 .desktop-bg .slide-3 { animation-name: slideShowDesktop; animation-delay: 14s; }
@@ -240,18 +240,17 @@ em {
 .desktop-bg .slide-5 { animation-name: slideShowDesktop; animation-delay: 28s; }
 .desktop-bg .slide-6 { animation-name: slideShowDesktop; animation-delay: 35s; }
 .desktop-bg .slide-7 { animation-name: slideShowDesktop; animation-delay: 42s; }
-.desktop-bg .slide-8 { animation-name: slideShowDesktop; animation-delay: 49s; }
 
 @keyframes slideShowDesktop {
     0%     { opacity: 0; transform: scale(1); }
     1.5%   { opacity: 1; transform: scale(1.01); }
-    11%    { opacity: 1; transform: scale(1.08); }
-    12.5%  { opacity: 0; transform: scale(1.10); }
+    12.5%  { opacity: 1; transform: scale(1.08); }
+    14.3%  { opacity: 0; transform: scale(1.10); }
     100%   { opacity: 0; transform: scale(1.10); }
 }
 
-/* Mobile animation: 8 slides × 7s each = 56s total */
-.mobile-bg .hero-slide { animation-duration: 56s; }
+/* Mobile animation: 7 slides × 7s each = 49s total */
+.mobile-bg .hero-slide { animation-duration: 49s; }
 .mobile-bg .m-slide-1 { animation-name: slideShowMobile; animation-delay: 0s; }
 .mobile-bg .m-slide-2 { animation-name: slideShowMobile; animation-delay: 7s; }
 .mobile-bg .m-slide-3 { animation-name: slideShowMobile; animation-delay: 14s; }
@@ -259,13 +258,12 @@ em {
 .mobile-bg .m-slide-5 { animation-name: slideShowMobile; animation-delay: 28s; }
 .mobile-bg .m-slide-6 { animation-name: slideShowMobile; animation-delay: 35s; }
 .mobile-bg .m-slide-7 { animation-name: slideShowMobile; animation-delay: 42s; }
-.mobile-bg .m-slide-8 { animation-name: slideShowMobile; animation-delay: 49s; }
 
 @keyframes slideShowMobile {
     0%     { opacity: 0; transform: scale(1); }
     1.5%   { opacity: 1; transform: scale(1.01); }
-    11%    { opacity: 1; transform: scale(1.08); }
-    12.5%  { opacity: 0; transform: scale(1.10); }
+    12.5%  { opacity: 1; transform: scale(1.08); }
+    14.3%  { opacity: 0; transform: scale(1.10); }
     100%   { opacity: 0; transform: scale(1.10); }
 }
 
