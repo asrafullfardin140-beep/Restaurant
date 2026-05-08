@@ -1040,6 +1040,10 @@ footer {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    height: 100dvh; /* dynamic viewport height - accounts for mobile browser chrome */
+    max-height: 100vh;
+    max-height: 100dvh;
+    overflow: hidden;
 }
 
 .menu-modal-header {
@@ -1104,6 +1108,7 @@ footer {
     overflow: hidden;
     position: relative;
     background: #111;
+    min-height: 0; /* critical: allows flex child to shrink below content size */
 }
 
 .menu-page {
@@ -1127,6 +1132,8 @@ footer {
 .menu-page img {
     max-width: 100%;
     max-height: 100%;
+    width: auto;
+    height: auto;
     object-fit: contain;
     display: block;
     box-shadow: 0 8px 40px rgba(0,0,0,0.6);
