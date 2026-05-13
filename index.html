@@ -1,290 +1,394 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bambu Restaurant | Indian & Thai · Limerick</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <!-- EmailJS SDK -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scott's Barbers – Premium Barbershop in Limerick</title>
+  <meta name="description" content="Scott's Barbers – Limerick's premium barbershop. Expert haircuts, shaves & beard trims. Walk-ins welcome. Call +353 85 224 0444 or book online." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="mobile-actions left">
-                <button class="mobile-icon-btn menu-toggle">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
-                </button>
-                <button class="mobile-icon-btn btn-book calendar-btn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                </button>
-            </div>
-            <a href="#" class="logo-container">
-                <img src="assets/logo.jpg" alt="Bambu Logo" class="logo-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/40x40/fff/000?text=B';">
-                <div class="logo-text">
-                    <span class="logo-title">Bambu</span>
-                    <span class="logo-subtitle">INDIAN & THAI · LIMERICK</span>
-                </div>
-            </a>
-            <div class="mobile-actions right">
-                <a href="tel:+35361217661" class="mobile-icon-btn phone-btn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                </a>
-                <a href="https://bambulimerick.ie/order-now" class="mobile-icon-btn order-btn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-                </a>
-            </div>
-            <div class="nav-links">
-                <a href="#home">HOME</a>
-                <a href="https://maps.app.goo.gl/QWcCknw64kSChXoe8" target="_blank">GET DIRECTIONS</a>
-                <span class="nav-separator"></span>
-                <a href="assets/menu.pdf" target="_blank" class="btn-nav" id="open-menu-btn">MENU</a>
-                <a href="https://bambulimerick.ie/order-now" class="btn-nav">ORDER ONLINE</a>
-                <a href="#" class="btn-nav btn-book">BOOK A TABLE</a>
-            </div>
-            <!-- Mobile-only dropdown -->
-            <div class="mobile-nav-menu">
-                <a href="#home">HOME</a>
-                <a href="https://maps.app.goo.gl/QWcCknw64kSChXoe8" target="_blank">GET DIRECTIONS</a>
-                <a href="#" id="open-menu-mobile">MENU</a>
-                <a href="https://bambulimerick.ie/order-now">ORDER ONLINE</a>
-                <a href="#contact">CONTACT</a>
-            </div>
-        </div>
-    </nav>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="hero-bg desktop-bg">
-                <div class="hero-slide slide-1"  style="background-image: url('assets/anim-1.png');"></div>
-                <div class="hero-slide slide-2"  style="background-image: url('assets/anim-2.png');"></div>
-                <div class="hero-slide slide-3"  style="background-image: url('assets/anim-3.png');"></div>
-                <div class="hero-slide slide-4"  style="background-image: url('assets/anim-4.png');"></div>
-                <div class="hero-slide slide-5"  style="background-image: url('assets/anim-5.jpeg');"></div>
-                <div class="hero-slide slide-6"  style="background-image: url('assets/anim-6.png');"></div>
-                <div class="hero-slide slide-7"  style="background-image: url('assets/anim-7.jpeg');"></div>
-                <div class="hero-slide slide-8"  style="background-image: url('assets/anim-8.png');"></div>
-                <div class="hero-slide slide-9"  style="background-image: url('assets/anim-9.jpeg');"></div>
-                <div class="hero-slide slide-10" style="background-image: url('assets/anim-10.png');"></div>
-                <div class="hero-slide slide-11" style="background-image: url('assets/anim-11.jpeg');"></div>
-            </div>
-            <div class="hero-bg mobile-bg">
-                <div class="hero-slide m-slide-1"  style="background-image: url('assets/anim-1.png');"></div>
-                <div class="hero-slide m-slide-2"  style="background-image: url('assets/anim-2.png');"></div>
-                <div class="hero-slide m-slide-3"  style="background-image: url('assets/anim-3.png');"></div>
-                <div class="hero-slide m-slide-4"  style="background-image: url('assets/anim-4.png');"></div>
-                <div class="hero-slide m-slide-5"  style="background-image: url('assets/anim-5.jpeg');"></div>
-                <div class="hero-slide m-slide-6"  style="background-image: url('assets/anim-6.png');"></div>
-                <div class="hero-slide m-slide-7"  style="background-image: url('assets/anim-7.jpeg');"></div>
-                <div class="hero-slide m-slide-8"  style="background-image: url('assets/anim-8.png');"></div>
-                <div class="hero-slide m-slide-9"  style="background-image: url('assets/anim-9.jpeg');"></div>
-                <div class="hero-slide m-slide-10" style="background-image: url('assets/anim-10.png');"></div>
-                <div class="hero-slide m-slide-11" style="background-image: url('assets/anim-11.jpeg');"></div>
-            </div>
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <h1 class="typewriter-text" id="typewriter-heading"></h1>
-                <div class="hero-buttons">
-                    <a href="#" class="btn-solid btn-book">BOOK A TABLE</a>
-                    <a href="https://bambulimerick.ie/order-now" class="btn-solid light">ORDER ONLINE</a>
-                    <a href="tel:+35361217661" class="btn-solid">CALL NOW</a>
-                </div>
-            </div>
-            <div class="scroll-indicator">
-                <div class="scroll-line"></div>
-                <span>SCROLL</span>
-            </div>
-        </section>
-
-    </main>
-
-    <footer id="contact">
-        <div class="footer-top">
-            <div class="footer-col-center">
-                <h5>FIND US</h5>
-                <p class="big-text">28 O'Connell Street</p>
-                <p>Limerick City, Ireland</p>
-            </div>
-            <div class="footer-col-center border-sides">
-                <h5>OPEN</h5>
-                <p class="big-text">Mon &ndash; Sat</p>
-                <p>17:00 &ndash; 22:45</p>
-                <p class="big-text" style="font-size: 1.2rem; margin-top: 0.8rem;">Sunday</p>
-                <p>14:00 &ndash; 22:00</p>
-            </div>
-            <div class="footer-col-center">
-                <h5>RESERVE</h5>
-                <p class="big-text">+353 61 217 661</p>
-                <a href="tel:+35361217661" class="link-text">CALL NOW</a>
-                <a href="#" class="link-text btn-book" style="display:block; margin-top:0.5rem;">BOOK ONLINE</a>
-            </div>
-        </div>
-        
-        <div class="footer-middle">
-            <div class="footer-info">
-                <div class="logo-container">
-                    <img src="assets/logo.jpg" alt="Bambu Logo" class="logo-img" onerror="this.onerror=null; this.src='https://via.placeholder.com/40x40/fff/000?text=B';">
-                    <div class="logo-text">
-                        <span class="logo-title">Bambu</span>
-                    </div>
-                </div>
-                <p class="desc">Indian & Thai cooking on the banks of the<br>Shannon — two great traditions, one quiet dining<br>room in Limerick.</p>
-            </div>
-            <div class="footer-links">
-                <div class="footer-visit">
-                    <h5>VISIT</h5>
-                    <p>28 O'Connell Street<br>Limerick City, Ireland</p>
-                    <p class="mt-2">+353 61 217 661<br>info@bamburestaurant.ie</p>
-                </div>
-                <div class="footer-hours">
-                    <h5>HOURS</h5>
-                    <p>Mon, Tue, Wed, Thu &ndash; Sat &middot; 17:00 &ndash; 22:45</p>
-                    <p>Sunday &middot; 14:00 &ndash; 22:00</p>
-                    <div class="socials mt-2">
-                        <a href="https://www.instagram.com/bambu_restaurant_limerick/" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
-                        <a href="https://www.facebook.com/bambulimerick" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2026 Bambu Indian & Thai Restaurant. All rights reserved.</p>
-            <div class="bottom-links">
-                <a href="#book-a-table">Book a table</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Booking Modal -->
-    <div id="booking-modal" class="modal">
-        <div class="modal-overlay"></div>
-        <div class="modal-content dark-theme">
-            <span class="close-modal">&times;</span>
-            <div class="modal-header">
-                <div class="modal-logo">
-                    <img src="assets/logo.jpg" alt="Bambu Logo">
-                </div>
-                <div class="modal-divider">
-                    <span class="ornament"></span>
-                </div>
-                <h2>Book Now!</h2>
-            </div>
-            
-            <form id="premium-booking-form" class="premium-form">
-                <div class="premium-form-grid">
-                    <div class="form-group-premium">
-                        <label><span class="label-icon"></span> Date</label>
-                        <input type="date" required class="dark-input" id="booking-date">
-                    </div>
-
-                    <div class="form-group-premium">
-                        <label><span class="label-icon"></span> Guests</label>
-                        <select required class="dark-input" id="booking-guests">
-                            <option value="1">1 Person</option>
-                            <option value="2" selected>2 People</option>
-                            <option value="3">3 People</option>
-                            <option value="4">4 People</option>
-                            <option value="5">5 People</option>
-                            <option value="6">6 People</option>
-                            <option value="7">7 People</option>
-                            <option value="8">8 People</option>
-                            <option value="9">9 People</option>
-                            <option value="10">10 People</option>
-                            <option value="11">11 People</option>
-                            <option value="12">12 People</option>
-                            <option value="13">13 People</option>
-                            <option value="14">14 People</option>
-                            <option value="15">15 People</option>
-                            <option value="16">16 People</option>
-                            <option value="17">17 People</option>
-                            <option value="18">18 People</option>
-                            <option value="19">19 People</option>
-                            <option value="20">20 People</option>
-                            <option value="20+">20+ People (Large Group)</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group-premium">
-                        <label><span class="label-icon"></span> Time</label>
-                        <select required class="dark-input" id="booking-time">
-                            <option value="" disabled selected>Select a Date First</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group-premium">
-                        <label><span class="label-icon"></span> Name</label>
-                        <input type="text" name="guest_name" placeholder="Your Name" required class="dark-input">
-                    </div>
-
-                    <div class="form-group-premium">
-                        <label><span class="label-icon"></span> Phone</label>
-                        <input type="tel" name="guest_phone" placeholder="Your Phone" required class="dark-input">
-                    </div>
-
-                    <div class="form-group-premium full-width">
-                        <label><span class="label-icon"></span> Email</label>
-                        <input type="email" name="guest_email" placeholder="Your Email" required class="dark-input">
-                    </div>
-
-                    <div class="form-group-premium full-width">
-                        <label><span class="label-icon"></span> Message</label>
-                        <textarea rows="2" name="guest_message" placeholder="Special requests or dietary needs..." class="dark-input"></textarea>
-                    </div>
-                </div>
-
-                <button type="submit" class="btn-orange">Confirm Reservation</button>
-            </form>
-        </div>
+  <!-- NAV -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">
+        <img src="assets/logo.png" alt="Scott's Barbers Logo" class="logo-img" />
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="tel:+353852240444" class="btn btn-outline" id="nav-call-btn">📞 Call Now</a>
+        <button class="btn btn-primary" id="nav-book-btn" onclick="openBookingModal()">Book Now</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </nav>
 
-    <!-- Menu Viewer Modal -->
-    <div id="menu-modal" class="menu-modal">
-        <div class="menu-modal-overlay"></div>
-        <div class="menu-modal-container">
-            <div class="menu-modal-header">
-                <div class="menu-modal-title">
-                    <span class="menu-label">BAMBU</span>
-                    <span class="menu-subtitle">OUR MENU</span>
-                </div>
-                <div class="menu-page-counter"><span id="menu-current-page">1</span> / 10</div>
-                <button class="menu-close-btn" id="menu-close-btn">&times;</button>
-            </div>
-            <div class="menu-pages-wrapper" id="menu-pages-wrapper">
-                <div class="menu-page" data-page="1"><img src="assets/menu/menu-1.jpg" alt="Menu Page 1" loading="lazy"></div>
-                <div class="menu-page" data-page="2"><img src="assets/menu/menu-2.jpg" alt="Menu Page 2" loading="lazy"></div>
-                <div class="menu-page" data-page="3"><img src="assets/menu/menu-3.jpg" alt="Menu Page 3" loading="lazy"></div>
-                <div class="menu-page" data-page="4"><img src="assets/menu/menu-4.jpg" alt="Menu Page 4" loading="lazy"></div>
-                <div class="menu-page" data-page="5"><img src="assets/menu/menu-5.jpg" alt="Menu Page 5" loading="lazy"></div>
-                <div class="menu-page" data-page="6"><img src="assets/menu/menu-6.jpg" alt="Menu Page 6" loading="lazy"></div>
-                <div class="menu-page" data-page="7"><img src="assets/menu/menu-7.jpg" alt="Menu Page 7" loading="lazy"></div>
-                <div class="menu-page" data-page="8"><img src="assets/menu/menu-8.jpg" alt="Menu Page 8" loading="lazy"></div>
-                <div class="menu-page" data-page="9"><img src="assets/menu/menu-9.jpg" alt="Menu Page 9" loading="lazy"></div>
-                <div class="menu-page" data-page="10"><img src="assets/menu/menu-10.jpg" alt="Menu Page 10" loading="lazy"></div>
-            </div>
-            <div class="menu-modal-footer">
-                <button class="menu-nav-btn" id="menu-prev">&#8592; PREV</button>
-                <div class="menu-thumbnails">
-                    <span class="menu-thumb-dot active" data-page="1"></span>
-                    <span class="menu-thumb-dot" data-page="2"></span>
-                    <span class="menu-thumb-dot" data-page="3"></span>
-                    <span class="menu-thumb-dot" data-page="4"></span>
-                    <span class="menu-thumb-dot" data-page="5"></span>
-                    <span class="menu-thumb-dot" data-page="6"></span>
-                    <span class="menu-thumb-dot" data-page="7"></span>
-                    <span class="menu-thumb-dot" data-page="8"></span>
-                    <span class="menu-thumb-dot" data-page="9"></span>
-                    <span class="menu-thumb-dot" data-page="10"></span>
-                </div>
-                <button class="menu-nav-btn" id="menu-next">NEXT &#8594;</button>
-            </div>
+  <!-- BOOKING MODAL -->
+  <div class="modal-overlay" id="bookingModal" onclick="closeBookingModalOutside(event)">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeBookingModal()" id="modal-close-btn" aria-label="Close">✕</button>
+      <div class="modal-header">
+        <img src="assets/logo.png" alt="Logo" class="modal-logo" />
+        <h2>Book an Appointment</h2>
+        <p>Fill in your details and we'll confirm your slot.</p>
+      </div>
+      <form class="booking-form" id="bookingForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" placeholder="John" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="+353..." required />
+          </div>
         </div>
+        <div class="form-group">
+          <label for="service">Service</label>
+          <select id="service" required>
+            <option value="">Select a service...</option>
+            <option>Haircut</option>
+            <option>Shave & Beard Trim</option>
+            <option>Hot Towel Shaving</option>
+            <option>Cut & Style</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="date">Preferred Date</label>
+            <input type="date" id="date" required />
+          </div>
+          <div class="form-group">
+            <label for="time">Preferred Time</label>
+            <select id="time" required>
+              <option value="">Select time...</option>
+              <option>9:00 AM</option><option>9:30 AM</option>
+              <option>10:00 AM</option><option>10:30 AM</option>
+              <option>11:00 AM</option><option>11:30 AM</option>
+              <option>12:00 PM</option><option>12:30 PM</option>
+              <option>1:00 PM</option><option>1:30 PM</option>
+              <option>2:00 PM</option><option>2:30 PM</option>
+              <option>3:00 PM</option><option>3:30 PM</option>
+              <option>4:00 PM</option><option>4:30 PM</option>
+              <option>5:00 PM</option><option>5:30 PM</option>
+              <option>6:00 PM</option><option>6:30 PM</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-gold full-width" id="submit-booking-btn">Confirm Booking ✓</button>
+      </form>
+      <div class="booking-success" id="bookingSuccess" style="display:none">
+        <div class="success-icon">✓</div>
+        <h3>Booking Request Sent!</h3>
+        <p>We'll call you at the number provided to confirm your appointment.</p>
+        <button class="btn btn-outline" onclick="closeBookingModal()" style="margin-top:16px">Close</button>
+      </div>
     </div>
+  </div>
 
-    <script src="script.js"></script>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg-slider">
+      <div class="hero-slide active" style="background-image:url('assets/shop-day.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('assets/shop-night.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('assets/shop3.jpg')"></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">⭐ 4.6 Google Rating · Limerick's Finest</div>
+      <h1 class="hero-title">Scott's<br/><span class="hero-accent">Barbers</span></h1>
+      <p class="hero-sub">Premium cuts. Expert shaves. Unmatched style.<br/>Walk-ins always welcome.</p>
+      <div class="hero-btns">
+        <a href="tel:+353852240444" class="btn btn-gold" id="hero-call-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Call Now
+        </a>
+        <button class="btn btn-primary-lg" id="hero-book-btn" onclick="openBookingModal()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Book Appointment
+        </button>
+      </div>
+      <div class="hero-info-strip">
+        <div class="info-chip">📍 Courtbrack, Limerick</div>
+        <div class="info-chip">🕐 Mon–Sat: 9am – 7pm</div>
+        <div class="info-chip">✂️ Walk-ins Welcome</div>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- RATING BANNER -->
+  <section class="rating-banner">
+    <div class="container">
+      <div class="rating-inner">
+        <div class="rating-left">
+          <div class="stars-big">★★★★★</div>
+          <div class="rating-num">4.6</div>
+          <div class="rating-label">Google Rating</div>
+        </div>
+        <div class="rating-divider"></div>
+        <div class="rating-right">
+          <p>"Limerick's most trusted barbershop — expert hands, welcoming atmosphere."</p>
+        </div>
+        <div class="rating-actions">
+          <a href="tel:+353852240444" class="btn btn-red" id="banner-call-btn">📞 +353 85 224 0444</a>
+          <button class="btn btn-dark" id="banner-book-btn" onclick="openBookingModal()">Book a Visit</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Our Services</span>
+        <h2>Crafted for the Modern Gentleman</h2>
+        <p>Every service delivered with precision and care.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">✂️</div>
+          <h3>Haircut</h3>
+          <p>Classic & modern cuts tailored to your style. Clean fades, sharp lines, perfect finish.</p>
+          <div class="service-price">From €13</div>
+        </div>
+        <div class="service-card featured">
+          <div class="service-badge">Popular</div>
+          <div class="service-icon">🪒</div>
+          <h3>Shave & Beard Trim</h3>
+          <p>Hot towel shave with premium product. Beard sculpting for a sharp, clean look.</p>
+          <div class="service-price">From €15</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔥</div>
+          <h3>Hot Towel Shaving</h3>
+          <p>Traditional straight razor shave with a hot towel treatment. The ultimate experience.</p>
+          <div class="service-price">From €20</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">👑</div>
+          <h3>Cut & Style</h3>
+          <p>Full cut, wash, blow-dry and styling. Walk out looking and feeling your best.</p>
+          <div class="service-price">From €20</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery-section" id="gallery">
+    <div class="container">
+      <div class="section-header light">
+        <span class="section-tag">The Shop</span>
+        <h2>Step Inside Scott's</h2>
+        <p>Our space, our craft, our clients.</p>
+      </div>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item tall">
+        <img src="assets/shop-day.jpg" alt="Scott's Barbers exterior day" loading="lazy" />
+        <div class="gallery-overlay"><span>Our Home in Limerick</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/shop-night.jpg" alt="Scott's Barbers evening" loading="lazy" />
+        <div class="gallery-overlay"><span>Open Late</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/shop3.jpg" alt="Scott's Barbers interior" loading="lazy" />
+        <div class="gallery-overlay"><span>The Shop</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/customer1.jpg" alt="Fresh haircut result" loading="lazy" />
+        <div class="gallery-overlay"><span>Fresh Cut</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="assets/customer2.jpg" alt="Another great haircut" loading="lazy" />
+        <div class="gallery-overlay"><span>Sharp & Clean</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews-section" id="reviews">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Google Reviews</span>
+        <h2>What Our Clients Say</h2>
+        <div class="overall-rating">
+          <div class="or-stars">★★★★★</div>
+          <div class="or-score">4.6 / 5</div>
+          <div class="or-label">Based on Google Reviews</div>
+        </div>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-header">
+            <div class="reviewer-avatar" style="background:#e8534a">В</div>
+            <div class="reviewer-info">
+              <div class="reviewer-name">Владислав Мазун</div>
+              <div class="reviewer-meta">12 reviews · 2 photos · 4 months ago</div>
+            </div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"I always get my hair cut only here, even though I'm on the opposite side of the place. A haircut at Roxy is already +100 to confidence. She is not only a professional in her field, but also a nice person. My best recommendations."</p>
+        </div>
+        <div class="review-card">
+          <div class="review-header">
+            <div class="reviewer-avatar" style="background:#c0392b">M</div>
+            <div class="reviewer-info">
+              <div class="reviewer-name">Maria Clohessy</div>
+              <div class="reviewer-meta">5 reviews · 5 months ago</div>
+            </div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Excellent barbers. Kids get fantastic haircuts and they are always so happy coming out. Very friendly business and extremely talented. Highly recommend."</p>
+        </div>
+        <div class="review-card">
+          <div class="review-header">
+            <div class="reviewer-avatar" style="background:#2980b9">C</div>
+            <div class="reviewer-info">
+              <div class="reviewer-name">Charley Rutledge</div>
+              <div class="reviewer-meta">Local Guide · 14 reviews · 10 months ago</div>
+            </div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"I've always had a good clean haircut here. In my opinion, the best barber is the woman who works here. You can tell she is genuinely passionate about her work. She has a great vibe, knows when to have a chat."</p>
+        </div>
+        <div class="review-card">
+          <div class="review-header">
+            <div class="reviewer-avatar" style="background:#27ae60">H</div>
+            <div class="reviewer-info">
+              <div class="reviewer-name">Howard</div>
+              <div class="reviewer-meta">Local Guide · 280 reviews · 6 years ago</div>
+            </div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Staff were really friendly and professional. Great hair cut and open on a Sunday. That worked out great and 13 euros for hair cut happy days."</p>
+        </div>
+        <div class="review-card">
+          <div class="review-header">
+            <div class="reviewer-avatar" style="background:#8e44ad">J</div>
+            <div class="reviewer-info">
+              <div class="reviewer-name">Jason Energycentre</div>
+              <div class="reviewer-meta">1 review · a year ago</div>
+            </div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"First time using Scott's barbers very impressed, will definitely be coming here in the future."</p>
+        </div>
+        <div class="review-card">
+          <div class="review-header">
+            <div class="reviewer-avatar" style="background:#d35400">S</div>
+            <div class="reviewer-info">
+              <div class="reviewer-name">Sunday Visitor</div>
+              <div class="reviewer-meta">5 years ago</div>
+            </div>
+          </div>
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Moved down to Limerick for work, found Scott Barber open on a Sunday. Got a fresh cut, they knew what they were doing and took time to finish with their craft. Great experience, will be going back."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / MAP -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info-block">
+          <span class="section-tag">Find Us</span>
+          <h2>Visit Scott's Barbers</h2>
+          <div class="contact-details">
+            <div class="cd-item">
+              <div class="cd-icon">📍</div>
+              <div>
+                <strong>Address</strong>
+                <p>Unit 2, Ashdown Centre, Courtbrack Ave,<br/>Courtbrack, Limerick, V94 90P0, Ireland</p>
+              </div>
+            </div>
+            <div class="cd-item">
+              <div class="cd-icon">📞</div>
+              <div>
+                <strong>Phone</strong>
+                <p><a href="tel:+353852240444">+353 85 224 0444</a></p>
+              </div>
+            </div>
+            <div class="cd-item">
+              <div class="cd-icon">🕐</div>
+              <div>
+                <strong>Opening Hours</strong>
+                <p>Monday – Saturday: 9:00am – 7:00pm<br/>Sunday: Closed</p>
+              </div>
+            </div>
+          </div>
+          <div class="contact-btns">
+            <a href="tel:+353852240444" class="btn btn-red" id="contact-call-btn">📞 Call Now</a>
+            <a href="https://maps.app.goo.gl/tKbK5or1xYr1maKD9" target="_blank" class="btn btn-outline-dark" id="contact-directions-btn">Get Directions</a>
+          </div>
+        </div>
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2420.371173469717!2d-8.649729699999998!3d52.6532698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x485b5de0404fcc31%3A0xeaeafc18dbd40633!2sScott's%20Barbers!5e0!3m2!1sen!2sie!4v1715000000000!5m2!1sen!2sie"
+            width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="Scott's Barbers Location - Courtbrack, Limerick"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="assets/logo.png" alt="Scott's Barbers" class="footer-logo" />
+          <p>Premium barbershop in the heart of Limerick.<br/>Walk-ins always welcome.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="javascript:void(0)" onclick="openBookingModal()">Book Now</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact</h4>
+          <p><a href="tel:+353852240444">+353 85 224 0444</a></p>
+          <p>Unit 2, Ashdown Centre,<br/>Courtbrack Ave, Limerick</p>
+          <div class="footer-stars">★★★★★ <span>4.6 on Google</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Scott's Barbers. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING CTA -->
+  <div class="floating-cta" id="floatingCta">
+    <a href="tel:+353852240444" class="fab-btn fab-call" id="fab-call" title="Call Now">📞</a>
+    <button class="fab-btn fab-book" id="fab-book" title="Book Now" onclick="openBookingModal()">📅</button>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
