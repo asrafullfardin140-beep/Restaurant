@@ -39,21 +39,23 @@ enhancementStyles.textContent = `
     }
   }
 
+  .reviews-section.is-replaced {
+    display: none;
+  }
+
   .review-ticker-section {
     background: #101010;
     border-bottom: 1px solid rgba(255,255,255,0.06);
     overflow: hidden;
     padding: 54px 0 62px;
+    scroll-margin-top: 88px;
   }
 
   .review-ticker-head {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto 26px;
-    display: flex;
-    align-items: end;
-    justify-content: space-between;
-    gap: 24px;
+    text-align: center;
   }
 
   .review-ticker-head h2 {
@@ -61,6 +63,7 @@ enhancementStyles.textContent = `
     font-family: 'Playfair Display', serif;
     font-size: clamp(1.85rem, 4vw, 2.75rem);
     line-height: 1.1;
+    margin-top: 10px;
   }
 
   .review-ticker-head span {
@@ -139,16 +142,6 @@ enhancementStyles.textContent = `
       padding: 44px 0 52px;
     }
 
-    .review-ticker-head {
-      display: block;
-      text-align: center;
-      margin-bottom: 22px;
-    }
-
-    .review-ticker-head h2 {
-      margin-top: 10px;
-    }
-
     .review-ticker-track {
       animation-duration: 28s;
     }
@@ -159,6 +152,13 @@ document.head.appendChild(enhancementStyles);
 function createMovingReviewStrip() {
   const ratingBanner = document.querySelector('.rating-banner');
   if (!ratingBanner || document.querySelector('.review-ticker-section')) return;
+
+  const oldReviewsSection = document.querySelector('.reviews-section');
+  if (oldReviewsSection) {
+    oldReviewsSection.classList.add('is-replaced');
+    oldReviewsSection.removeAttribute('id');
+    oldReviewsSection.setAttribute('aria-hidden', 'true');
+  }
 
   const reviews = [
     { name: 'Vladyslav Mazun', text: 'I always get my hair cut only here. A haircut at Roxy is already +100 to confidence. My best recommendations.' },
@@ -171,7 +171,8 @@ function createMovingReviewStrip() {
 
   const section = document.createElement('section');
   section.className = 'review-ticker-section';
-  section.setAttribute('aria-label', 'Scrolling customer reviews');
+  section.id = 'reviews';
+  section.setAttribute('aria-label', 'Google customer reviews');
 
   const cards = [...reviews, ...reviews].map(review => `
     <article class="ticker-review-card">
@@ -185,10 +186,8 @@ function createMovingReviewStrip() {
 
   section.innerHTML = `
     <div class="review-ticker-head">
-      <div>
-        <span>Client Reviews</span>
-        <h2>Trusted by Limerick locals</h2>
-      </div>
+      <span>Google Reviews</span>
+      <h2>Trusted by Limerick locals</h2>
     </div>
     <div class="review-ticker-window" role="button" tabindex="0" aria-label="Tap to pause or resume review slider">
       <div class="review-ticker-track">${cards}</div>
@@ -254,7 +253,7 @@ if (slides.length > 1) {
 }
 
 // --- Scroll-reveal ---
-const fadeEls = document.querySelectorAll('.service-card, .review-card, .gallery-item, .cd-item');
+const fadeEls = document.querySelectorAll('.service-card, .review-card, .gallery-item, .cd-item, .ticker-review-card');
 fadeEls.forEach(el => el.classList.add('fade-in-up'));
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
