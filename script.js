@@ -2,6 +2,214 @@
 //   SCOTT'S BARBERS — script.js
 // =============================================
 
+// --- Mobile polish + moving review strip ---
+const enhancementStyles = document.createElement('style');
+enhancementStyles.textContent = `
+  @media (max-width: 700px) {
+    .hero {
+      min-height: 760px;
+      height: 100svh;
+      align-items: center;
+      background: #0d0d0d;
+    }
+
+    .hero-slide {
+      background-size: contain;
+      background-position: center top;
+      background-repeat: no-repeat;
+      animation: none;
+    }
+
+    .hero-overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.18) 0%,
+        rgba(0,0,0,0.28) 34%,
+        rgba(0,0,0,0.82) 72%,
+        rgba(13,13,13,0.98) 100%
+      );
+    }
+
+    .hero-content {
+      padding-top: 120px;
+    }
+
+    .hero-title {
+      font-size: clamp(3.3rem, 18vw, 5.2rem);
+    }
+  }
+
+  .review-ticker-section {
+    background: #101010;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    overflow: hidden;
+    padding: 54px 0 62px;
+  }
+
+  .review-ticker-head {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto 26px;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .review-ticker-head h2 {
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.85rem, 4vw, 2.75rem);
+    line-height: 1.1;
+  }
+
+  .review-ticker-head span {
+    color: var(--gold);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .review-ticker-window {
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent);
+  }
+
+  .review-ticker-track {
+    display: flex;
+    gap: 18px;
+    width: max-content;
+    animation: reviewTicker 34s linear infinite;
+    will-change: transform;
+  }
+
+  .review-ticker-window.is-paused .review-ticker-track,
+  .review-ticker-window:hover .review-ticker-track {
+    animation-play-state: paused;
+  }
+
+  .ticker-review-card {
+    width: min(82vw, 360px);
+    min-height: 178px;
+    flex: 0 0 auto;
+    background: #1c1c1c;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow: 0 12px 34px rgba(0,0,0,0.28);
+  }
+
+  .ticker-review-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .ticker-review-name {
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .ticker-review-stars {
+    color: var(--gold);
+    letter-spacing: 2px;
+    white-space: nowrap;
+  }
+
+  .ticker-review-card p {
+    color: rgba(255,255,255,0.72);
+    font-size: 0.92rem;
+    font-style: italic;
+    line-height: 1.65;
+  }
+
+  @keyframes reviewTicker {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-50% - 9px)); }
+  }
+
+  @media (max-width: 700px) {
+    .review-ticker-section {
+      padding: 44px 0 52px;
+    }
+
+    .review-ticker-head {
+      display: block;
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    .review-ticker-head h2 {
+      margin-top: 10px;
+    }
+
+    .review-ticker-track {
+      animation-duration: 28s;
+    }
+  }
+`;
+document.head.appendChild(enhancementStyles);
+
+function createMovingReviewStrip() {
+  const ratingBanner = document.querySelector('.rating-banner');
+  if (!ratingBanner || document.querySelector('.review-ticker-section')) return;
+
+  const reviews = [
+    { name: 'Vladyslav Mazun', text: 'I always get my hair cut only here. A haircut at Roxy is already +100 to confidence. My best recommendations.' },
+    { name: 'Maria Clohessy', text: 'Excellent barbers. Kids get fantastic haircuts and they are always so happy coming out. Very friendly business.' },
+    { name: 'Charley Rutledge', text: 'I have always had a good clean haircut here. You can tell she is genuinely passionate about her work.' },
+    { name: 'Howard', text: 'Staff were really friendly and professional. Great haircut and open on a Sunday. Happy days.' },
+    { name: 'Jason Energycentre', text: 'First time using Scott\'s Barbers, very impressed. Will definitely be coming here in the future.' },
+    { name: 'Sunday Visitor', text: 'Got a fresh cut, they knew what they were doing and took time to finish with their craft.' }
+  ];
+
+  const section = document.createElement('section');
+  section.className = 'review-ticker-section';
+  section.setAttribute('aria-label', 'Scrolling customer reviews');
+
+  const cards = [...reviews, ...reviews].map(review => `
+    <article class="ticker-review-card">
+      <div class="ticker-review-top">
+        <div class="ticker-review-name">${review.name}</div>
+        <div class="ticker-review-stars" aria-label="5 star review">★★★★★</div>
+      </div>
+      <p>"${review.text}"</p>
+    </article>
+  `).join('');
+
+  section.innerHTML = `
+    <div class="review-ticker-head">
+      <div>
+        <span>Client Reviews</span>
+        <h2>Trusted by Limerick locals</h2>
+      </div>
+    </div>
+    <div class="review-ticker-window" role="button" tabindex="0" aria-label="Tap to pause or resume review slider">
+      <div class="review-ticker-track">${cards}</div>
+    </div>
+  `;
+
+  ratingBanner.insertAdjacentElement('afterend', section);
+
+  const tickerWindow = section.querySelector('.review-ticker-window');
+  const toggleTicker = () => tickerWindow.classList.toggle('is-paused');
+  tickerWindow.addEventListener('click', toggleTicker);
+  tickerWindow.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleTicker();
+    }
+  });
+}
+
+createMovingReviewStrip();
+
 // --- Booking Modal (global functions for onclick attributes) ---
 window.openBookingModal = function() {
   document.getElementById('bookingModal').classList.add('open');
