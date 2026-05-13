@@ -7,10 +7,35 @@ const enhancementStyles = document.createElement('style');
 enhancementStyles.textContent = `
   @media (max-width: 700px) {
     .hero {
-      min-height: 760px;
+      min-height: 820px;
       height: 100svh;
       align-items: center;
       background: #0d0d0d;
+    }
+
+    .hero-bg-slider::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('assets/shop-day.jpg');
+      background-size: cover;
+      background-position: center;
+      filter: blur(18px);
+      transform: scale(1.12);
+      opacity: 0.78;
+    }
+
+    .hero-bg-slider::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(13,13,13,0.08) 0%,
+        rgba(13,13,13,0.05) 48%,
+        rgba(13,13,13,0.18) 66%,
+        rgba(13,13,13,0.62) 100%
+      );
     }
 
     .hero-slide {
@@ -18,16 +43,11 @@ enhancementStyles.textContent = `
       background-position: center top;
       background-repeat: no-repeat;
       animation: none;
+      z-index: 1;
     }
 
     .hero-overlay {
-      background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.18) 0%,
-        rgba(0,0,0,0.28) 34%,
-        rgba(0,0,0,0.82) 72%,
-        rgba(13,13,13,0.98) 100%
-      );
+      display: none;
     }
 
     .hero-content {
