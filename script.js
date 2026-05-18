@@ -129,6 +129,49 @@ const sites = {
       ["Contact", `${shared.phone} - ${shared.address}`]
     ],
     reviewMode: "grid"
+  },
+  "4": {
+    label: "Nelson-style video",
+    title: "We know your style better",
+    eyebrow: "Est'd 2007",
+    intro: "A cinematic barbershop concept with a stock video hero, editorial typography, premium service blocks, prices, reviews, and appointment flow.",
+    primary: "Make an Appointment",
+    secondary: "View Prices",
+    secondaryHref: "#services",
+    video: "https://cdn.coverr.co/videos/coverr-cutting-hair-in-the-barbershop-6113/1080p.mp4",
+    facts: ["Premium cuts", "Hot towel shaves", "Courtbrack, Limerick", "Mon-Sat 9am-7pm"],
+    trust: [
+      ["Location", "Courtbrack, Limerick", "Unit 2, Ashdown Centre, Courtbrack Ave."],
+      ["Phone", shared.phone, "Call the shop directly for quick availability."],
+      ["Hours", "Mon-Sat 9am-7pm", "Walk-ins welcome during opening hours."],
+      ["Rating", "4.6 Google", "Trusted by local clients."]
+    ],
+    storyTitle: "Service beyond expectation",
+    story: "Scott's Barbers is built for men who appreciate quality, time, and a sharp finish. From straight styling to beard care, every visit is handled with calm attention and confident craft.",
+    servicesTitle: "Our Prices",
+    servicesCopy: "A focused menu covering the essentials of modern barbering.",
+    prices: [
+      ["Haircut", "EUR 18"],
+      ["Shave", "EUR 12"],
+      ["Haircut + Shave", "EUR 30"],
+      ["Beard Trim", "EUR 10"]
+    ],
+    services: [
+      ["Classic Haircut", "Sharp scissor work, clean clipper detail, and natural styling.", "From EUR 18"],
+      ["Straight Shave", "A clean traditional shave with careful prep and finish.", "From EUR 12"],
+      ["Haircut + Beard", "Complete grooming for a polished everyday look.", "From EUR 30"]
+    ],
+    why: [
+      ["Sharp Detail", "Every neckline, blend, and beard edge is finished with care."],
+      ["Premium Atmosphere", "A darker, cinematic layout designed to feel confident and refined."],
+      ["Easy Booking", "Appointment CTA stays clear from hero to footer."]
+    ],
+    team: [
+      ["Adam Groover", "Professional barber ready to shape your perfect style.", "assets/customer1.jpg"],
+      ["David Hammer", "Expert stylist focused on clean, confident finishing.", "assets/shop3.jpg"],
+      ["Jay Adams", "Experienced barber across cuts, fades, and wet shaving.", "assets/customer2.jpg"]
+    ],
+    reviewMode: "grid"
   }
 };
 
@@ -169,8 +212,17 @@ function renderHeader() {
 }
 
 function renderHero() {
+  const video = data.video ? `
+    <video class="hero-video" autoplay muted loop playsinline poster="assets/shop-day.jpg">
+      <source src="${data.video}" type="video/mp4" />
+    </video>
+  ` : "";
+  const secondaryHref = data.secondaryHref || (activeSite === "2" ? shared.maps : shared.phoneHref);
+  const secondaryTarget = secondaryHref.startsWith("http") ? "_blank" : "_self";
+
   return `
     <section class="hero" id="home">
+      ${video}
       <div class="hero-blur" aria-hidden="true"></div>
       <div class="hero-inner">
         <div class="hero-copy">
@@ -179,7 +231,7 @@ function renderHero() {
           <p>${data.intro}</p>
           <div class="hero-ctas">
             <button class="btn btn-gold" type="button" data-open-modal>${data.primary}</button>
-            <a class="btn ${activeSite === "2" ? "btn-dark" : "btn-red"}" href="${activeSite === "2" ? shared.maps : shared.phoneHref}" target="${activeSite === "2" ? "_blank" : "_self"}">${data.secondary}</a>
+            <a class="btn ${activeSite === "2" || activeSite === "4" ? "btn-dark" : "btn-red"}" href="${secondaryHref}" target="${secondaryTarget}">${data.secondary}</a>
           </div>
         </div>
         <div class="hero-facts">
@@ -303,6 +355,33 @@ function renderWhy() {
   `;
 }
 
+function renderTeam() {
+  if (!data.team) return "";
+  return `
+    <section class="section team-section">
+      <div class="container">
+        <div class="section-head center">
+          <span class="eyebrow">Meet The Team</span>
+          <h2>Masters of the chair</h2>
+          <p>A Nelson-inspired team section using the client's current image set as placeholders.</p>
+        </div>
+        <div class="team-grid">
+          ${data.team.map(([name, role, image]) => `
+            <article class="team-card">
+              <img src="${image}" alt="${name}" loading="lazy" />
+              <div>
+                <h3>${name}</h3>
+                <p>${role}</p>
+                <a href="javascript:void(0)" data-open-modal>Read more</a>
+              </div>
+            </article>
+          `).join("")}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
 function renderGallery() {
   return `
     <section class="section" id="gallery">
@@ -418,6 +497,7 @@ function renderSite() {
       ${renderWhy()}
       ${renderGallery()}
       ${renderReviews()}
+      ${renderTeam()}
       ${renderBookingBand()}
       ${renderContact()}
       ${renderFooter()}
