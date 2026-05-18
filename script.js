@@ -1,333 +1,471 @@
-// =============================================
-//   SCOTT'S BARBERS — script.js
-// =============================================
+const shared = {
+  name: "Scott's Barbers",
+  phone: "+353 85 224 0444",
+  phoneHref: "tel:+353852240444",
+  address: "Unit 2, Ashdown Centre, Courtbrack Ave, Courtbrack, Limerick, V94 90P0",
+  maps: "https://maps.app.goo.gl/tKbK5or1xYr1maKD9",
+  hours: "Mon-Sat 9:00am-7:00pm. Sunday closed.",
+  rating: "4.6",
+  logo: "assets/logo.png",
+  mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2420.371173469717!2d-8.649729699999998!3d52.6532698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x485b5de0404fcc31%3A0xeaeafc18dbd40633!2sScott's%20Barbers!5e0!3m2!1sen!2sie!4v1715000000000!5m2!1sen!2sie"
+};
 
-// --- Mobile polish + moving review strip ---
-const enhancementStyles = document.createElement('style');
-enhancementStyles.textContent = `
-  @media (max-width: 700px) {
-    .hero {
-      min-height: 820px;
-      height: 100svh;
-      align-items: center;
-      background: #0d0d0d;
-    }
+const reviews = [
+  ["Vladyslav Mazun", "I always get my hair cut only here. A haircut at Scott's is already +100 to confidence. My best recommendations.", "12 reviews - 4 months ago"],
+  ["Maria Clohessy", "Excellent barbers. Kids get fantastic haircuts and they are always so happy coming out. Very friendly business.", "5 reviews - 5 months ago"],
+  ["Charley Rutledge", "I have always had a good clean haircut here. You can tell they are genuinely passionate about the work.", "Local Guide - 10 months ago"],
+  ["Howard", "Staff were really friendly and professional. Great haircut and open when I needed it. Happy days.", "Local Guide"],
+  ["Jason Energycentre", "First time using Scott's Barbers, very impressed. Will definitely be coming here in the future.", "1 review"],
+  ["Sunday Visitor", "Got a fresh cut, they knew what they were doing and took time to finish with their craft.", "5 years ago"]
+];
 
-    .hero-bg-slider::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: url('assets/shop-day.jpg');
-      background-size: cover;
-      background-position: center;
-      filter: blur(18px);
-      transform: scale(1.12);
-      opacity: 0.78;
-    }
+const gallery = [
+  ["assets/shop-day.jpg", "Scott's Barbers exterior"],
+  ["assets/shop-night.jpg", "Evening shop front"],
+  ["assets/shop3.jpg", "Barbershop view"],
+  ["assets/customer1.jpg", "Fresh client haircut"],
+  ["assets/customer2.jpg", "Sharp client finish"]
+];
 
-    .hero-bg-slider::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(13,13,13,0.08) 0%,
-        rgba(13,13,13,0.05) 48%,
-        rgba(13,13,13,0.18) 66%,
-        rgba(13,13,13,0.62) 100%
-      );
-    }
-
-    .hero-slide {
-      background-size: contain;
-      background-position: center top;
-      background-repeat: no-repeat;
-      animation: none;
-      z-index: 1;
-    }
-
-    .hero-overlay {
-      display: none;
-    }
-
-    .hero-content {
-      padding-top: 120px;
-    }
-
-    .hero-title {
-      font-size: clamp(3.3rem, 18vw, 5.2rem);
-    }
+const sites = {
+  "1": {
+    label: "Barberhood-style",
+    title: "Premium Haircuts in Limerick",
+    eyebrow: "Highly rated barbershop in Limerick",
+    intro: "Professional barbers delivering sharp fades, classic cuts, beard trims, and a relaxed local shop experience.",
+    primary: "Book Your Cut",
+    secondary: "Call Now",
+    facts: ["4.6 Google rating", "Experienced barbers", "Walk-ins welcome", "Courtbrack location"],
+    trust: [
+      ["4.6", "Google Rating", "Trusted by local customers."],
+      ["260+", "Happy Visits", "Built around friendly, consistent service."],
+      ["9-7", "Open Mon-Sat", "Easy to visit after work."],
+      ["Local", "Limerick Shop", "Simple directions and walk-ins welcome."]
+    ],
+    servicesTitle: "Quality cuts at honest prices",
+    servicesCopy: "A clean, modern service menu for everyday grooming.",
+    services: [
+      ["Gents Haircut", "Classic cuts, textured crops, and tidy finishes.", "From EUR 18"],
+      ["Skin Fade", "Sharp fade work with clean edges and styling.", "From EUR 20"],
+      ["Kids Cut", "Patient, friendly cuts for younger clients.", "From EUR 15"],
+      ["Haircut & Beard", "Full cut plus beard shaping for a complete finish.", "From EUR 30"],
+      ["Hot Towel Beard", "Beard care with hot towel comfort.", "From EUR 20"],
+      ["Line Up", "Clean outlines and quick tidy-ups.", "From EUR 10"]
+    ],
+    why: [
+      ["Experienced Barbers", "Skilled hands with care on every detail."],
+      ["Relaxed Atmosphere", "A friendly shop where regulars feel at home."],
+      ["Consistent Quality", "The same sharp standard every visit."],
+      ["Central Local Reach", "Easy to find in Courtbrack, Limerick."],
+      ["Walk-ins Welcome", "Drop in when your schedule opens up."],
+      ["Fast Booking", "Call or send a quick request online."]
+    ],
+    reviewMode: "ticker"
+  },
+  "2": {
+    label: "Box Turkish-style",
+    title: "Authentic Barbering, Modern Finish",
+    eyebrow: "Traditional barber care with a sharp modern edge",
+    intro: "A heritage-inspired Scott's Barbers concept built around craft, hygiene, comfort, and a proper grooming experience.",
+    primary: "Book Online Now",
+    secondary: "Get Directions",
+    facts: ["Traditional shave care", "Modern fades", "Clean tools", "Walk-ins always welcome"],
+    storyTitle: "Our Story",
+    story: "Scott's Barbers brings together trusted local barbering, careful technique, and a welcoming shop atmosphere. Every visit is built around quality, comfort, and making customers leave confident.",
+    servicesTitle: "Turkish-inspired grooming menu",
+    servicesCopy: "Haircuts, fades, beard care, hot towel work, and full grooming packages.",
+    services: [
+      ["Signature Haircut", "A precise cut shaped to your style and face shape.", "From EUR 18"],
+      ["Skin Fade", "Smooth fade blending with a clean neckline.", "From EUR 20"],
+      ["Hot Towel Shave", "Classic towel prep and close shave finish.", "From EUR 20"],
+      ["Beard Shape", "Line-up, trim, and shaping for a balanced beard.", "From EUR 10"],
+      ["Haircut & Beard", "Complete grooming package for a sharp look.", "From EUR 30"],
+      ["Kids Cut", "Clean cuts for younger clients.", "From EUR 15"]
+    ],
+    branches: [
+      ["Scott's Barbers", shared.address, shared.hours],
+      ["Walk-in Barber", "A dedicated walk-in experience for quick visits.", "Available Monday to Saturday"]
+    ],
+    why: [
+      ["Hygiene First", "Clean tools, tidy stations, and careful service."],
+      ["Comfortable Visit", "A warm, welcoming atmosphere from start to finish."],
+      ["Traditional Detail", "Hot towel style, beard care, and careful finishing."],
+      ["Modern Trends", "Fresh fades, textured cuts, and current styles."],
+      ["Customer Care", "Every client gets time and attention."],
+      ["Easy Access", "Call, book, or get directions in one tap."]
+    ],
+    reviewMode: "grid"
+  },
+  "3": {
+    label: "Men With Class-style",
+    title: "Top-quality grooming in Limerick",
+    eyebrow: "Simple, classy, and built for quick booking",
+    intro: "A practical Scott's Barbers concept where prices, opening hours, services, reviews, and directions are easy to find fast.",
+    primary: "Book an Appointment",
+    secondary: "View Pricing",
+    facts: ["Clear pricing", "Simple booking", "Google reviews", "Limerick location"],
+    notice: "Price and service information can be updated quickly before showing the client.",
+    servicesTitle: "Pricing",
+    servicesCopy: "A straightforward list customers can scan on mobile.",
+    prices: [
+      ["Dry Haircut", "EUR 18"],
+      ["Cut & Wash", "EUR 22"],
+      ["Skin Fade", "EUR 20"],
+      ["Kids Cut", "EUR 15"],
+      ["Beard Trim", "EUR 10"],
+      ["Shave Only", "EUR 12"],
+      ["Line Up", "EUR 8"],
+      ["Haircut & Beard", "EUR 30"]
+    ],
+    services: [
+      ["Haircuts", "Classic and modern haircut services."],
+      ["Shaves", "Clean shave and hot towel options."],
+      ["Beard Trim", "Shape, tidy, and line-up."],
+      ["Kids Cuts", "Friendly cuts for children."]
+    ],
+    why: [
+      ["About Scott's", "A local Limerick barbershop focused on clean haircuts, friendly service, and a professional grooming experience."],
+      ["Opening Hours", shared.hours],
+      ["Contact", `${shared.phone} - ${shared.address}`]
+    ],
+    reviewMode: "grid"
   }
+};
 
-  .reviews-section.is-replaced {
-    display: none;
-  }
+const params = new URLSearchParams(window.location.search);
+const requestedSite = params.get("site");
+const activeSite = sites[requestedSite] ? requestedSite : (sites[window.SCOTTS_ACTIVE_SITE] ? window.SCOTTS_ACTIVE_SITE : "1");
+const data = sites[activeSite];
+document.body.dataset.site = activeSite;
 
-  .review-ticker-section {
-    background: #101010;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    overflow: hidden;
-    padding: 54px 0 62px;
-    scroll-margin-top: 88px;
-  }
+function card(title, copy, extra = "") {
+  return `<article class="card ${extra}"><h3>${title}</h3><p>${copy}</p></article>`;
+}
 
-  .review-ticker-head {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto 26px;
-    text-align: center;
-  }
-
-  .review-ticker-head h2 {
-    color: #fff;
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.85rem, 4vw, 2.75rem);
-    line-height: 1.1;
-    margin-top: 10px;
-  }
-
-  .review-ticker-head span {
-    color: var(--gold);
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
-
-  .review-ticker-window {
-    overflow: hidden;
-    cursor: pointer;
-    user-select: none;
-    -webkit-mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent);
-    mask-image: linear-gradient(to right, transparent, #000 9%, #000 91%, transparent);
-  }
-
-  .review-ticker-track {
-    display: flex;
-    gap: 18px;
-    width: max-content;
-    animation: reviewTicker 34s linear infinite;
-    will-change: transform;
-  }
-
-  .review-ticker-window.is-paused .review-ticker-track,
-  .review-ticker-window:hover .review-ticker-track {
-    animation-play-state: paused;
-  }
-
-  .ticker-review-card {
-    width: min(82vw, 360px);
-    min-height: 178px;
-    flex: 0 0 auto;
-    background: #1c1c1c;
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 12px;
-    padding: 22px;
-    box-shadow: 0 12px 34px rgba(0,0,0,0.28);
-  }
-
-  .ticker-review-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 14px;
-    margin-bottom: 14px;
-  }
-
-  .ticker-review-name {
-    color: #fff;
-    font-weight: 700;
-  }
-
-  .ticker-review-stars {
-    color: var(--gold);
-    letter-spacing: 2px;
-    white-space: nowrap;
-  }
-
-  .ticker-review-card p {
-    color: rgba(255,255,255,0.72);
-    font-size: 0.92rem;
-    font-style: italic;
-    line-height: 1.65;
-  }
-
-  @keyframes reviewTicker {
-    from { transform: translateX(0); }
-    to { transform: translateX(calc(-50% - 9px)); }
-  }
-
-  @media (max-width: 700px) {
-    .review-ticker-section {
-      padding: 44px 0 52px;
-    }
-
-    .review-ticker-track {
-      animation-duration: 28s;
-    }
-  }
-`;
-document.head.appendChild(enhancementStyles);
-
-function createMovingReviewStrip() {
-  const ratingBanner = document.querySelector('.rating-banner');
-  if (!ratingBanner || document.querySelector('.review-ticker-section')) return;
-
-  const oldReviewsSection = document.querySelector('.reviews-section');
-  if (oldReviewsSection) {
-    oldReviewsSection.classList.add('is-replaced');
-    oldReviewsSection.removeAttribute('id');
-    oldReviewsSection.setAttribute('aria-hidden', 'true');
-  }
-
-  const reviews = [
-    { name: 'Vladyslav Mazun', text: 'I always get my hair cut only here. A haircut at Roxy is already +100 to confidence. My best recommendations.' },
-    { name: 'Maria Clohessy', text: 'Excellent barbers. Kids get fantastic haircuts and they are always so happy coming out. Very friendly business.' },
-    { name: 'Charley Rutledge', text: 'I have always had a good clean haircut here. You can tell she is genuinely passionate about her work.' },
-    { name: 'Howard', text: 'Staff were really friendly and professional. Great haircut and open on a Sunday. Happy days.' },
-    { name: 'Jason Energycentre', text: 'First time using Scott\'s Barbers, very impressed. Will definitely be coming here in the future.' },
-    { name: 'Sunday Visitor', text: 'Got a fresh cut, they knew what they were doing and took time to finish with their craft.' }
-  ];
-
-  const section = document.createElement('section');
-  section.className = 'review-ticker-section';
-  section.id = 'reviews';
-  section.setAttribute('aria-label', 'Google customer reviews');
-
-  const cards = [...reviews, ...reviews].map(review => `
-    <article class="ticker-review-card">
-      <div class="ticker-review-top">
-        <div class="ticker-review-name">${review.name}</div>
-        <div class="ticker-review-stars" aria-label="5 star review">★★★★★</div>
+function renderHeader() {
+  return `
+    <nav class="navbar">
+      <div class="nav-inner">
+        <a class="brand" href="#home">
+          <img src="${shared.logo}" alt="${shared.name} logo" />
+          <span class="brand-text">
+            <span class="brand-name">${shared.name}</span>
+            <span class="brand-sub">${data.label}</span>
+          </span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a class="btn btn-ghost" href="${shared.phoneHref}">Call</a>
+          <button class="btn btn-red" type="button" data-open-modal>Book</button>
+        </div>
       </div>
-      <p>"${review.text}"</p>
-    </article>
-  `).join('');
+    </nav>
+  `;
+}
 
-  section.innerHTML = `
-    <div class="review-ticker-head">
-      <span>Google Reviews</span>
-      <h2>Trusted by Limerick locals</h2>
+function renderHero() {
+  return `
+    <section class="hero" id="home">
+      <div class="hero-blur" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <span class="eyebrow">${data.eyebrow}</span>
+          <h1>${data.title}</h1>
+          <p>${data.intro}</p>
+          <div class="hero-ctas">
+            <button class="btn btn-gold" type="button" data-open-modal>${data.primary}</button>
+            <a class="btn ${activeSite === "2" ? "btn-dark" : "btn-red"}" href="${activeSite === "2" ? shared.maps : shared.phoneHref}" target="${activeSite === "2" ? "_blank" : "_self"}">${data.secondary}</a>
+          </div>
+        </div>
+        <div class="hero-facts">
+          ${data.facts.map(item => `<span class="fact">${item}</span>`).join("")}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderTrust() {
+  if (!data.trust) return "";
+  return `
+    <section class="section alt">
+      <div class="container trust-grid">
+        ${data.trust.map(([metric, title, copy]) => `
+          <article class="card">
+            <div class="metric">${metric}</div>
+            <h3>${title}</h3>
+            <p>${copy}</p>
+          </article>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderStory() {
+  if (!data.story) return "";
+  return `
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">${data.storyTitle}</span>
+          <h2>Built on care, tradition, and sharp detail</h2>
+          <p>${data.story}</p>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderNotice() {
+  if (!data.notice) return "";
+  return `
+    <section class="booking-band">
+      <div class="container">
+        <div>
+          <h2>Client review notice</h2>
+          <p>${data.notice}</p>
+        </div>
+        <button class="btn btn-gold" type="button" data-open-modal>Book an Appointment</button>
+      </div>
+    </section>
+  `;
+}
+
+function renderServices() {
+  const priceTable = data.prices ? `
+    <div class="card service-list">
+      ${data.prices.map(([service, price]) => `<div class="price-row"><strong>${service}</strong><strong>${price}</strong></div>`).join("")}
     </div>
-    <div class="review-ticker-window" role="button" tabindex="0" aria-label="Tap to pause or resume review slider">
-      <div class="review-ticker-track">${cards}</div>
+  ` : "";
+
+  const serviceCards = data.services.map((service, index) => {
+    const [title, copy, price] = service;
+    return `
+      <article class="card service-card ${index === 1 ? "featured" : ""}">
+        <h3>${title}</h3>
+        <p>${copy}</p>
+        ${price ? `<div class="price">${price}</div>` : ""}
+      </article>
+    `;
+  }).join("");
+
+  return `
+    <section class="section price-section" id="services">
+      <div class="container">
+        <div class="section-head center">
+          <span class="eyebrow">Services</span>
+          <h2>${data.servicesTitle}</h2>
+          <p>${data.servicesCopy}</p>
+        </div>
+        ${priceTable}
+        <div class="services-grid" style="${priceTable ? "margin-top:18px" : ""}">${serviceCards}</div>
+      </div>
+    </section>
+  `;
+}
+
+function renderBranches() {
+  if (!data.branches) return "";
+  return `
+    <section class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Find Us</span>
+          <h2>Opening hours and walk-ins</h2>
+        </div>
+        <div class="branch-grid">
+          ${data.branches.map(([title, address, hours]) => card(title, `${address}<br>${hours}`)).join("")}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderWhy() {
+  return `
+    <section class="section alt">
+      <div class="container">
+        <div class="section-head center">
+          <span class="eyebrow">Why Choose Us</span>
+          <h2>${activeSite === "3" ? "Everything customers need quickly" : "A better barbershop visit"}</h2>
+        </div>
+        <div class="why-grid">
+          ${data.why.map(([title, copy]) => card(title, copy)).join("")}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderGallery() {
+  return `
+    <section class="section" id="gallery">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Gallery</span>
+          <h2>Using the existing client assets</h2>
+          <p>Shop photos, exterior images, and client haircut images are reused across each concept.</p>
+        </div>
+        <div class="gallery-grid">
+          ${gallery.map(([src, label]) => `<figure class="gallery-item"><img src="${src}" alt="${label}" loading="lazy" /><span>${label}</span></figure>`).join("")}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderReviews() {
+  const reviewCards = reviews.map(([name, quote, meta]) => `
+    <article class="card review-card">
+      <div class="stars">★★★★★</div>
+      <blockquote>"${quote}"</blockquote>
+      <div class="reviewer">${name}</div>
+      <div class="review-meta">${meta}</div>
+    </article>
+  `);
+  const content = data.reviewMode === "ticker"
+    ? `<div class="ticker-window" tabindex="0" role="button" aria-label="Tap to pause reviews"><div class="ticker-track">${[...reviewCards, ...reviewCards].join("")}</div></div>`
+    : `<div class="review-grid">${reviewCards.slice(0, 6).join("")}</div>`;
+
+  return `
+    <section class="section alt" id="reviews">
+      <div class="container">
+        <div class="section-head center">
+          <span class="eyebrow">Google Reviews</span>
+          <h2>${shared.rating} rating from local customers</h2>
+        </div>
+        ${content}
+      </div>
+    </section>
+  `;
+}
+
+function renderBookingBand() {
+  return `
+    <section class="booking-band">
+      <div class="container">
+        <div>
+          <h2>Ready for a fresh cut?</h2>
+          <p>Call now, send a booking request, or get directions to Scott's Barbers.</p>
+        </div>
+        <div class="hero-ctas">
+          <a class="btn btn-dark" href="${shared.phoneHref}">${shared.phone}</a>
+          <button class="btn btn-gold" type="button" data-open-modal>Book Appointment</button>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderContact() {
+  return `
+    <section class="section" id="contact">
+      <div class="container contact-grid">
+        <div class="card">
+          <span class="eyebrow">Contact</span>
+          <h2 style="margin-top:14px">Visit ${shared.name}</h2>
+          <div class="contact-list">
+            <div class="contact-item"><strong>Address</strong><span>${shared.address}</span></div>
+            <div class="contact-item"><strong>Phone</strong><a href="${shared.phoneHref}">${shared.phone}</a></div>
+            <div class="contact-item"><strong>Opening Hours</strong><span>${shared.hours}</span></div>
+          </div>
+          <div class="hero-ctas">
+            <a class="btn btn-red" href="${shared.phoneHref}">Call Now</a>
+            <a class="btn btn-ghost" href="${shared.maps}" target="_blank" rel="noopener">Get Directions</a>
+          </div>
+        </div>
+        <iframe class="map-frame" src="${shared.mapEmbed}" loading="lazy" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade" title="Scott's Barbers location"></iframe>
+      </div>
+    </section>
+  `;
+}
+
+function renderFooter() {
+  return `
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-brand">
+          <img src="${shared.logo}" alt="${shared.name} logo" />
+          <span>${shared.name}</span>
+        </div>
+        <p>Concept ${activeSite}: ${data.label}. © 2026 Scott's Barbers.</p>
+      </div>
+    </footer>
+    <div class="floating-actions" aria-label="Quick actions">
+      <a class="float-btn call" href="${shared.phoneHref}" aria-label="Call Scott's Barbers">Call</a>
+      <button class="float-btn book" type="button" data-open-modal aria-label="Book Scott's Barbers">Book</button>
     </div>
   `;
+}
 
-  ratingBanner.insertAdjacentElement('afterend', section);
+function renderSite() {
+  document.title = `${shared.name} - ${data.label}`;
+  document.getElementById("site-root").innerHTML = `
+    <main class="site-shell">
+      ${renderHeader()}
+      ${renderHero()}
+      ${renderTrust()}
+      ${renderStory()}
+      ${renderNotice()}
+      ${renderServices()}
+      ${renderBranches()}
+      ${renderWhy()}
+      ${renderGallery()}
+      ${renderReviews()}
+      ${renderBookingBand()}
+      ${renderContact()}
+      ${renderFooter()}
+    </main>
+  `;
+}
 
-  const tickerWindow = section.querySelector('.review-ticker-window');
-  const toggleTicker = () => tickerWindow.classList.toggle('is-paused');
-  tickerWindow.addEventListener('click', toggleTicker);
-  tickerWindow.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      toggleTicker();
-    }
+function setupInteractions() {
+  const modal = document.getElementById("bookingModal");
+  const form = document.getElementById("bookingForm");
+  const success = document.getElementById("bookingSuccess");
+  const openModal = () => {
+    modal.classList.add("open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("modal-open");
+  };
+  const closeModal = () => {
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("modal-open");
+  };
+
+  document.querySelectorAll("[data-open-modal]").forEach(button => button.addEventListener("click", openModal));
+  document.querySelectorAll("[data-close-modal]").forEach(button => button.addEventListener("click", closeModal));
+  modal.addEventListener("click", event => {
+    if (event.target === modal) closeModal();
+  });
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") closeModal();
+  });
+
+  form.addEventListener("submit", event => {
+    event.preventDefault();
+    form.style.display = "none";
+    success.style.display = "block";
+  });
+
+  document.querySelectorAll(".ticker-window").forEach(ticker => {
+    const toggle = () => ticker.classList.toggle("paused");
+    ticker.addEventListener("click", toggle);
+    ticker.addEventListener("keydown", event => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        toggle();
+      }
+    });
   });
 }
 
-createMovingReviewStrip();
-
-// --- Booking Modal (global functions for onclick attributes) ---
-window.openBookingModal = function() {
-  document.getElementById('bookingModal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-};
-window.closeBookingModal = function() {
-  document.getElementById('bookingModal').classList.remove('open');
-  document.body.style.overflow = '';
-};
-window.closeBookingModalOutside = function(e) {
-  if (e.target === document.getElementById('bookingModal')) window.closeBookingModal();
-};
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') window.closeBookingModal();
-});
-
-// --- Navbar scroll effect ---
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 60) navbar.classList.add('scrolled');
-  else navbar.classList.remove('scrolled');
-});
-
-// --- Mobile hamburger ---
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('navLinks');
-hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => navLinks.classList.remove('open'));
-});
-
-// --- Hero slide rotation ---
-const slides = document.querySelectorAll('.hero-slide');
-let current = 0;
-if (slides.length > 1) {
-  setInterval(() => {
-    slides[current].classList.remove('active');
-    current = (current + 1) % slides.length;
-    slides[current].classList.add('active');
-  }, 7000);
-}
-
-// --- Scroll-reveal ---
-const fadeEls = document.querySelectorAll('.service-card, .review-card, .gallery-item, .cd-item, .ticker-review-card');
-fadeEls.forEach(el => el.classList.add('fade-in-up'));
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('visible'), i * 80);
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1 });
-fadeEls.forEach(el => revealObserver.observe(el));
-
-// --- Floating CTA ---
-const floatingCta = document.getElementById('floatingCta');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 400) floatingCta.classList.add('visible');
-  else floatingCta.classList.remove('visible');
-});
-
-// --- Booking form submit ---
-const bookingForm = document.getElementById('bookingForm');
-const bookingSuccess = document.getElementById('bookingSuccess');
-const dateInput = document.getElementById('date');
-if (dateInput) {
-  dateInput.setAttribute('min', new Date().toISOString().split('T')[0]);
-}
-bookingForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const btn = bookingForm.querySelector('button[type="submit"]');
-  btn.textContent = 'Sending...';
-  btn.disabled = true;
-  setTimeout(() => {
-    bookingForm.style.display = 'none';
-    bookingSuccess.style.display = 'block';
-  }, 1200);
-});
-
-// --- Smooth scroll ---
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', function(e) {
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-  });
-});
-
-// --- Active nav highlight ---
-const sections = document.querySelectorAll('section[id]');
-window.addEventListener('scroll', () => {
-  const scrollY = window.pageYOffset;
-  sections.forEach(section => {
-    const offset = section.offsetTop - 100;
-    const id = section.getAttribute('id');
-    const link = document.querySelector(`.nav-links a[href="#${id}"]`);
-    if (link) {
-      link.style.color = (scrollY >= offset && scrollY < offset + section.offsetHeight) ? 'var(--gold)' : '';
-    }
-  });
-});
+renderSite();
+setupInteractions();

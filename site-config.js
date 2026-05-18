@@ -1,0 +1,1 @@
+window.SCOTTS_ACTIVE_SITE = "1";
