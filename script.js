@@ -174,24 +174,25 @@ const sites = {
     reviewMode: "grid"
   },
   "5": {
-    label: "Commercial Cleaning video",
+    label: "All City-inspired cleaning",
     business: {
-      name: "Citywide Janitorial",
+      name: "All City Janitorial",
       phone: "818.515.4685",
       phoneHref: "tel:+18185154685",
       address: "1000 W 8th St, Unit 4310, Los Angeles, CA 90017",
       maps: "#contact",
       hours: "7 days. Day and night crews available.",
       rating: "4.9",
-      logoText: "CJ",
-      email: "quotes@citywidejanitorial.com"
+      logoText: "ALL CITY",
+      email: "quotes@allcityjanitorial.com"
     },
-    title: "Commercial Janitorial Services in Los Angeles",
-    eyebrow: "Commercial only - fully insured",
+    title: "Premium Commercial Janitorial.",
+    eyebrow: "About All City",
     intro: "Recurring janitorial programs, window cleaning, pressure washing, and floor sealing for offices, retail, warehouses, and commercial facilities.",
     primary: "Request a Free Estimate",
     secondary: "Call Direct",
     video: "https://cdn.coverr.co/videos/coverr-store-assistant-wiping-surfaces-4476/1080p.mp4",
+    heroLogo: "All City Janitorial",
     facts: ["Trusted commercial crews", "Daily, weekly, monthly programs", "Window and pressure washing", "Greater Los Angeles coverage"],
     trust: [
       ["7", "Day Coverage", "Day and night crews available for commercial facilities."],
@@ -619,7 +620,219 @@ function renderFaq() {
   `;
 }
 
+function renderCleaningHeader() {
+  return `
+    <nav class="cleaning-nav">
+      <div class="cleaning-nav-inner">
+        <a class="cleaning-logo" href="#home">
+          <span>All City</span>
+          <small>Janitorial</small>
+        </a>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#work">Our Work</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a class="cleaning-phone" href="${business.phoneHref}">${business.phone} <span>Call</span></a>
+      </div>
+    </nav>
+  `;
+}
+
+function renderCleaningHero() {
+  return `
+    <section class="cleaning-hero" id="home">
+      <video autoplay muted loop playsinline poster="https://cdn.coverr.co/videos/coverr-store-assistant-wiping-surfaces-4476/thumbnail?width=1280">
+        <source src="${data.video}" type="video/mp4" />
+      </video>
+      <div class="cleaning-hero-shade"></div>
+      <div class="cleaning-hero-center">
+        <div class="cleaning-hero-logo">
+          <span>All City</span>
+          <small>Janitorial</small>
+        </div>
+        <button class="cleaning-outline-btn" type="button" data-open-modal>Request a Free Estimate</button>
+      </div>
+    </section>
+  `;
+}
+
+function renderCleaningClients() {
+  return `
+    <section class="client-strip">
+      <div class="container">
+        <p>Trusted by Los Angeles commercial facilities</p>
+        <div class="client-logos" aria-label="Example client logo row">
+          <span>Wing Stop</span>
+          <span>Taco Bell</span>
+          <span>7-Eleven</span>
+          <span>Porto's</span>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderCleaningAbout() {
+  return `
+    <section class="cleaning-about" id="about">
+      <div class="container cleaning-split">
+        <div>
+          <span class="cleaning-kicker">About All City</span>
+          <h2>Premium commercial <em>janitorial.</em></h2>
+          <p>All City Janitorial is a Los Angeles based commercial cleaning company. We work exclusively with commercial properties, offices, retail, industrial, and mixed-use buildings, and run our crews on a strict schedule so your facility looks right every visit.</p>
+        </div>
+        <div class="about-photo"></div>
+      </div>
+    </section>
+  `;
+}
+
+function renderCleaningServices() {
+  const serviceImages = [
+    "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=80",
+    "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=900&q=80",
+    "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=900&q=80",
+    "https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=900&q=80"
+  ];
+  return `
+    <section class="cleaning-services" id="services">
+      <div class="container">
+        <div class="cleaning-section-head center">
+          <span class="cleaning-kicker">Services</span>
+          <h2>What We Do</h2>
+          <p>Recurring janitorial programs and project work for commercial facilities. One vendor, one standard.</p>
+        </div>
+        <div class="cleaning-service-grid">
+          ${data.services.slice(0, 4).map(([title, copy], index) => `
+            <article class="cleaning-service-card">
+              <img src="${serviceImages[index]}" alt="${title}" loading="lazy" />
+              <h3>${title.replace(" Services", "")}</h3>
+              <p>${copy}</p>
+              <a href="#contact">View Details -></a>
+            </article>
+          `).join("")}
+        </div>
+        <div class="all-services-wrap">
+          <a class="all-services-btn" href="#contact">All Services</a>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderCleaningCtaVideo() {
+  return `
+    <section class="cleaning-video-cta" id="work">
+      <video autoplay muted loop playsinline poster="https://cdn.coverr.co/videos/coverr-store-assistant-wiping-surfaces-4476/thumbnail?width=1280">
+        <source src="${data.video}" type="video/mp4" />
+      </video>
+      <div class="cleaning-hero-shade"></div>
+      <div class="container">
+        <h2><span>Commercial properties.</span><em>Commercial standards.</em></h2>
+        <a class="cleaning-outline-btn" href="#contact">Get in Touch</a>
+      </div>
+    </section>
+  `;
+}
+
+function renderCleaningArea() {
+  const facilities = ["Office Buildings", "Retail & Storefronts", "Warehouses & Industrial", "Medical & Dental Offices", "Property Management", "Schools & Studios", "Restaurants", "Mixed Use Buildings"];
+  return `
+    <section class="cleaning-area">
+      <div class="container">
+        <div class="cleaning-section-head center">
+          <span class="cleaning-kicker">Where We Work</span>
+          <h2>Greater Los Angeles. <em>Every Facility.</em></h2>
+        </div>
+        <div class="area-grid">
+          <div class="map-card">
+            <div class="map-label">
+              <strong>Los Angeles</strong>
+              <span>Los Angeles, CA, USA</span>
+            </div>
+          </div>
+          <div class="facility-card">
+            <h3>Facilities We Service</h3>
+            <p>Commercial properties of every type across the LA basin, San Fernando Valley, and surrounding cities.</p>
+            <ul>${facilities.map(item => `<li>${item}</li>`).join("")}</ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderCleaningReviews() {
+  return `
+    <section class="cleaning-reviews">
+      <div class="container">
+        <div class="cleaning-section-head center">
+          <span class="cleaning-kicker">Reviews</span>
+          <h2>Trusted by business owners</h2>
+        </div>
+        <div class="review-grid">
+          ${data.reviews.slice(0, 3).map(([name, quote, meta]) => `
+            <article class="review-card">
+              <div class="stars">★★★★★</div>
+              <blockquote>"${quote}"</blockquote>
+              <div class="reviewer">${name}</div>
+              <div class="review-meta">${meta}</div>
+            </article>
+          `).join("")}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderCleaningContact() {
+  return `
+    <section class="cleaning-contact" id="contact">
+      <div class="container contact-grid">
+        <div>
+          <span class="cleaning-kicker">Get a Quote</span>
+          <h2>Tell us about your facility.</h2>
+          <p>Call direct or send the form. Use this layout for the final client's real service area, logo, reviews, and work photos.</p>
+          <div class="contact-list">
+            <div class="contact-item"><strong>Phone</strong><a href="${business.phoneHref}">${business.phone}</a></div>
+            <div class="contact-item"><strong>Email</strong><span>${business.email}</span></div>
+            <div class="contact-item"><strong>Hours</strong><span>${business.hours}</span></div>
+          </div>
+        </div>
+        ${renderQuoteForm()}
+      </div>
+    </section>
+  `;
+}
+
+function renderCleaningSite() {
+  document.title = `${business.name} - Commercial Cleaning Concept`;
+  document.getElementById("site-root").innerHTML = `
+    <main class="site-shell cleaning-site">
+      ${renderCleaningHeader()}
+      ${renderCleaningHero()}
+      ${renderCleaningClients()}
+      ${renderCleaningAbout()}
+      ${renderCleaningServices()}
+      ${renderCleaningCtaVideo()}
+      ${renderCleaningArea()}
+      ${renderCleaningReviews()}
+      ${renderFaq()}
+      ${renderCleaningContact()}
+      ${renderFooter()}
+    </main>
+  `;
+}
+
 function renderSite() {
+  if (activeSite === "5") {
+    renderCleaningSite();
+    return;
+  }
+
   document.title = `${business.name} - ${data.label}`;
   document.getElementById("site-root").innerHTML = `
     <main class="site-shell">
@@ -695,6 +908,15 @@ function setupInteractions() {
       }
     });
   });
+
+  if (activeSite === "5") {
+    const cleaningNav = document.querySelector(".cleaning-nav");
+    const updateCleaningNav = () => {
+      cleaningNav.classList.toggle("is-light", window.scrollY > window.innerHeight - 120);
+    };
+    updateCleaningNav();
+    window.addEventListener("scroll", updateCleaningNav);
+  }
 }
 
 renderSite();
