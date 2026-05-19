@@ -54,6 +54,22 @@ button, input, select { font: inherit; }
 }
 .brand { display: inline-flex; align-items: center; gap: 12px; min-width: 0; }
 .brand img { width: 58px; height: 58px; border-radius: 50%; object-fit: cover; }
+.brand-mark {
+  width: 58px;
+  height: 58px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  background: linear-gradient(135deg, var(--blue), #4fb1ad);
+  color: #fff;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+.brand-mark.small {
+  width: 54px;
+  height: 54px;
+}
 .brand-text { display: grid; line-height: 1.1; }
 .brand-name { font-weight: 900; letter-spacing: 0.02em; text-transform: uppercase; }
 .brand-sub { color: var(--muted); font-size: 0.76rem; }
@@ -303,6 +319,54 @@ h1, h2, h3 { line-height: 1.04; }
   letter-spacing: 0.08em;
   font-size: 0.78rem;
 }
+.work-grid,
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.work-card {
+  min-height: 150px;
+  display: flex;
+  align-items: end;
+  background:
+    linear-gradient(135deg, rgba(22,77,92,0.9), rgba(12,120,116,0.62)),
+    linear-gradient(45deg, rgba(255,255,255,0.08), transparent);
+}
+.work-card span {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #fff;
+}
+.quote-form {
+  display: grid;
+  gap: 14px;
+}
+.quote-form label {
+  display: grid;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.quote-form input,
+.quote-form select,
+.quote-form textarea {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+  padding: 12px 14px;
+}
+.quote-form textarea {
+  min-height: 116px;
+  resize: vertical;
+}
+.quote-form option { background: var(--panel); }
 
 .ticker-window {
   overflow: hidden;
@@ -521,6 +585,70 @@ h1, h2, h3 { line-height: 1.04; }
   font-size: clamp(2.4rem, 7vw, 5.4rem);
 }
 
+/* Concept 5: All City Janitorial-inspired cleaning service */
+[data-site="5"] {
+  --hero: url("assets/shop-day.jpg");
+  --hero-overlay: linear-gradient(90deg, rgba(5,22,28,0.92), rgba(5,22,28,0.42) 55%, rgba(2,12,15,0.84));
+  --gold: #84d7cf;
+  --gold-soft: #d8fff9;
+  --red: #1e8d84;
+  --red-dark: #15675f;
+  --panel: #102229;
+  --coal: #071820;
+  --ink: #051117;
+  --muted: #aec4c7;
+  --line: rgba(132,215,207,0.22);
+}
+[data-site="5"] .navbar {
+  background: rgba(5,17,23,0.88);
+}
+[data-site="5"] .hero {
+  min-height: 92svh;
+}
+[data-site="5"] .hero::before { display: none; }
+[data-site="5"] .hero h1 {
+  max-width: 900px;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: clamp(3.2rem, 8vw, 6.8rem);
+  font-weight: 900;
+}
+[data-site="5"] .hero-copy {
+  max-width: 920px;
+}
+[data-site="5"] .eyebrow {
+  background: rgba(132,215,207,0.12);
+  border-color: rgba(132,215,207,0.42);
+  color: var(--gold-soft);
+}
+[data-site="5"] .trust-grid .metric {
+  color: var(--gold-soft);
+}
+[data-site="5"] .service-card {
+  background: linear-gradient(160deg, rgba(255,255,255,0.05), rgba(16,34,41,0.95));
+  border-color: rgba(132,215,207,0.2);
+}
+[data-site="5"] .service-card.featured {
+  border-color: rgba(132,215,207,0.52);
+  background: linear-gradient(160deg, rgba(132,215,207,0.16), rgba(16,34,41,0.95));
+}
+[data-site="5"] .section h2,
+[data-site="5"] .booking-band h2 {
+  font-family: Inter, system-ui, sans-serif;
+  font-weight: 900;
+}
+[data-site="5"] .booking-band {
+  background: linear-gradient(135deg, #0e736e, #092a35);
+}
+[data-site="5"] .review-card {
+  background: #0e2027;
+}
+[data-site="5"] .stars {
+  color: #c9fff6;
+}
+[data-site="5"] .modal-logo {
+  display: none;
+}
+
 @media (max-width: 980px) {
   .nav-links { display: none; }
   .nav-inner { min-height: 76px; }
@@ -530,7 +658,9 @@ h1, h2, h3 { line-height: 1.04; }
   .branch-grid,
   .review-grid,
   .contact-grid,
-  .team-grid { grid-template-columns: 1fr 1fr; }
+  .team-grid,
+  .work-grid,
+  .faq-grid { grid-template-columns: 1fr 1fr; }
   .gallery-grid { grid-template-columns: 1fr 1fr; }
   .booking-band .container { align-items: flex-start; flex-direction: column; }
 }
@@ -573,7 +703,9 @@ h1, h2, h3 { line-height: 1.04; }
   .review-grid,
   .contact-grid,
   .gallery-grid,
-  .team-grid { grid-template-columns: 1fr; }
+  .team-grid,
+  .work-grid,
+  .faq-grid { grid-template-columns: 1fr; }
   .gallery-grid { grid-auto-rows: 230px; }
   .gallery-item:first-child { grid-row: auto; }
   .map-frame { min-height: 320px; }

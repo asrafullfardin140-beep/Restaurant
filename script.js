@@ -172,6 +172,72 @@ const sites = {
       ["Jay Adams", "Experienced barber across cuts, fades, and wet shaving.", "assets/customer2.jpg"]
     ],
     reviewMode: "grid"
+  },
+  "5": {
+    label: "Commercial Cleaning video",
+    business: {
+      name: "Citywide Janitorial",
+      phone: "818.515.4685",
+      phoneHref: "tel:+18185154685",
+      address: "1000 W 8th St, Unit 4310, Los Angeles, CA 90017",
+      maps: "#contact",
+      hours: "7 days. Day and night crews available.",
+      rating: "4.9",
+      logoText: "CJ",
+      email: "quotes@citywidejanitorial.com"
+    },
+    title: "Commercial Janitorial Services in Los Angeles",
+    eyebrow: "Commercial only - fully insured",
+    intro: "Recurring janitorial programs, window cleaning, pressure washing, and floor sealing for offices, retail, warehouses, and commercial facilities.",
+    primary: "Request a Free Estimate",
+    secondary: "Call Direct",
+    video: "https://cdn.coverr.co/videos/coverr-store-assistant-wiping-surfaces-4476/1080p.mp4",
+    facts: ["Trusted commercial crews", "Daily, weekly, monthly programs", "Window and pressure washing", "Greater Los Angeles coverage"],
+    trust: [
+      ["7", "Day Coverage", "Day and night crews available for commercial facilities."],
+      ["4", "Core Service Lines", "Janitorial, windows, pressure washing, and floor sealing."],
+      ["LA", "Based & Operating", "Serving Greater Los Angeles and surrounding cities."],
+      ["4.9", "Google Rating", "Strong review profile from business clients."]
+    ],
+    storyTitle: "About Citywide",
+    story: "Citywide Janitorial is a commercial cleaning concept built for offices, retail, warehouses, property managers, restaurants, and mixed-use buildings. Crews follow clear scopes, consistent schedules, and professional communication so every facility looks right every visit.",
+    servicesTitle: "What We Do",
+    servicesCopy: "One vendor, one standard for recurring commercial cleaning and project work.",
+    services: [
+      ["Janitorial Services", "Daily, weekly, biweekly, or monthly commercial cleaning with consistent crews.", "Recurring"],
+      ["Window Cleaning", "Storefront, office, and multi-story building windows cleaned on schedule.", "Interior + exterior"],
+      ["Pressure Washing", "Industrial pressure washing for sidewalks, loading docks, entries, and exterior surfaces.", "Project work"],
+      ["Floor Sealing", "Concrete sealing, polishing, and protective coatings for warehouses and retail floors.", "Specialty"],
+      ["Office Cleaning", "Restrooms, trash, dusting, breakrooms, desks, and common areas.", "Commercial only"],
+      ["Facility Turnovers", "Deep cleans and refreshes for new tenants, inspections, and reopenings.", "One-off"]
+    ],
+    branches: [
+      ["Greater Los Angeles", "San Fernando Valley, Westside, Hollywood, Pasadena, Downtown LA, East LA, South Bay, and Long Beach.", "Commercial facilities only"],
+      ["Facilities We Service", "Office buildings, retail, warehouses, medical offices, schools, studios, restaurants, and mixed-use buildings.", "Fully insured crews"]
+    ],
+    why: [
+      ["Commercial Only", "No residential distraction. The service is focused on business properties and facility standards."],
+      ["Flexible Programs", "Daily, weekly, biweekly, monthly, and one-off project scopes."],
+      ["One Vendor", "Janitorial, windows, pressure washing, and floor sealing under one contact."],
+      ["Responsive Quotes", "Clear scopes, direct phone contact, and fast estimate follow-up."],
+      ["Proof of Work", "Before-and-after updates and job photos can be used for client confidence."],
+      ["Professional Crews", "Day and night teams for busy commercial spaces."]
+    ],
+    reviews: [
+      ["Roxanne Saldana", "Professional, thorough, responsive, and genuinely the best cleaning company experience. They sent insurance information, referrals, and videos after the service.", "2 months ago"],
+      ["John Santy", "Very pleased with the work ethic, attention to detail, communication, and fair pricing. I would recommend and use them again.", "3 months ago"],
+      ["Scott Owens", "Fantastic janitorial service. They do an excellent job every time and pay attention to the little details.", "3 months ago"],
+      ["Danny Pena", "Hired them over the weekend. Excellent job, professional, on time, and very happy with the service.", "3 months ago"],
+      ["Joshau Herrera", "Reliable, professional, and thorough every time. The team consistently does a great job.", "3 months ago"],
+      ["Diann", "Communication was great and my windows were amazingly clean. Great service and superior job.", "2 years ago"]
+    ],
+    faq: [
+      ["Do you offer residential cleaning?", "No. This concept is commercial only and focuses on offices, retail, industrial, and mixed-use properties."],
+      ["What areas do you serve?", "Greater Los Angeles, including downtown LA, the Westside, the Valley, Pasadena, South Bay, Long Beach, and nearby commercial districts."],
+      ["How often can you clean?", "Daily, weekly, biweekly, monthly, and one-off deep cleans are all supported."],
+      ["Are you insured?", "Yes. The page is designed to highlight fully insured commercial crews and professional facility standards."]
+    ],
+    reviewMode: "grid"
   }
 };
 
@@ -179,6 +245,7 @@ const params = new URLSearchParams(window.location.search);
 const requestedSite = params.get("site");
 const activeSite = sites[requestedSite] ? requestedSite : (sites[window.SCOTTS_ACTIVE_SITE] ? window.SCOTTS_ACTIVE_SITE : "1");
 const data = sites[activeSite];
+const business = { ...shared, ...(data.business || {}) };
 document.body.dataset.site = activeSite;
 
 function card(title, copy, extra = "") {
@@ -186,13 +253,16 @@ function card(title, copy, extra = "") {
 }
 
 function renderHeader() {
+  const brandMark = business.logoText
+    ? `<span class="brand-mark">${business.logoText}</span>`
+    : `<img src="${business.logo || shared.logo}" alt="${business.name} logo" />`;
   return `
     <nav class="navbar">
       <div class="nav-inner">
         <a class="brand" href="#home">
-          <img src="${shared.logo}" alt="${shared.name} logo" />
+          ${brandMark}
           <span class="brand-text">
-            <span class="brand-name">${shared.name}</span>
+            <span class="brand-name">${business.name}</span>
             <span class="brand-sub">${data.label}</span>
           </span>
         </a>
@@ -203,8 +273,8 @@ function renderHeader() {
           <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="nav-actions">
-          <a class="btn btn-ghost" href="${shared.phoneHref}">Call</a>
-          <button class="btn btn-red" type="button" data-open-modal>Book</button>
+          <a class="btn btn-ghost" href="${business.phoneHref}">Call</a>
+          <button class="btn btn-red" type="button" data-open-modal>${activeSite === "5" ? "Quote" : "Book"}</button>
         </div>
       </div>
     </nav>
@@ -217,7 +287,7 @@ function renderHero() {
       <source src="${data.video}" type="video/mp4" />
     </video>
   ` : "";
-  const secondaryHref = data.secondaryHref || (activeSite === "2" ? shared.maps : shared.phoneHref);
+  const secondaryHref = data.secondaryHref || (activeSite === "2" ? business.maps : business.phoneHref);
   const secondaryTarget = secondaryHref.startsWith("http") ? "_blank" : "_self";
 
   return `
@@ -383,6 +453,23 @@ function renderTeam() {
 }
 
 function renderGallery() {
+  if (activeSite === "5") {
+    return `
+      <section class="section work-section" id="gallery">
+        <div class="container">
+          <div class="section-head">
+            <span class="eyebrow">Our Work</span>
+            <h2>Commercial properties. Commercial standards.</h2>
+            <p>Use this area for real job photos, before-and-after work, and facility cleaning proof when the client provides assets.</p>
+          </div>
+          <div class="work-grid">
+            ${["Office Buildings", "Retail & Storefronts", "Warehouses", "Medical Offices", "Restaurants", "Schools & Studios"].map(item => `<article class="card work-card"><span>${item}</span></article>`).join("")}
+          </div>
+        </div>
+      </section>
+    `;
+  }
+
   return `
     <section class="section" id="gallery">
       <div class="container">
@@ -400,7 +487,8 @@ function renderGallery() {
 }
 
 function renderReviews() {
-  const reviewCards = reviews.map(([name, quote, meta]) => `
+  const localReviews = data.reviews || reviews;
+  const reviewCards = localReviews.map(([name, quote, meta]) => `
     <article class="card review-card">
       <div class="stars">★★★★★</div>
       <blockquote>"${quote}"</blockquote>
@@ -417,7 +505,7 @@ function renderReviews() {
       <div class="container">
         <div class="section-head center">
           <span class="eyebrow">Google Reviews</span>
-          <h2>${shared.rating} rating from local customers</h2>
+          <h2>${business.rating} rating from local customers</h2>
         </div>
         ${content}
       </div>
@@ -430,12 +518,12 @@ function renderBookingBand() {
     <section class="booking-band">
       <div class="container">
         <div>
-          <h2>Ready for a fresh cut?</h2>
-          <p>Call now, send a booking request, or get directions to Scott's Barbers.</p>
+          <h2>${activeSite === "5" ? "Get a quote in 24 hours." : "Ready for a fresh cut?"}</h2>
+          <p>${activeSite === "5" ? "Tell us about your commercial facility and schedule a walkthrough." : "Call now, send a booking request, or get directions to Scott's Barbers."}</p>
         </div>
         <div class="hero-ctas">
-          <a class="btn btn-dark" href="${shared.phoneHref}">${shared.phone}</a>
-          <button class="btn btn-gold" type="button" data-open-modal>Book Appointment</button>
+          <a class="btn btn-dark" href="${business.phoneHref}">${business.phone}</a>
+          <button class="btn btn-gold" type="button" data-open-modal>${activeSite === "5" ? "Request Quote" : "Book Appointment"}</button>
         </div>
       </div>
     </section>
@@ -448,43 +536,91 @@ function renderContact() {
       <div class="container contact-grid">
         <div class="card">
           <span class="eyebrow">Contact</span>
-          <h2 style="margin-top:14px">Visit ${shared.name}</h2>
+          <h2 style="margin-top:14px">${activeSite === "5" ? "Call, email, or send the form" : `Visit ${business.name}`}</h2>
           <div class="contact-list">
-            <div class="contact-item"><strong>Address</strong><span>${shared.address}</span></div>
-            <div class="contact-item"><strong>Phone</strong><a href="${shared.phoneHref}">${shared.phone}</a></div>
-            <div class="contact-item"><strong>Opening Hours</strong><span>${shared.hours}</span></div>
+            <div class="contact-item"><strong>Address</strong><span>${business.address}</span></div>
+            <div class="contact-item"><strong>Phone</strong><a href="${business.phoneHref}">${business.phone}</a></div>
+            ${business.email ? `<div class="contact-item"><strong>Email</strong><span>${business.email}</span></div>` : ""}
+            <div class="contact-item"><strong>Opening Hours</strong><span>${business.hours}</span></div>
           </div>
           <div class="hero-ctas">
-            <a class="btn btn-red" href="${shared.phoneHref}">Call Now</a>
-            <a class="btn btn-ghost" href="${shared.maps}" target="_blank" rel="noopener">Get Directions</a>
+            <a class="btn btn-red" href="${business.phoneHref}">Call Now</a>
+            <a class="btn btn-ghost" href="${business.maps}" target="_blank" rel="noopener">${activeSite === "5" ? "Request Quote" : "Get Directions"}</a>
           </div>
         </div>
-        <iframe class="map-frame" src="${shared.mapEmbed}" loading="lazy" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade" title="Scott's Barbers location"></iframe>
+        ${activeSite === "5" ? renderQuoteForm() : `<iframe class="map-frame" src="${shared.mapEmbed}" loading="lazy" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade" title="${business.name} location"></iframe>`}
       </div>
     </section>
   `;
 }
 
+function renderQuoteForm() {
+  return `
+    <form class="card quote-form">
+      <label>Full Name<input type="text" placeholder="Your name" /></label>
+      <label>Company / Facility<input type="text" placeholder="Company name" /></label>
+      <label>Email<input type="email" placeholder="you@company.com" /></label>
+      <label>Phone<input type="tel" placeholder="Phone number" /></label>
+      <label>Service Needed
+        <select>
+          <option>Janitorial Services</option>
+          <option>Window Cleaning</option>
+          <option>Industrial Pressure Washing</option>
+          <option>Floor Sealing</option>
+          <option>Multiple Services</option>
+        </select>
+      </label>
+      <label>Tell Us About Your Facility<textarea placeholder="Square footage, schedule, location, and scope"></textarea></label>
+      <button class="btn btn-gold full" type="button">Send Request</button>
+    </form>
+  `;
+}
+
 function renderFooter() {
+  const footerMark = business.logoText
+    ? `<span class="brand-mark small">${business.logoText}</span>`
+    : `<img src="${business.logo || shared.logo}" alt="${business.name} logo" />`;
   return `
     <footer class="footer">
       <div class="container">
         <div class="footer-brand">
-          <img src="${shared.logo}" alt="${shared.name} logo" />
-          <span>${shared.name}</span>
+          ${footerMark}
+          <span>${business.name}</span>
         </div>
-        <p>Concept ${activeSite}: ${data.label}. © 2026 Scott's Barbers.</p>
+        <p>Concept ${activeSite}: ${data.label}. © 2026 ${business.name}.</p>
       </div>
     </footer>
     <div class="floating-actions" aria-label="Quick actions">
-      <a class="float-btn call" href="${shared.phoneHref}" aria-label="Call Scott's Barbers">Call</a>
-      <button class="float-btn book" type="button" data-open-modal aria-label="Book Scott's Barbers">Book</button>
+      <a class="float-btn call" href="${business.phoneHref}" aria-label="Call ${business.name}">Call</a>
+      <button class="float-btn book" type="button" data-open-modal aria-label="${activeSite === "5" ? "Request quote" : "Book"}">${activeSite === "5" ? "Quote" : "Book"}</button>
     </div>
   `;
 }
 
+function renderFaq() {
+  if (!data.faq) return "";
+  return `
+    <section class="section faq-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Frequently Asked</span>
+          <h2>Questions, answered.</h2>
+        </div>
+        <div class="faq-grid">
+          ${data.faq.map(([question, answer]) => `
+            <article class="card faq-card">
+              <h3>${question}</h3>
+              <p>${answer}</p>
+            </article>
+          `).join("")}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
 function renderSite() {
-  document.title = `${shared.name} - ${data.label}`;
+  document.title = `${business.name} - ${data.label}`;
   document.getElementById("site-root").innerHTML = `
     <main class="site-shell">
       ${renderHeader()}
@@ -498,6 +634,7 @@ function renderSite() {
       ${renderGallery()}
       ${renderReviews()}
       ${renderTeam()}
+      ${renderFaq()}
       ${renderBookingBand()}
       ${renderContact()}
       ${renderFooter()}
@@ -509,6 +646,19 @@ function setupInteractions() {
   const modal = document.getElementById("bookingModal");
   const form = document.getElementById("bookingForm");
   const success = document.getElementById("bookingSuccess");
+  document.getElementById("bookingTitle").textContent = activeSite === "5" ? `Request a quote from ${business.name}` : `Book ${business.name}`;
+  document.querySelector(".modal-copy").textContent = activeSite === "5" ? "Share your facility details and the team will follow up with a clear scope and estimate." : "Send your preferred time and the shop will confirm your slot by phone.";
+  if (activeSite === "5") {
+    const serviceSelect = form.querySelector('select[name="service"]');
+    serviceSelect.innerHTML = `
+      <option value="">Choose a service</option>
+      <option>Janitorial Services</option>
+      <option>Window Cleaning</option>
+      <option>Industrial Pressure Washing</option>
+      <option>Floor Sealing</option>
+      <option>Multiple Services</option>
+    `;
+  }
   const openModal = () => {
     modal.classList.add("open");
     modal.setAttribute("aria-hidden", "false");
