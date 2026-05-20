@@ -1525,36 +1525,33 @@ h1, h2, h3 { line-height: 1.04; }
   filter: grayscale(1);
 }
 
-.barber5-site .cleaning-reviews .review-card,
 .barber5-site .faq-card {
   border-color: #dedede;
   border-radius: 0;
 }
 
-.barber5-site .cleaning-reviews .stars {
-  color: #050505;
-}
-
-.barber5-reviews {
+.barber5-site .barber5-reviews {
+  padding: 112px 0;
   overflow: hidden;
-  background: #080808;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(255,255,255,0.1), transparent 32rem),
+    linear-gradient(180deg, #050505, #0d0d0d);
   color: #fff;
   border-top: 1px solid rgba(255,255,255,0.1);
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-.barber5-reviews .cleaning-section-head h2,
-.barber5-reviews .cleaning-section-head p,
-.barber5-reviews .cleaning-kicker {
+.barber5-site .barber5-reviews .cleaning-section-head h2,
+.barber5-site .barber5-reviews .cleaning-section-head p,
+.barber5-site .barber5-reviews .cleaning-kicker {
   color: #fff;
 }
 
 .barber5-review-window {
+  width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
   cursor: grab;
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
-  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
   scrollbar-width: none;
 }
 
@@ -1564,10 +1561,10 @@ h1, h2, h3 { line-height: 1.04; }
 
 .barber5-review-track {
   display: flex;
-  gap: 18px;
+  gap: 22px;
   width: max-content;
-  padding: 4px 0 16px;
-  animation: barberReviewTicker 46s linear infinite;
+  padding: 8px 24px 28px;
+  animation: barberReviewTicker 54s linear infinite;
 }
 
 .barber5-review-window:hover .barber5-review-track,
@@ -1578,36 +1575,66 @@ h1, h2, h3 { line-height: 1.04; }
 }
 
 .barber5-review-card {
-  width: min(520px, 84vw);
-  min-height: 310px;
+  width: min(470px, 82vw);
+  min-height: 350px;
   flex: 0 0 auto;
   display: flex;
   flex-direction: column;
-  border: 1px solid rgba(255,255,255,0.16);
+  border: 1px solid rgba(255,255,255,0.14);
   background:
-    linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02)),
-    #111;
-  padding: 30px;
-  box-shadow: 0 24px 60px rgba(0,0,0,0.34);
+    linear-gradient(145deg, rgba(255,255,255,0.11), rgba(255,255,255,0.025)),
+    #121212;
+  padding: 28px;
+  box-shadow: 0 26px 70px rgba(0,0,0,0.42);
 }
 
-.barber5-review-card .stars {
-  color: #fff;
+.barber5-review-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.barber5-review-avatar {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #fff;
+  color: #050505;
+  font-weight: 900;
+}
+
+.barber5-site .barber5-reviews .barber5-review-card .stars {
+  color: #f4c84b;
+  letter-spacing: 0.12em;
 }
 
 .barber5-review-card blockquote {
   margin: 18px 0 24px;
-  color: rgba(255,255,255,0.76);
+  color: rgba(255,255,255,0.82);
   font-size: 1.03rem;
   line-height: 1.65;
 }
 
 .barber5-review-card .reviewer {
-  margin-top: auto;
+  color: #fff;
+  font-weight: 900;
 }
 
 .barber5-review-card .review-meta {
   color: rgba(255,255,255,0.52);
+}
+
+.barber5-google-label {
+  margin-top: auto;
+  color: rgba(255,255,255,0.46);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
 
 @keyframes barberReviewTicker {

@@ -785,10 +785,16 @@ function renderCleaningArea() {
 function renderCleaningReviews() {
   const reviewCards = data.reviews.map(([name, quote, meta]) => `
     <article class="barber5-review-card">
+      <div class="barber5-review-top">
+        <span class="barber5-review-avatar">${name.trim().charAt(0)}</span>
+        <div>
+          <div class="reviewer">${name}</div>
+          <div class="review-meta">${meta}</div>
+        </div>
+      </div>
       <div class="stars">★★★★★</div>
       <blockquote>"${quote}"</blockquote>
-      <div class="reviewer">${name}</div>
-      <div class="review-meta">${meta}</div>
+      <span class="barber5-google-label">Google review</span>
     </article>
   `);
 
@@ -800,11 +806,11 @@ function renderCleaningReviews() {
           <h2>Real Google reviews</h2>
           <p>Premium barbering, friendly service, and a local reputation built one haircut at a time.</p>
         </div>
-        <div class="barber5-review-window" tabindex="0" aria-label="Golden Scissors Google reviews">
+      </div>
+      <div class="barber5-review-window" tabindex="0" aria-label="Golden Scissors Google reviews">
           <div class="barber5-review-track">
             ${[...reviewCards, ...reviewCards].join("")}
           </div>
-        </div>
       </div>
     </section>
   `;
