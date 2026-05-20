@@ -1259,6 +1259,9 @@ h1, h2, h3 { line-height: 1.04; }
 }
 
 .barber5-trust {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   padding: 58px 0;
   background: #050505;
   color: #fff;
@@ -1315,7 +1318,97 @@ h1, h2, h3 { line-height: 1.04; }
 .barber5-contact,
 .barber5-site .faq-section,
 .barber5-site .cleaning-reviews {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   background: #fff;
+}
+
+.barber5-reveal::before {
+  content: attr(data-bg-word);
+  position: absolute;
+  left: max(24px, calc((100vw - 1320px) / 2));
+  top: 22px;
+  z-index: -1;
+  color: rgba(0,0,0,0.045);
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-size: clamp(5rem, 15vw, 15rem);
+  line-height: 0.8;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  pointer-events: none;
+  transform: translateY(24px);
+  opacity: 0;
+  transition: opacity 0.9s ease, transform 1.1s cubic-bezier(0.2, 0.75, 0.16, 1);
+}
+
+.barber5-trust::before,
+.barber5-reviews::before,
+.barber5-video::before {
+  color: rgba(255,255,255,0.055);
+  z-index: 0;
+}
+
+.barber5-reveal > .container {
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(56px);
+  transition: opacity 0.8s ease, transform 1s cubic-bezier(0.2, 0.75, 0.16, 1);
+}
+
+.barber5-reveal.is-visible::before {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.barber5-reveal.is-visible > .container {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.barber5-reveal .client-logos span,
+.barber5-reveal .cleaning-service-card,
+.barber5-reveal .barber5-gallery-grid figure,
+.barber5-reveal .barber5-review-window,
+.barber5-reveal .barber5-contact-card,
+.barber5-reveal .about-photo,
+.barber5-reveal .barber5-info-list div {
+  opacity: 0;
+  transform: translateY(34px);
+  transition: opacity 0.75s ease, transform 0.9s cubic-bezier(0.2, 0.75, 0.16, 1);
+}
+
+.barber5-reveal.is-visible .client-logos span,
+.barber5-reveal.is-visible .cleaning-service-card,
+.barber5-reveal.is-visible .barber5-gallery-grid figure,
+.barber5-reveal.is-visible .barber5-review-window,
+.barber5-reveal.is-visible .barber5-contact-card,
+.barber5-reveal.is-visible .about-photo,
+.barber5-reveal.is-visible .barber5-info-list div {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.barber5-reveal.is-visible .client-logos span:nth-child(2),
+.barber5-reveal.is-visible .cleaning-service-card:nth-child(2),
+.barber5-reveal.is-visible .barber5-gallery-grid figure:nth-child(2),
+.barber5-reveal.is-visible .barber5-info-list div:nth-child(2) {
+  transition-delay: 0.08s;
+}
+
+.barber5-reveal.is-visible .client-logos span:nth-child(3),
+.barber5-reveal.is-visible .cleaning-service-card:nth-child(3),
+.barber5-reveal.is-visible .barber5-gallery-grid figure:nth-child(3),
+.barber5-reveal.is-visible .barber5-info-list div:nth-child(3) {
+  transition-delay: 0.16s;
+}
+
+.barber5-reveal.is-visible .client-logos span:nth-child(4),
+.barber5-reveal.is-visible .cleaning-service-card:nth-child(4),
+.barber5-reveal.is-visible .barber5-gallery-grid figure:nth-child(4) {
+  transition-delay: 0.24s;
 }
 
 .barber5-about h2,
@@ -1365,6 +1458,13 @@ h1, h2, h3 { line-height: 1.04; }
   color: #666;
 }
 
+.barber5-local-seo {
+  margin-top: 20px;
+  color: #5e5e5e;
+  font-size: 1.08rem;
+  line-height: 1.7;
+}
+
 .barber5-services .cleaning-service-card img {
   filter: grayscale(0.05) contrast(1.08);
 }
@@ -1384,6 +1484,8 @@ h1, h2, h3 { line-height: 1.04; }
 }
 
 .barber5-video {
+  position: relative;
+  isolation: isolate;
   min-height: 760px;
 }
 

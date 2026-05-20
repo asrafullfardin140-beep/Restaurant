@@ -203,6 +203,7 @@ const sites = {
     ],
     storyTitle: "About Golden Scissors",
     story: "Golden Scissors is a York barber shop for clients who want a sharp result without the fuss. The look is classic and confident: clean tools, calm service, strong finishes, and a shop atmosphere that feels premium from the first step inside.",
+    localSeo: "For anyone searching for a barber near me, barbershop near me, or a barber close to me in Clifton and York, Golden Scissors offers sharp cuts, clean fades, beard trims, and friendly service at 45 Crichton Avenue.",
     servicesTitle: "Barbering for every style",
     servicesCopy: "Clean everyday cuts, detailed fades, beard shaping, kids cuts, and finishing work for a polished look.",
     services: [
@@ -667,7 +668,7 @@ function renderCleaningHero() {
 
 function renderCleaningClients() {
   return `
-    <section class="client-strip barber5-trust">
+    <section class="client-strip barber5-trust barber5-reveal" data-bg-word="GOLDEN">
       <div class="container">
         <p>Golden Scissors in numbers</p>
         <div class="client-logos" aria-label="Golden Scissors trust points">
@@ -686,12 +687,13 @@ function renderCleaningClients() {
 
 function renderCleaningAbout() {
   return `
-    <section class="cleaning-about barber5-about" id="about">
+    <section class="cleaning-about barber5-about barber5-reveal" id="about" data-bg-word="BARBERCROP">
       <div class="container cleaning-split">
         <div>
           <span class="cleaning-kicker">${data.storyTitle}</span>
           <h2>York barbering. <em>Golden standard.</em></h2>
           <p>${data.story}</p>
+          <p class="barber5-local-seo">${data.localSeo}</p>
           <div class="barber5-info-list">
             <div><strong>Address</strong><span>${business.address}</span></div>
             <div><strong>Hours</strong><span>${business.hours}</span></div>
@@ -712,7 +714,7 @@ function renderCleaningServices() {
     "assets/golden-scissors/gallery/gallery-4.jpg"
   ];
   return `
-    <section class="cleaning-services barber5-services" id="services">
+    <section class="cleaning-services barber5-services barber5-reveal" id="services" data-bg-word="SERVICE">
       <div class="container">
         <div class="cleaning-section-head center">
           <span class="cleaning-kicker">Services</span>
@@ -739,7 +741,7 @@ function renderCleaningServices() {
 
 function renderCleaningCtaVideo() {
   return `
-    <section class="cleaning-video-cta barber5-video" id="video">
+    <section class="cleaning-video-cta barber5-video barber5-reveal" id="video" data-bg-word="CRAFT">
       <video autoplay muted loop playsinline poster="${data.secondaryImage}">
         <source src="${data.video}" type="video/mp4" />
       </video>
@@ -762,7 +764,7 @@ function renderCleaningArea() {
     ["assets/golden-scissors/gallery/gallery-4.jpg", "Shop detail gallery"]
   ];
   return `
-    <section class="cleaning-area barber5-gallery" id="gallery">
+    <section class="cleaning-area barber5-gallery barber5-reveal" id="gallery" data-bg-word="GALLERY">
       <div class="container">
         <div class="cleaning-section-head center">
           <span class="cleaning-kicker">Gallery</span>
@@ -791,7 +793,7 @@ function renderCleaningReviews() {
   `);
 
   return `
-    <section class="cleaning-reviews barber5-reviews" id="reviews">
+    <section class="cleaning-reviews barber5-reviews barber5-reveal" id="reviews" data-bg-word="REVIEWS">
       <div class="container">
         <div class="cleaning-section-head center">
           <span class="cleaning-kicker">Reviews</span>
@@ -810,7 +812,7 @@ function renderCleaningReviews() {
 
 function renderCleaningContact() {
   return `
-    <section class="cleaning-contact barber5-contact" id="contact">
+    <section class="cleaning-contact barber5-contact barber5-reveal" id="contact" data-bg-word="YORK">
       <div class="container contact-grid">
         <div>
           <span class="cleaning-kicker">Contact</span>
@@ -951,6 +953,17 @@ function setupInteractions() {
   });
 
   if (activeSite === "5") {
+    const revealItems = document.querySelectorAll(".barber5-reveal");
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.16, rootMargin: "0px 0px -8% 0px" });
+    revealItems.forEach(item => revealObserver.observe(item));
+
     const cleaningNav = document.querySelector(".cleaning-nav");
     const updateCleaningNav = () => {
       cleaningNav.classList.toggle("is-light", window.scrollY > window.innerHeight - 120);
