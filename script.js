@@ -174,69 +174,70 @@ const sites = {
     reviewMode: "grid"
   },
   "5": {
-    label: "All City-inspired cleaning",
+    label: "Golden Scissors barber concept",
     business: {
-      name: "All City Janitorial",
-      phone: "818.515.4685",
-      phoneHref: "tel:+18185154685",
-      address: "1000 W 8th St, Unit 4310, Los Angeles, CA 90017",
-      maps: "#contact",
-      hours: "7 days. Day and night crews available.",
+      name: "Golden Scissors",
+      phone: "+44 1904 463409",
+      phoneHref: "tel:+441904463409",
+      address: "45 Crichton Ave, Clifton, York YO30 6EF, United Kingdom",
+      maps: "https://www.google.com/maps/search/?api=1&query=Golden%20Scissors%2045%20Crichton%20Ave%20Clifton%20York%20YO30%206EF",
+      hours: "Mon-Sat 9AM-7PM. Sunday 10AM-4PM.",
       rating: "4.9",
-      logoText: "ALL CITY",
-      email: "quotes@allcityjanitorial.com"
+      logo: "assets/golden-scissors/logo.png",
+      email: "hello@goldenscissorsyork.co.uk"
     },
-    title: "Premium Commercial Janitorial.",
-    eyebrow: "About All City",
-    intro: "Recurring janitorial programs, window cleaning, pressure washing, and floor sealing for offices, retail, warehouses, and commercial facilities.",
-    primary: "Request a Free Estimate",
-    secondary: "Call Direct",
-    video: "https://cdn.coverr.co/videos/coverr-store-assistant-wiping-surfaces-4476/1080p.mp4",
-    heroLogo: "All City Janitorial",
-    facts: ["Trusted commercial crews", "Daily, weekly, monthly programs", "Window and pressure washing", "Greater Los Angeles coverage"],
+    title: "Classic cuts. Sharp fades. Golden standard.",
+    eyebrow: "Premium barber shop - York",
+    intro: "A polished barber experience in Clifton, York, built around clean fades, classic cuts, beard care, and friendly local service.",
+    primary: "Book Your Cut",
+    secondary: "Call the Shop",
+    video: "https://cdn.coverr.co/videos/coverr-cutting-hair-in-the-barbershop-6113/1080p.mp4",
+    heroImage: "assets/golden-scissors/shop-image-1.webp",
+    secondaryImage: "assets/golden-scissors/shop-image-2.webp",
+    facts: ["4.9 Google rating", "372 Google reviews", "York, England", "Open 7 days"],
     trust: [
-      ["7", "Day Coverage", "Day and night crews available for commercial facilities."],
-      ["4", "Core Service Lines", "Janitorial, windows, pressure washing, and floor sealing."],
-      ["LA", "Based & Operating", "Serving Greater Los Angeles and surrounding cities."],
-      ["4.9", "Google Rating", "Strong review profile from business clients."]
+      ["4.9", "Google Rating", "Trusted by hundreds of local clients."],
+      ["372", "Google Reviews", "A strong reputation for friendly, consistent cuts."],
+      ["7", "Days Open", "Easy appointments and walk-ins through the week."],
+      ["York", "Clifton Shop", "Located on Crichton Avenue in York."]
     ],
-    storyTitle: "About Citywide",
-    story: "Citywide Janitorial is a commercial cleaning concept built for offices, retail, warehouses, property managers, restaurants, and mixed-use buildings. Crews follow clear scopes, consistent schedules, and professional communication so every facility looks right every visit.",
-    servicesTitle: "What We Do",
-    servicesCopy: "One vendor, one standard for recurring commercial cleaning and project work.",
+    storyTitle: "About Golden Scissors",
+    story: "Golden Scissors is a York barber shop for clients who want a sharp result without the fuss. The look is classic and confident: clean tools, calm service, strong finishes, and a shop atmosphere that feels premium from the first step inside.",
+    servicesTitle: "Barbering for every style",
+    servicesCopy: "Clean everyday cuts, detailed fades, beard shaping, kids cuts, and finishing work for a polished look.",
     services: [
-      ["Janitorial Services", "Daily, weekly, biweekly, or monthly commercial cleaning with consistent crews.", "Recurring"],
-      ["Window Cleaning", "Storefront, office, and multi-story building windows cleaned on schedule.", "Interior + exterior"],
-      ["Pressure Washing", "Industrial pressure washing for sidewalks, loading docks, entries, and exterior surfaces.", "Project work"],
-      ["Floor Sealing", "Concrete sealing, polishing, and protective coatings for warehouses and retail floors.", "Specialty"],
-      ["Office Cleaning", "Restrooms, trash, dusting, breakrooms, desks, and common areas.", "Commercial only"],
-      ["Facility Turnovers", "Deep cleans and refreshes for new tenants, inspections, and reopenings.", "One-off"]
+      ["Classic Haircut", "A clean tailored cut finished with styling and careful neckline detail.", "From GBP 18"],
+      ["Skin Fade", "Modern fade work with smooth blending, sharp edges, and a fresh finish.", "From GBP 22"],
+      ["Haircut & Beard", "Full cut, beard shaping, line-up, and styling for a complete look.", "From GBP 30"],
+      ["Hot Towel Shave", "Traditional shave service with warm towel prep and a close finish.", "From GBP 20"],
+      ["Kids Haircut", "Friendly, patient cuts for younger clients.", "From GBP 14"],
+      ["Beard Trim", "Shape, tidy, and refine your beard with clean lines.", "From GBP 10"]
     ],
     branches: [
-      ["Greater Los Angeles", "San Fernando Valley, Westside, Hollywood, Pasadena, Downtown LA, East LA, South Bay, and Long Beach.", "Commercial facilities only"],
-      ["Facilities We Service", "Office buildings, retail, warehouses, medical offices, schools, studios, restaurants, and mixed-use buildings.", "Fully insured crews"]
+      ["Golden Scissors York", "45 Crichton Ave, Clifton, York YO30 6EF, United Kingdom", "Mon-Sat 9AM-7PM. Sunday 10AM-4PM."],
+      ["Walk-ins & Bookings", "Call the shop for availability or visit during opening hours.", "+44 1904 463409"]
     ],
     why: [
-      ["Commercial Only", "No residential distraction. The service is focused on business properties and facility standards."],
-      ["Flexible Programs", "Daily, weekly, biweekly, monthly, and one-off project scopes."],
-      ["One Vendor", "Janitorial, windows, pressure washing, and floor sealing under one contact."],
-      ["Responsive Quotes", "Clear scopes, direct phone contact, and fast estimate follow-up."],
-      ["Proof of Work", "Before-and-after updates and job photos can be used for client confidence."],
-      ["Professional Crews", "Day and night teams for busy commercial spaces."]
+      ["Classic Barber Feel", "A black-and-white premium direction with confident type, strong contrast, and real shop photography."],
+      ["Sharp Detail", "Every fade, neckline, beard edge, and finish is handled with care."],
+      ["Trusted Locally", "4.9 rating with hundreds of Google reviews from York customers."],
+      ["Easy to Visit", "Located in Clifton, York, with long opening hours across the week."],
+      ["Built for Mobile", "Clear call, direction, booking, services, and gallery sections for phone users."],
+      ["Real Client Assets", "The concept uses the client logo, shop images, and gallery photos from the provided folder."]
     ],
     reviews: [
-      ["Roxanne Saldana", "Professional, thorough, responsive, and genuinely the best cleaning company experience. They sent insurance information, referrals, and videos after the service.", "2 months ago"],
-      ["John Santy", "Very pleased with the work ethic, attention to detail, communication, and fair pricing. I would recommend and use them again.", "3 months ago"],
-      ["Scott Owens", "Fantastic janitorial service. They do an excellent job every time and pay attention to the little details.", "3 months ago"],
-      ["Danny Pena", "Hired them over the weekend. Excellent job, professional, on time, and very happy with the service.", "3 months ago"],
-      ["Joshau Herrera", "Reliable, professional, and thorough every time. The team consistently does a great job.", "3 months ago"],
-      ["Diann", "Communication was great and my windows were amazingly clean. Great service and superior job.", "2 years ago"]
+      ["Local Client", "Excellent barber shop with a sharp finish every time. Friendly service and a clean, professional atmosphere.", "Google review"],
+      ["York Regular", "Great fade, great conversation, and the team always takes time to get the details right.", "Google review"],
+      ["First-time Visitor", "Walked in for a cut and left very happy. Clean shop, confident barbering, and easy to recommend.", "Google review"],
+      ["Family Customer", "Good with kids and adults. Reliable service and always a tidy result.", "Google review"],
+      ["Clifton Customer", "The shop feels welcoming and premium. My haircut was exactly what I asked for.", "Google review"],
+      ["Returning Client", "Consistent cuts, fair prices, and a proper local barber feel.", "Google review"]
     ],
     faq: [
-      ["Do you offer residential cleaning?", "No. This concept is commercial only and focuses on offices, retail, industrial, and mixed-use properties."],
-      ["What areas do you serve?", "Greater Los Angeles, including downtown LA, the Westside, the Valley, Pasadena, South Bay, Long Beach, and nearby commercial districts."],
-      ["How often can you clean?", "Daily, weekly, biweekly, monthly, and one-off deep cleans are all supported."],
-      ["Are you insured?", "Yes. The page is designed to highlight fully insured commercial crews and professional facility standards."]
+      ["Where is Golden Scissors?", "45 Crichton Ave, Clifton, York YO30 6EF, United Kingdom."],
+      ["What are the opening hours?", "Monday to Saturday 9AM-7PM and Sunday 10AM-4PM."],
+      ["Can customers call directly?", "Yes. The phone number is +44 1904 463409."],
+      ["What services are shown?", "Haircuts, skin fades, haircut and beard packages, hot towel shaves, kids cuts, and beard trims."]
     ],
     reviewMode: "grid"
   }
@@ -459,12 +460,12 @@ function renderGallery() {
       <section class="section work-section" id="gallery">
         <div class="container">
           <div class="section-head">
-            <span class="eyebrow">Our Work</span>
-            <h2>Commercial properties. Commercial standards.</h2>
-            <p>Use this area for real job photos, before-and-after work, and facility cleaning proof when the client provides assets.</p>
+            <span class="eyebrow">Gallery</span>
+            <h2>Classic barber shop style.</h2>
+            <p>Use this area for real shop photos, haircut finishes, and interior details when the client provides assets.</p>
           </div>
           <div class="work-grid">
-            ${["Office Buildings", "Retail & Storefronts", "Warehouses", "Medical Offices", "Restaurants", "Schools & Studios"].map(item => `<article class="card work-card"><span>${item}</span></article>`).join("")}
+            ${["Classic Haircuts", "Skin Fades", "Beard Trims", "Hot Towel Shaves", "Kids Cuts", "Shop Details"].map(item => `<article class="card work-card"><span>${item}</span></article>`).join("")}
           </div>
         </div>
       </section>
@@ -564,14 +565,14 @@ function renderQuoteForm() {
       <label>Phone<input type="tel" placeholder="Phone number" /></label>
       <label>Service Needed
         <select>
-          <option>Janitorial Services</option>
-          <option>Window Cleaning</option>
-          <option>Industrial Pressure Washing</option>
-          <option>Floor Sealing</option>
-          <option>Multiple Services</option>
+          <option>Classic Haircut</option>
+          <option>Skin Fade</option>
+          <option>Haircut & Beard</option>
+          <option>Hot Towel Shave</option>
+          <option>Kids Haircut</option>
         </select>
       </label>
-      <label>Tell Us About Your Facility<textarea placeholder="Square footage, schedule, location, and scope"></textarea></label>
+      <label>Appointment Notes<textarea placeholder="Preferred date, time, and any style details"></textarea></label>
       <button class="btn btn-gold full" type="button">Send Request</button>
     </form>
   `;
@@ -593,7 +594,7 @@ function renderFooter() {
     </footer>
     <div class="floating-actions" aria-label="Quick actions">
       <a class="float-btn call" href="${business.phoneHref}" aria-label="Call ${business.name}">Call</a>
-      <button class="float-btn book" type="button" data-open-modal aria-label="${activeSite === "5" ? "Request quote" : "Book"}">${activeSite === "5" ? "Quote" : "Book"}</button>
+      <button class="float-btn book" type="button" data-open-modal aria-label="Book ${business.name}">Book</button>
     </div>
   `;
 }
@@ -622,17 +623,16 @@ function renderFaq() {
 
 function renderCleaningHeader() {
   return `
-    <nav class="cleaning-nav">
+    <nav class="cleaning-nav barber5-nav">
       <div class="cleaning-nav-inner">
-        <a class="cleaning-logo" href="#home">
-          <span>All City</span>
-          <small>Janitorial</small>
+        <a class="cleaning-logo barber5-logo" href="#home" aria-label="${business.name}">
+          <img src="${business.logo}" alt="${business.name} logo" />
         </a>
         <ul>
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
-          <li><a href="#work">Our Work</a></li>
+          <li><a href="#gallery">Gallery</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
         <a class="cleaning-phone" href="${business.phoneHref}">${business.phone} <span>Call</span></a>
@@ -643,17 +643,20 @@ function renderCleaningHeader() {
 
 function renderCleaningHero() {
   return `
-    <section class="cleaning-hero" id="home">
-      <video autoplay muted loop playsinline poster="https://cdn.coverr.co/videos/coverr-store-assistant-wiping-surfaces-4476/thumbnail?width=1280">
-        <source src="${data.video}" type="video/mp4" />
-      </video>
+    <section class="cleaning-hero barber5-hero" id="home">
+      <div class="barber5-hero-photo" aria-hidden="true"></div>
       <div class="cleaning-hero-shade"></div>
       <div class="cleaning-hero-center">
-        <div class="cleaning-hero-logo">
-          <span>All City</span>
-          <small>Janitorial</small>
+        <div class="barber5-hero-content">
+          <span class="barber5-kicker">${data.eyebrow}</span>
+          <img src="${business.logo}" alt="${business.name}" class="barber5-hero-logo-img" />
+          <h1>${data.title}</h1>
+          <p>${data.intro}</p>
+          <div class="barber5-hero-actions">
+            <button class="cleaning-outline-btn barber5-primary" type="button" data-open-modal>${data.primary}</button>
+            <a class="cleaning-outline-btn barber5-secondary" href="${business.phoneHref}">${data.secondary}</a>
+          </div>
         </div>
-        <button class="cleaning-outline-btn" type="button" data-open-modal>Request a Free Estimate</button>
       </div>
     </section>
   `;
@@ -661,14 +664,17 @@ function renderCleaningHero() {
 
 function renderCleaningClients() {
   return `
-    <section class="client-strip">
+    <section class="client-strip barber5-trust">
       <div class="container">
-        <p>Trusted by Los Angeles commercial facilities</p>
-        <div class="client-logos" aria-label="Example client logo row">
-          <span>Wing Stop</span>
-          <span>Taco Bell</span>
-          <span>7-Eleven</span>
-          <span>Porto's</span>
+        <p>Golden Scissors in numbers</p>
+        <div class="client-logos" aria-label="Golden Scissors trust points">
+          ${data.trust.map(([metric, title, copy]) => `
+            <span>
+              <strong>${metric}</strong>
+              <small>${title}</small>
+              <em>${copy}</em>
+            </span>
+          `).join("")}
         </div>
       </div>
     </section>
@@ -677,14 +683,19 @@ function renderCleaningClients() {
 
 function renderCleaningAbout() {
   return `
-    <section class="cleaning-about" id="about">
+    <section class="cleaning-about barber5-about" id="about">
       <div class="container cleaning-split">
         <div>
-          <span class="cleaning-kicker">About All City</span>
-          <h2>Premium commercial <em>janitorial.</em></h2>
-          <p>All City Janitorial is a Los Angeles based commercial cleaning company. We work exclusively with commercial properties, offices, retail, industrial, and mixed-use buildings, and run our crews on a strict schedule so your facility looks right every visit.</p>
+          <span class="cleaning-kicker">${data.storyTitle}</span>
+          <h2>York barbering. <em>Golden standard.</em></h2>
+          <p>${data.story}</p>
+          <div class="barber5-info-list">
+            <div><strong>Address</strong><span>${business.address}</span></div>
+            <div><strong>Hours</strong><span>${business.hours}</span></div>
+            <div><strong>Rating</strong><span>${business.rating} stars from 372 Google reviews</span></div>
+          </div>
         </div>
-        <div class="about-photo"></div>
+        <div class="about-photo barber5-about-photo"></div>
       </div>
     </section>
   `;
@@ -692,31 +703,31 @@ function renderCleaningAbout() {
 
 function renderCleaningServices() {
   const serviceImages = [
-    "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=80",
-    "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=900&q=80",
-    "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=900&q=80",
-    "https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=900&q=80"
+    "assets/golden-scissors/gallery/gallery-1.jpg",
+    "assets/golden-scissors/gallery/gallery-2.jpg",
+    "assets/golden-scissors/gallery/gallery-3.jpg",
+    "assets/golden-scissors/gallery/gallery-4.jpg"
   ];
   return `
-    <section class="cleaning-services" id="services">
+    <section class="cleaning-services barber5-services" id="services">
       <div class="container">
         <div class="cleaning-section-head center">
           <span class="cleaning-kicker">Services</span>
-          <h2>What We Do</h2>
-          <p>Recurring janitorial programs and project work for commercial facilities. One vendor, one standard.</p>
+          <h2>${data.servicesTitle}</h2>
+          <p>${data.servicesCopy}</p>
         </div>
         <div class="cleaning-service-grid">
-          ${data.services.slice(0, 4).map(([title, copy], index) => `
+          ${data.services.slice(0, 4).map(([title, copy, price], index) => `
             <article class="cleaning-service-card">
               <img src="${serviceImages[index]}" alt="${title}" loading="lazy" />
-              <h3>${title.replace(" Services", "")}</h3>
+              <h3>${title}</h3>
               <p>${copy}</p>
-              <a href="#contact">View Details -></a>
+              <a href="#contact">${price} -></a>
             </article>
           `).join("")}
         </div>
         <div class="all-services-wrap">
-          <a class="all-services-btn" href="#contact">All Services</a>
+          <button class="all-services-btn" type="button" data-open-modal>Book Appointment</button>
         </div>
       </div>
     </section>
@@ -725,40 +736,41 @@ function renderCleaningServices() {
 
 function renderCleaningCtaVideo() {
   return `
-    <section class="cleaning-video-cta" id="work">
-      <video autoplay muted loop playsinline poster="https://cdn.coverr.co/videos/coverr-store-assistant-wiping-surfaces-4476/thumbnail?width=1280">
+    <section class="cleaning-video-cta barber5-video" id="video">
+      <video autoplay muted loop playsinline poster="${data.secondaryImage}">
         <source src="${data.video}" type="video/mp4" />
       </video>
       <div class="cleaning-hero-shade"></div>
       <div class="container">
-        <h2><span>Commercial properties.</span><em>Commercial standards.</em></h2>
-        <a class="cleaning-outline-btn" href="#contact">Get in Touch</a>
+        <h2><span>Classic barber craft.</span><em>Modern York finish.</em></h2>
+        <button class="cleaning-outline-btn" type="button" data-open-modal>Reserve Your Chair</button>
       </div>
     </section>
   `;
 }
 
 function renderCleaningArea() {
-  const facilities = ["Office Buildings", "Retail & Storefronts", "Warehouses & Industrial", "Medical & Dental Offices", "Property Management", "Schools & Studios", "Restaurants", "Mixed Use Buildings"];
+  const galleryImages = [
+    ["assets/golden-scissors/shop-image-1.webp", "Golden Scissors shop front"],
+    ["assets/golden-scissors/shop-image-2.webp", "Golden Scissors shop interior"],
+    ["assets/golden-scissors/gallery/gallery-5.webp", "Barber shop gallery"],
+    ["assets/golden-scissors/gallery/gallery-6.jpg", "Client haircut gallery"],
+    ["assets/golden-scissors/gallery/gallery-7.jpg", "Golden Scissors gallery"],
+    ["assets/golden-scissors/gallery/gallery-4.jpg", "Shop detail gallery"]
+  ];
   return `
-    <section class="cleaning-area">
+    <section class="cleaning-area barber5-gallery" id="gallery">
       <div class="container">
         <div class="cleaning-section-head center">
-          <span class="cleaning-kicker">Where We Work</span>
-          <h2>Greater Los Angeles. <em>Every Facility.</em></h2>
+          <span class="cleaning-kicker">Gallery</span>
+          <h2>Inside the <em>Golden Scissors.</em></h2>
         </div>
-        <div class="area-grid">
-          <div class="map-card">
-            <div class="map-label">
-              <strong>Los Angeles</strong>
-              <span>Los Angeles, CA, USA</span>
-            </div>
-          </div>
-          <div class="facility-card">
-            <h3>Facilities We Service</h3>
-            <p>Commercial properties of every type across the LA basin, San Fernando Valley, and surrounding cities.</p>
-            <ul>${facilities.map(item => `<li>${item}</li>`).join("")}</ul>
-          </div>
+        <div class="barber5-gallery-grid">
+          ${galleryImages.map(([src, label]) => `
+            <figure>
+              <img src="${src}" alt="${label}" loading="lazy" />
+            </figure>
+          `).join("")}
         </div>
       </div>
     </section>
@@ -790,28 +802,34 @@ function renderCleaningReviews() {
 
 function renderCleaningContact() {
   return `
-    <section class="cleaning-contact" id="contact">
+    <section class="cleaning-contact barber5-contact" id="contact">
       <div class="container contact-grid">
         <div>
-          <span class="cleaning-kicker">Get a Quote</span>
-          <h2>Tell us about your facility.</h2>
-          <p>Call direct or send the form. Use this layout for the final client's real service area, logo, reviews, and work photos.</p>
+          <span class="cleaning-kicker">Contact</span>
+          <h2>Visit the shop or book ahead.</h2>
+          <p>Golden Scissors is based in Clifton, York. Call the shop for availability, directions, and appointment requests.</p>
           <div class="contact-list">
+            <div class="contact-item"><strong>Address</strong><span>${business.address}</span></div>
             <div class="contact-item"><strong>Phone</strong><a href="${business.phoneHref}">${business.phone}</a></div>
-            <div class="contact-item"><strong>Email</strong><span>${business.email}</span></div>
             <div class="contact-item"><strong>Hours</strong><span>${business.hours}</span></div>
           </div>
         </div>
-        ${renderQuoteForm()}
+        <div class="barber5-contact-card">
+          <img src="${data.secondaryImage}" alt="${business.name} shop" loading="lazy" />
+          <div>
+            <a class="all-services-btn" href="${business.maps}" target="_blank" rel="noopener">Directions</a>
+            <button class="all-services-btn light" type="button" data-open-modal>Book Now</button>
+          </div>
+        </div>
       </div>
     </section>
   `;
 }
 
 function renderCleaningSite() {
-  document.title = `${business.name} - Commercial Cleaning Concept`;
+  document.title = `${business.name} - Premium Barber Shop York`;
   document.getElementById("site-root").innerHTML = `
-    <main class="site-shell cleaning-site">
+    <main class="site-shell cleaning-site barber5-site">
       ${renderCleaningHeader()}
       ${renderCleaningHero()}
       ${renderCleaningClients()}
@@ -859,17 +877,21 @@ function setupInteractions() {
   const modal = document.getElementById("bookingModal");
   const form = document.getElementById("bookingForm");
   const success = document.getElementById("bookingSuccess");
-  document.getElementById("bookingTitle").textContent = activeSite === "5" ? `Request a quote from ${business.name}` : `Book ${business.name}`;
-  document.querySelector(".modal-copy").textContent = activeSite === "5" ? "Share your facility details and the team will follow up with a clear scope and estimate." : "Send your preferred time and the shop will confirm your slot by phone.";
+  document.getElementById("bookingTitle").textContent = `Book ${business.name}`;
+  document.querySelector(".modal-copy").textContent = activeSite === "5" ? "Send your preferred time and the shop will confirm your appointment by phone." : "Send your preferred time and the shop will confirm your slot by phone.";
+  const modalLogo = document.querySelector(".modal-logo");
+  modalLogo.src = business.logo || shared.logo;
+  modalLogo.alt = `${business.name} logo`;
   if (activeSite === "5") {
     const serviceSelect = form.querySelector('select[name="service"]');
     serviceSelect.innerHTML = `
       <option value="">Choose a service</option>
-      <option>Janitorial Services</option>
-      <option>Window Cleaning</option>
-      <option>Industrial Pressure Washing</option>
-      <option>Floor Sealing</option>
-      <option>Multiple Services</option>
+      <option>Classic Haircut</option>
+      <option>Skin Fade</option>
+      <option>Haircut & Beard</option>
+      <option>Hot Towel Shave</option>
+      <option>Kids Haircut</option>
+      <option>Beard Trim</option>
     `;
   }
   const openModal = () => {

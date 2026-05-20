@@ -585,7 +585,7 @@ h1, h2, h3 { line-height: 1.04; }
   font-size: clamp(2.4rem, 7vw, 5.4rem);
 }
 
-/* Concept 5: All City Janitorial-inspired cleaning service */
+/* Concept 5 base layout, now restyled by the Golden Scissors overrides below */
 [data-site="5"] {
   --hero: url("assets/shop-day.jpg");
   --hero-overlay: linear-gradient(90deg, rgba(5,22,28,0.92), rgba(5,22,28,0.42) 55%, rgba(2,12,15,0.84));
@@ -1074,6 +1074,405 @@ h1, h2, h3 { line-height: 1.04; }
   border-radius: 0;
 }
 
+/* Concept 5: Golden Scissors premium barber shop */
+[data-site="5"] {
+  --hero: url("assets/golden-scissors/shop-image-1.webp");
+  --hero-overlay: linear-gradient(90deg, rgba(0,0,0,0.88), rgba(0,0,0,0.34) 52%, rgba(0,0,0,0.82));
+  --gold: #ffffff;
+  --gold-soft: #f5f5f5;
+  --red: #ffffff;
+  --red-dark: #d9d9d9;
+  --panel: #101010;
+  --coal: #050505;
+  --ink: #000;
+  --muted: #c7c7c7;
+  --line: rgba(255,255,255,0.18);
+}
+
+.barber5-site {
+  --clean-red: #111;
+  --clean-black: #050505;
+  --clean-gray: #707070;
+  background: #fff;
+  color: #050505;
+}
+
+.barber5-site .container {
+  width: min(1320px, calc(100% - 48px));
+}
+
+.barber5-nav {
+  background: rgba(255,255,255,0.94);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  backdrop-filter: blur(20px);
+}
+
+.barber5-nav.is-light {
+  background: rgba(255,255,255,0.96);
+}
+
+.barber5-nav .cleaning-nav-inner {
+  grid-template-columns: 180px 1fr 230px;
+  min-height: 96px;
+}
+
+.barber5-logo {
+  transform: none;
+  width: auto;
+}
+
+.barber5-logo img {
+  width: 116px;
+  height: auto;
+  max-height: 78px;
+  object-fit: contain;
+}
+
+.barber5-nav ul,
+.barber5-nav.is-light ul {
+  color: #090909;
+  gap: 42px;
+  font-size: 0.88rem;
+}
+
+.barber5-nav .cleaning-phone,
+.barber5-nav.is-light .cleaning-phone {
+  min-height: 58px;
+  border: 2px solid #050505;
+  background: #050505;
+  color: #fff;
+  border-radius: 0;
+}
+
+.barber5-nav .cleaning-phone span {
+  background: #fff;
+  color: #050505;
+}
+
+.barber5-hero {
+  min-height: 100svh;
+  padding-top: 96px;
+}
+
+.barber5-hero-photo {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background: url("assets/golden-scissors/shop-image-1.webp") center/cover;
+  animation: barberSlowZoom 18s ease-out infinite alternate;
+}
+
+@keyframes barberSlowZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.12); }
+}
+
+.barber5-hero .cleaning-hero-shade {
+  background:
+    linear-gradient(90deg, rgba(0,0,0,0.86), rgba(0,0,0,0.32) 54%, rgba(0,0,0,0.76)),
+    linear-gradient(to top, rgba(0,0,0,0.82), rgba(0,0,0,0.08) 52%, rgba(0,0,0,0.42));
+}
+
+.barber5-hero .cleaning-hero-center {
+  width: min(1320px, calc(100% - 48px));
+  justify-items: start;
+  gap: 0;
+  padding-top: 0;
+}
+
+.barber5-hero-content {
+  max-width: 850px;
+  color: #fff;
+  padding: 70px 0;
+}
+
+.barber5-kicker {
+  display: inline-flex;
+  margin-bottom: 28px;
+  border: 1px solid rgba(255,255,255,0.34);
+  padding: 11px 18px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-weight: 900;
+  font-size: 0.78rem;
+}
+
+.barber5-hero-logo-img {
+  width: min(280px, 72vw);
+  margin-bottom: 28px;
+  filter: invert(1) brightness(3);
+}
+
+.barber5-hero h1 {
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-size: clamp(4.4rem, 9.5vw, 9.8rem);
+  line-height: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 0.015em;
+}
+
+.barber5-hero p {
+  max-width: 680px;
+  margin-top: 24px;
+  color: rgba(255,255,255,0.78);
+  font-size: clamp(1.05rem, 2vw, 1.28rem);
+}
+
+.barber5-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 38px;
+}
+
+.barber5-primary,
+.barber5-secondary {
+  min-width: 240px;
+  min-height: 64px;
+  border-width: 2px;
+  letter-spacing: 0.14em;
+  background: #fff;
+  color: #050505;
+}
+
+.barber5-secondary {
+  background: rgba(0,0,0,0.12);
+  color: #fff;
+}
+
+.barber5-trust {
+  padding: 58px 0;
+  background: #050505;
+  color: #fff;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.barber5-trust p {
+  color: rgba(255,255,255,0.58);
+}
+
+.barber5-trust .client-logos {
+  gap: 18px;
+}
+
+.barber5-trust .client-logos span {
+  min-height: 170px;
+  padding: 24px;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+  filter: none;
+  opacity: 1;
+  place-items: start;
+  text-align: left;
+}
+
+.barber5-trust .client-logos strong {
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-size: clamp(3.2rem, 6vw, 5.8rem);
+  line-height: 0.8;
+}
+
+.barber5-trust .client-logos small {
+  display: block;
+  margin-top: 12px;
+  font-family: Inter, sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.barber5-trust .client-logos em {
+  display: block;
+  margin-top: 12px;
+  color: rgba(255,255,255,0.62);
+  font-family: Inter, sans-serif;
+  font-size: 0.95rem;
+  font-style: normal;
+  line-height: 1.5;
+}
+
+.barber5-about,
+.barber5-services,
+.barber5-gallery,
+.barber5-contact,
+.barber5-site .faq-section,
+.barber5-site .cleaning-reviews {
+  background: #fff;
+}
+
+.barber5-about h2,
+.barber5-services .cleaning-section-head h2,
+.barber5-gallery .cleaning-section-head h2,
+.barber5-contact h2,
+.barber5-site .faq-section .section-head h2,
+.barber5-site .cleaning-reviews h2 {
+  font-family: "Bebas Neue", Impact, sans-serif;
+  color: #050505;
+}
+
+.barber5-about h2 em,
+.barber5-gallery h2 em,
+.barber5-video h2 em {
+  color: #777;
+}
+
+.barber5-about-photo {
+  min-height: 620px;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.12)),
+    url("assets/golden-scissors/shop-image-2.webp") center/cover;
+}
+
+.barber5-info-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.barber5-info-list div {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 20px;
+  border-top: 1px solid #ddd;
+  padding-top: 14px;
+}
+
+.barber5-info-list strong {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+}
+
+.barber5-info-list span {
+  color: #666;
+}
+
+.barber5-services .cleaning-service-card img {
+  filter: grayscale(0.05) contrast(1.08);
+}
+
+.barber5-services .cleaning-service-card h3 {
+  color: #050505;
+}
+
+.barber5-services .cleaning-service-card a,
+.barber5-site .cleaning-kicker {
+  color: #050505;
+}
+
+.barber5-services .all-services-btn,
+.barber5-contact .all-services-btn {
+  border: 1px solid #050505;
+}
+
+.barber5-video {
+  min-height: 760px;
+}
+
+.barber5-video .cleaning-hero-shade {
+  background: rgba(0,0,0,0.58);
+}
+
+.barber5-video h2 {
+  max-width: 1100px;
+}
+
+.barber5-gallery-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  grid-auto-rows: 280px;
+  gap: 18px;
+}
+
+.barber5-gallery-grid figure {
+  overflow: hidden;
+  background: #111;
+}
+
+.barber5-gallery-grid figure:first-child {
+  grid-row: span 2;
+}
+
+.barber5-gallery-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.barber5-gallery-grid figure:hover img {
+  transform: scale(1.05);
+  filter: grayscale(1);
+}
+
+.barber5-site .cleaning-reviews .review-card,
+.barber5-site .faq-card {
+  border-color: #dedede;
+  border-radius: 0;
+}
+
+.barber5-site .cleaning-reviews .stars {
+  color: #050505;
+}
+
+.barber5-contact-card {
+  display: grid;
+  gap: 18px;
+  background: #050505;
+  padding: 18px;
+}
+
+.barber5-contact-card img {
+  width: 100%;
+  min-height: 460px;
+  object-fit: cover;
+}
+
+.barber5-contact-card div {
+  display: flex;
+  gap: 12px;
+}
+
+.barber5-contact-card .all-services-btn {
+  flex: 1;
+}
+
+.barber5-contact-card .all-services-btn.light {
+  background: #fff;
+  color: #050505;
+}
+
+.barber5-site .footer,
+.barber5-site .booking-band {
+  background: #050505;
+}
+
+.barber5-site .footer img {
+  width: 82px;
+  height: auto;
+  border-radius: 0;
+  filter: invert(1) brightness(3);
+}
+
+.barber5-site .float-btn.call {
+  background: #050505;
+  border: 1px solid rgba(255,255,255,0.22);
+}
+
+.barber5-site .float-btn.book {
+  background: #fff;
+  color: #050505;
+}
+
+[data-site="5"] .modal-logo {
+  display: block;
+  width: 92px;
+  height: auto;
+  border-radius: 0;
+  filter: invert(1) brightness(3);
+}
+
 @media (max-width: 980px) {
   .nav-links { display: none; }
   .nav-inner { min-height: 76px; }
@@ -1235,5 +1634,83 @@ h1, h2, h3 { line-height: 1.04; }
   .map-label {
     min-width: 0;
     right: 18px;
+  }
+  .barber5-nav,
+  .barber5-nav.is-light {
+    background: rgba(255,255,255,0.96);
+  }
+  .barber5-nav .cleaning-nav-inner {
+    grid-template-columns: 1fr auto;
+    min-height: 84px;
+  }
+  .barber5-logo img {
+    width: 104px;
+    max-height: 64px;
+  }
+  .barber5-nav .cleaning-phone,
+  .barber5-nav.is-light .cleaning-phone {
+    background: #050505;
+    border-color: #050505;
+    color: #fff;
+    padding: 0 14px;
+  }
+  .barber5-hero {
+    min-height: 820px;
+    padding-top: 84px;
+  }
+  .barber5-hero-photo {
+    background-position: center top;
+  }
+  .barber5-hero .cleaning-hero-center {
+    width: min(100% - 28px, 1320px);
+    padding-top: 0;
+  }
+  .barber5-hero-content {
+    padding: 52px 0 70px;
+  }
+  .barber5-hero-logo-img {
+    width: min(210px, 64vw);
+  }
+  .barber5-hero h1 {
+    font-size: clamp(3.4rem, 18vw, 5.6rem);
+  }
+  .barber5-kicker {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    letter-spacing: 0.14em;
+    font-size: 0.68rem;
+  }
+  .barber5-hero-actions {
+    display: grid;
+  }
+  .barber5-primary,
+  .barber5-secondary {
+    width: 100%;
+    min-width: 0;
+  }
+  .barber5-trust .client-logos {
+    grid-template-columns: 1fr;
+  }
+  .barber5-trust .client-logos span {
+    min-height: 132px;
+  }
+  .barber5-about-photo,
+  .barber5-contact-card img {
+    min-height: 340px;
+  }
+  .barber5-info-list div {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .barber5-gallery-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 250px;
+  }
+  .barber5-gallery-grid figure:first-child {
+    grid-row: auto;
+  }
+  .barber5-contact-card div {
+    display: grid;
   }
 }
