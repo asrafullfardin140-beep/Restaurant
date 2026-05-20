@@ -183,7 +183,7 @@ const sites = {
       maps: "https://www.google.com/maps/search/?api=1&query=Golden%20Scissors%2045%20Crichton%20Ave%20Clifton%20York%20YO30%206EF",
       hours: "Mon-Sat 9AM-7PM. Sunday 10AM-4PM.",
       rating: "4.9",
-      logo: "assets/golden-scissors/logo.png",
+      logo: "assets/golden-scissors/logo-1.png",
       email: "hello@goldenscissorsyork.co.uk"
     },
     title: "Classic cuts. Sharp fades. Golden standard.",
@@ -226,12 +226,12 @@ const sites = {
       ["Real Client Assets", "The concept uses the client logo, shop images, and gallery photos from the provided folder."]
     ],
     reviews: [
-      ["Local Client", "Excellent barber shop with a sharp finish every time. Friendly service and a clean, professional atmosphere.", "Google review"],
-      ["York Regular", "Great fade, great conversation, and the team always takes time to get the details right.", "Google review"],
-      ["First-time Visitor", "Walked in for a cut and left very happy. Clean shop, confident barbering, and easy to recommend.", "Google review"],
-      ["Family Customer", "Good with kids and adults. Reliable service and always a tidy result.", "Google review"],
-      ["Clifton Customer", "The shop feels welcoming and premium. My haircut was exactly what I asked for.", "Google review"],
-      ["Returning Client", "Consistent cuts, fair prices, and a proper local barber feel.", "Google review"]
+      ["Erop Союзмом", "Excellent place! Very cozy and welcoming atmosphere. After moving to York, I needed to find a new barbershop and luckily did not have to search for long. The barbers are true professionals. I was given a haircut quickly and exactly the way I wanted. I am absolutely delighted with my new hairstyle.", "2 reviews - 2 months ago"],
+      ["Holly Neilson", "Always great service; kind and respectful. My little brother hated getting his hair cut until he went there, now he cannot wait.", "1 review - 2 months ago"],
+      ["Dana Mustafa", "Great barbershop! The staff are very friendly and welcoming, and they really take their time to make sure you get the perfect haircut. The place is clean and comfortable, and the prices are very reasonable for the quality of service.", "3 reviews - 7 months ago"],
+      ["Timothy Dimatulac", "Very friendly barbers. We keep coming back and the price is reasonable, perfect for our budget. Thank you for the free lollipops.", "1 review - 3 months ago"],
+      ["Camile Mason", "Been a regular for a few years now. Best set of lads I have met. Great prices and always happy.", "6 reviews - 5 months ago"],
+      ["Patrick O'Donovan", "Found this place by mistake when my usual barber was shut. Been coming here for over a year now with my son and would not change. All the lads are brilliant and keep up the good work.", "2 reviews - 5 months ago"]
     ],
     faq: [
       ["Where is Golden Scissors?", "45 Crichton Ave, Clifton, York YO30 6EF, United Kingdom."],
@@ -645,6 +645,9 @@ function renderCleaningHero() {
   return `
     <section class="cleaning-hero barber5-hero" id="home">
       <div class="barber5-hero-photo" aria-hidden="true"></div>
+      <video class="barber5-hero-video" autoplay muted loop playsinline poster="${data.heroImage}">
+        <source src="${data.video}" type="video/mp4" />
+      </video>
       <div class="cleaning-hero-shade"></div>
       <div class="cleaning-hero-center">
         <div class="barber5-hero-content">
@@ -778,22 +781,27 @@ function renderCleaningArea() {
 }
 
 function renderCleaningReviews() {
+  const reviewCards = data.reviews.map(([name, quote, meta]) => `
+    <article class="barber5-review-card">
+      <div class="stars">★★★★★</div>
+      <blockquote>"${quote}"</blockquote>
+      <div class="reviewer">${name}</div>
+      <div class="review-meta">${meta}</div>
+    </article>
+  `);
+
   return `
-    <section class="cleaning-reviews">
+    <section class="cleaning-reviews barber5-reviews" id="reviews">
       <div class="container">
         <div class="cleaning-section-head center">
           <span class="cleaning-kicker">Reviews</span>
-          <h2>Trusted by business owners</h2>
+          <h2>Real Google reviews</h2>
+          <p>Premium barbering, friendly service, and a local reputation built one haircut at a time.</p>
         </div>
-        <div class="review-grid">
-          ${data.reviews.slice(0, 3).map(([name, quote, meta]) => `
-            <article class="review-card">
-              <div class="stars">★★★★★</div>
-              <blockquote>"${quote}"</blockquote>
-              <div class="reviewer">${name}</div>
-              <div class="review-meta">${meta}</div>
-            </article>
-          `).join("")}
+        <div class="barber5-review-window" tabindex="0" aria-label="Golden Scissors Google reviews">
+          <div class="barber5-review-track">
+            ${[...reviewCards, ...reviewCards].join("")}
+          </div>
         </div>
       </div>
     </section>
@@ -833,11 +841,11 @@ function renderCleaningSite() {
       ${renderCleaningHeader()}
       ${renderCleaningHero()}
       ${renderCleaningClients()}
+      ${renderCleaningReviews()}
       ${renderCleaningAbout()}
       ${renderCleaningServices()}
       ${renderCleaningCtaVideo()}
       ${renderCleaningArea()}
-      ${renderCleaningReviews()}
       ${renderFaq()}
       ${renderCleaningContact()}
       ${renderFooter()}
@@ -929,6 +937,17 @@ function setupInteractions() {
         toggle();
       }
     });
+  });
+
+  document.querySelectorAll(".barber5-review-window").forEach(slider => {
+    const pause = () => slider.classList.add("paused");
+    const resume = () => slider.classList.remove("paused");
+    slider.addEventListener("pointerdown", pause);
+    slider.addEventListener("pointerup", resume);
+    slider.addEventListener("pointercancel", resume);
+    slider.addEventListener("mouseleave", resume);
+    slider.addEventListener("touchstart", pause, { passive: true });
+    slider.addEventListener("touchend", resume);
   });
 
   if (activeSite === "5") {

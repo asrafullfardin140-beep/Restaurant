@@ -1159,12 +1159,30 @@ h1, h2, h3 { line-height: 1.04; }
   inset: 0;
   z-index: -3;
   background: url("assets/golden-scissors/shop-image-1.webp") center/cover;
-  animation: barberSlowZoom 18s ease-out infinite alternate;
+  animation: barberHeroPhoto 11s ease-in-out forwards;
 }
 
-@keyframes barberSlowZoom {
-  from { transform: scale(1); }
-  to { transform: scale(1.12); }
+.barber5-hero-video {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.04);
+  animation: barberVideoReveal 1.4s ease 3s forwards;
+}
+
+@keyframes barberHeroPhoto {
+  0% { opacity: 1; transform: scale(1); }
+  45% { opacity: 1; transform: scale(1.045); }
+  100% { opacity: 0; transform: scale(1.08); }
+}
+
+@keyframes barberVideoReveal {
+  from { opacity: 0; transform: scale(1.04); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 .barber5-hero .cleaning-hero-shade {
@@ -1201,7 +1219,6 @@ h1, h2, h3 { line-height: 1.04; }
 .barber5-hero-logo-img {
   width: min(280px, 72vw);
   margin-bottom: 28px;
-  filter: invert(1) brightness(3);
 }
 
 .barber5-hero h1 {
@@ -1416,6 +1433,86 @@ h1, h2, h3 { line-height: 1.04; }
   color: #050505;
 }
 
+.barber5-reviews {
+  overflow: hidden;
+  background: #080808;
+  color: #fff;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.barber5-reviews .cleaning-section-head h2,
+.barber5-reviews .cleaning-section-head p,
+.barber5-reviews .cleaning-kicker {
+  color: #fff;
+}
+
+.barber5-review-window {
+  overflow-x: auto;
+  overflow-y: hidden;
+  cursor: grab;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  scrollbar-width: none;
+}
+
+.barber5-review-window::-webkit-scrollbar {
+  display: none;
+}
+
+.barber5-review-track {
+  display: flex;
+  gap: 18px;
+  width: max-content;
+  padding: 4px 0 16px;
+  animation: barberReviewTicker 46s linear infinite;
+}
+
+.barber5-review-window:hover .barber5-review-track,
+.barber5-review-window:active .barber5-review-track,
+.barber5-review-window:focus-within .barber5-review-track,
+.barber5-review-window.paused .barber5-review-track {
+  animation-play-state: paused;
+}
+
+.barber5-review-card {
+  width: min(520px, 84vw);
+  min-height: 310px;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255,255,255,0.16);
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02)),
+    #111;
+  padding: 30px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.34);
+}
+
+.barber5-review-card .stars {
+  color: #fff;
+}
+
+.barber5-review-card blockquote {
+  margin: 18px 0 24px;
+  color: rgba(255,255,255,0.76);
+  font-size: 1.03rem;
+  line-height: 1.65;
+}
+
+.barber5-review-card .reviewer {
+  margin-top: auto;
+}
+
+.barber5-review-card .review-meta {
+  color: rgba(255,255,255,0.52);
+}
+
+@keyframes barberReviewTicker {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - 9px)); }
+}
+
 .barber5-contact-card {
   display: grid;
   gap: 18px;
@@ -1452,7 +1549,6 @@ h1, h2, h3 { line-height: 1.04; }
   width: 82px;
   height: auto;
   border-radius: 0;
-  filter: invert(1) brightness(3);
 }
 
 .barber5-site .float-btn.call {
@@ -1470,7 +1566,6 @@ h1, h2, h3 { line-height: 1.04; }
   width: 92px;
   height: auto;
   border-radius: 0;
-  filter: invert(1) brightness(3);
 }
 
 @media (max-width: 980px) {
@@ -1661,6 +1756,9 @@ h1, h2, h3 { line-height: 1.04; }
   .barber5-hero-photo {
     background-position: center top;
   }
+  .barber5-hero-video {
+    object-position: center center;
+  }
   .barber5-hero .cleaning-hero-center {
     width: min(100% - 28px, 1320px);
     padding-top: 0;
@@ -1694,6 +1792,11 @@ h1, h2, h3 { line-height: 1.04; }
   }
   .barber5-trust .client-logos span {
     min-height: 132px;
+  }
+  .barber5-review-card {
+    width: 82vw;
+    min-height: 360px;
+    padding: 24px;
   }
   .barber5-about-photo,
   .barber5-contact-card img {
