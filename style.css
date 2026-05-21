@@ -1102,13 +1102,14 @@ h1, h2, h3 { line-height: 1.04; }
 }
 
 .barber5-nav {
-  background: rgba(255,255,255,0.94);
-  border-bottom: 1px solid rgba(0,0,0,0.08);
-  backdrop-filter: blur(20px);
+  background: transparent;
+  border-bottom: 0;
+  backdrop-filter: none;
 }
 
 .barber5-nav.is-light {
-  background: rgba(255,255,255,0.96);
+  background: rgba(0,0,0,0.06);
+  backdrop-filter: blur(10px);
 }
 
 .barber5-nav .cleaning-nav-inner {
@@ -1135,19 +1136,6 @@ h1, h2, h3 { line-height: 1.04; }
   gap: 12px;
 }
 
-.barber5-call-compact {
-  min-height: 44px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 20px;
-  background: #050505;
-  color: #fff;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
 .barber5-menu-toggle {
   width: 52px;
   height: 52px;
@@ -1156,18 +1144,18 @@ h1, h2, h3 { line-height: 1.04; }
   align-items: center;
   justify-content: center;
   gap: 6px;
-  border: 1px solid rgba(5,5,5,0.28);
+  border: 1px solid rgba(255,255,255,0.42);
   border-radius: 50%;
-  background: #fff;
+  background: rgba(5,5,5,0.68);
   cursor: pointer;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  box-shadow: 0 14px 32px rgba(0,0,0,0.26);
 }
 
 .barber5-menu-toggle span {
   width: 22px;
   height: 2px;
   display: block;
-  background: #050505;
+  background: #fff;
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
@@ -1750,6 +1738,15 @@ h1, h2, h3 { line-height: 1.04; }
   border: 1px solid rgba(255,255,255,0.22);
 }
 
+.barber5-site .float-btn.directions {
+  width: 86px;
+  border-radius: 999px;
+  background: #d4af37;
+  color: #050505;
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+}
+
 .barber5-site .float-btn.book {
   background: #fff;
   color: #050505;
@@ -1926,7 +1923,7 @@ h1, h2, h3 { line-height: 1.04; }
   }
   .barber5-nav,
   .barber5-nav.is-light {
-    background: rgba(255,255,255,0.96);
+    background: transparent;
   }
   .barber5-nav .cleaning-nav-inner {
     grid-template-columns: 1fr auto;
@@ -1935,11 +1932,6 @@ h1, h2, h3 { line-height: 1.04; }
   .barber5-logo img {
     width: 152px;
     max-height: 58px;
-  }
-  .barber5-call-compact {
-    min-height: 42px;
-    padding: 0 14px;
-    font-size: 0.8rem;
   }
   .barber5-menu-toggle {
     width: 50px;

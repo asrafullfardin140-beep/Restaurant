@@ -583,6 +583,20 @@ function renderFooter() {
   const footerMark = business.logoText
     ? `<span class="brand-mark small">${business.logoText}</span>`
     : `<img src="${business.logo || shared.logo}" alt="${business.name} logo" />`;
+  const floatingActions = activeSite === "5"
+    ? `
+      <div class="floating-actions barber5-floating-actions" aria-label="Quick actions">
+        <a class="float-btn directions" href="${business.maps}" target="_blank" rel="noopener" aria-label="Get directions to ${business.name}">Directions</a>
+        <a class="float-btn call" href="${business.phoneHref}" aria-label="Call ${business.name}">Call</a>
+        <button class="float-btn book" type="button" data-open-modal aria-label="Book ${business.name}">Book</button>
+      </div>
+    `
+    : `
+      <div class="floating-actions" aria-label="Quick actions">
+        <a class="float-btn call" href="${business.phoneHref}" aria-label="Call ${business.name}">Call</a>
+        <button class="float-btn book" type="button" data-open-modal aria-label="Book ${business.name}">Book</button>
+      </div>
+    `;
   return `
     <footer class="footer">
       <div class="container">
@@ -593,10 +607,7 @@ function renderFooter() {
         <p>Concept ${activeSite}: ${data.label}. © 2026 ${business.name}.</p>
       </div>
     </footer>
-    <div class="floating-actions" aria-label="Quick actions">
-      <a class="float-btn call" href="${business.phoneHref}" aria-label="Call ${business.name}">Call</a>
-      <button class="float-btn book" type="button" data-open-modal aria-label="Book ${business.name}">Book</button>
-    </div>
+    ${floatingActions}
   `;
 }
 
@@ -639,7 +650,6 @@ function renderCleaningHeader() {
           <img src="${business.logo}" alt="${business.name} logo" />
         </a>
         <div class="barber5-header-actions">
-          <a class="barber5-call-compact" href="${business.phoneHref}" aria-label="Call ${business.name}">Call</a>
           <button class="barber5-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
             <span></span>
             <span></span>
