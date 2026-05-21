@@ -652,7 +652,6 @@ function renderCleaningHero() {
       <div class="cleaning-hero-shade"></div>
       <div class="cleaning-hero-center">
         <div class="barber5-hero-content">
-          <span class="barber5-kicker">${data.eyebrow}</span>
           <img src="${business.logo}" alt="${business.name}" class="barber5-hero-logo-img" />
           <h1>${data.title}</h1>
           <p>${data.intro}</p>

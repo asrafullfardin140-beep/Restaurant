@@ -1205,18 +1205,6 @@ h1, h2, h3 { line-height: 1.04; }
   padding: 70px 0;
 }
 
-.barber5-kicker {
-  display: inline-flex;
-  margin-bottom: 28px;
-  border: 1px solid rgba(255,255,255,0.34);
-  padding: 11px 18px;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 0.24em;
-  font-weight: 900;
-  font-size: 0.78rem;
-}
-
 .barber5-hero-logo-img {
   width: min(380px, 78vw);
   margin-bottom: 28px;
@@ -1903,13 +1891,6 @@ h1, h2, h3 { line-height: 1.04; }
   }
   .barber5-hero h1 {
     font-size: clamp(3.4rem, 18vw, 5.6rem);
-  }
-  .barber5-kicker {
-    width: 100%;
-    justify-content: center;
-    text-align: center;
-    letter-spacing: 0.14em;
-    font-size: 0.68rem;
   }
   .barber5-hero-actions {
     display: grid;
