@@ -623,20 +623,34 @@ function renderFaq() {
 }
 
 function renderCleaningHeader() {
+  const links = [
+    ["Home", "#home"],
+    ["About", "#about"],
+    ["Services", "#services"],
+    ["Gallery", "#gallery"],
+    ["Reviews", "#reviews"],
+    ["Contact", "#contact"]
+  ];
+
   return `
     <nav class="cleaning-nav barber5-nav">
       <div class="cleaning-nav-inner">
         <a class="cleaning-logo barber5-logo" href="#home" aria-label="${business.name}">
           <img src="${business.logo}" alt="${business.name} logo" />
         </a>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#contact">Contact</a></li>
+        <div class="barber5-header-actions">
+          <a class="barber5-call-compact" href="${business.phoneHref}" aria-label="Call ${business.name}">Call</a>
+          <button class="barber5-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+      <div class="barber5-menu-panel" aria-hidden="true">
+        <ul class="barber5-menu-list">
+          ${links.map(([label, href]) => `<li><a href="${href}">${label}</a></li>`).join("")}
         </ul>
-        <a class="cleaning-phone" href="${business.phoneHref}">${business.phone} <span>Call</span></a>
       </div>
     </nav>
   `;
@@ -958,6 +972,27 @@ function setupInteractions() {
   });
 
   if (activeSite === "5") {
+    const site5Nav = document.querySelector(".barber5-nav");
+    const menuToggle = document.querySelector(".barber5-menu-toggle");
+    const menuPanel = document.querySelector(".barber5-menu-panel");
+    const closeSite5Menu = () => {
+      site5Nav?.classList.remove("menu-open");
+      menuToggle?.setAttribute("aria-expanded", "false");
+      menuToggle?.setAttribute("aria-label", "Open menu");
+      menuPanel?.setAttribute("aria-hidden", "true");
+    };
+
+    menuToggle?.addEventListener("click", () => {
+      const isOpen = site5Nav.classList.toggle("menu-open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+      menuPanel?.setAttribute("aria-hidden", String(!isOpen));
+    });
+
+    document.querySelectorAll(".barber5-menu-list a, .barber5-logo").forEach(link => {
+      link.addEventListener("click", closeSite5Menu);
+    });
+
     const revealItems = document.querySelectorAll(".barber5-reveal");
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
