@@ -983,6 +983,7 @@ function setupInteractions() {
 
   if (activeSite === "5") {
     const site5Nav = document.querySelector(".barber5-nav");
+    const site5Shell = document.querySelector(".barber5-site");
     const menuToggle = document.querySelector(".barber5-menu-toggle");
     const menuPanel = document.querySelector(".barber5-menu-panel");
     const closeSite5Menu = () => {
@@ -1017,6 +1018,7 @@ function setupInteractions() {
     const updateCleaningNav = () => {
       const hasScrolled = window.scrollY > 120;
       site5Nav?.classList.toggle("has-scrolled", hasScrolled);
+      site5Shell?.classList.toggle("logo-stuck", hasScrolled);
       site5Nav?.classList.toggle("is-light", window.scrollY > window.innerHeight - 120);
     };
     updateCleaningNav();
