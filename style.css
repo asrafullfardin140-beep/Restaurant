@@ -1224,6 +1224,7 @@ h1, h2, h3 { line-height: 1.04; }
 .barber5-hero {
   min-height: 100svh;
   padding-top: 78px;
+  place-items: start center;
 }
 
 .barber5-hero-photo {
@@ -1268,13 +1269,13 @@ h1, h2, h3 { line-height: 1.04; }
   width: min(1320px, calc(100% - 48px));
   justify-items: start;
   gap: 0;
-  padding-top: 0;
+  padding-top: clamp(118px, 15vh, 170px);
 }
 
 .barber5-hero-content {
   max-width: 850px;
   color: #fff;
-  padding: 70px 0;
+  padding: 0 0 70px;
 }
 
 .barber5-kicker {
@@ -1987,10 +1988,10 @@ h1, h2, h3 { line-height: 1.04; }
   }
   .barber5-hero .cleaning-hero-center {
     width: min(100% - 28px, 1320px);
-    padding-top: 0;
+    padding-top: 116px;
   }
   .barber5-hero-content {
-    padding: 52px 0 70px;
+    padding: 0 0 70px;
   }
   .barber5-hero-logo-img {
     width: min(310px, 82vw);
