@@ -1205,6 +1205,10 @@ h1, h2, h3 { line-height: 1.04; }
   padding: 70px 0;
 }
 
+.barber5-kicker {
+  display: none !important;
+}
+
 .barber5-hero-logo-img {
   width: min(380px, 78vw);
   margin-bottom: 28px;

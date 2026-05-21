@@ -187,7 +187,7 @@ const sites = {
       email: "hello@goldenscissorsyork.co.uk"
     },
     title: "Classic cuts. Sharp fades. Golden standard.",
-    eyebrow: "Premium barber shop - York",
+    eyebrow: "",
     intro: "A polished barber experience in Clifton, York, built around clean fades, classic cuts, beard care, and friendly local service.",
     primary: "Book Your Cut",
     secondary: "Call the Shop",
