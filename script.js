@@ -1014,9 +1014,10 @@ function setupInteractions() {
     }, { threshold: 0.16, rootMargin: "0px 0px -8% 0px" });
     revealItems.forEach(item => revealObserver.observe(item));
 
-    const cleaningNav = document.querySelector(".cleaning-nav");
     const updateCleaningNav = () => {
-      cleaningNav.classList.toggle("is-light", window.scrollY > window.innerHeight - 120);
+      const hasScrolled = window.scrollY > 120;
+      site5Nav?.classList.toggle("has-scrolled", hasScrolled);
+      site5Nav?.classList.toggle("is-light", window.scrollY > window.innerHeight - 120);
     };
     updateCleaningNav();
     window.addEventListener("scroll", updateCleaningNav);
