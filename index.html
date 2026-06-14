@@ -1,60 +1,20 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Scott's Barbers - Client Website Concepts</title>
-  <meta name="description" content="Scott's Barbers website concepts with three premium barber shop layouts for client review." />
-  <meta name="theme-color" content="#0d0d0d" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A new solar website is coming soon.">
+  <title>Solar Website | Coming Soon</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="site-root"></div>
-
-  <div class="booking-modal" id="bookingModal" aria-hidden="true">
-    <div class="booking-panel" role="dialog" aria-modal="true" aria-labelledby="bookingTitle">
-      <button class="modal-close" type="button" data-close-modal aria-label="Close booking form">x</button>
-      <img src="assets/logo.png" alt="Scott's Barbers logo" class="modal-logo" />
-      <p class="eyebrow">Appointment request</p>
-      <h2 id="bookingTitle">Book Scott's Barbers</h2>
-      <p class="modal-copy">Send your preferred time and the shop will confirm your slot by phone.</p>
-      <form id="bookingForm" class="booking-form">
-        <label>
-          Name
-          <input type="text" name="name" placeholder="Your name" required />
-        </label>
-        <label>
-          Phone
-          <input type="tel" name="phone" placeholder="+353..." required />
-        </label>
-        <label>
-          Service
-          <select name="service" required>
-            <option value="">Choose a service</option>
-            <option>Haircut</option>
-            <option>Skin Fade</option>
-            <option>Haircut & Beard</option>
-            <option>Hot Towel Shave</option>
-            <option>Kids Cut</option>
-          </select>
-        </label>
-        <label>
-          Preferred time
-          <input type="text" name="time" placeholder="Friday after 3pm" required />
-        </label>
-        <button class="btn btn-gold full" type="submit">Send Request</button>
-      </form>
-      <div class="booking-success" id="bookingSuccess">
-        <strong>Request ready</strong>
-        <p>This demo confirms the form flow. Connect it to email or booking software before launch.</p>
-      </div>
-    </div>
-  </div>
-
-  <script src="site-config.js"></script>
-  <script src="script.js"></script>
+  <main class="coming-soon">
+    <div class="sun" aria-hidden="true"></div>
+    <p class="eyebrow">A brighter future is on the way</p>
+    <h1>Solar website coming soon.</h1>
+    <p class="message">
+      We are preparing a new home for clean, reliable solar energy solutions.
+    </p>
+  </main>
 </body>
 </html>
