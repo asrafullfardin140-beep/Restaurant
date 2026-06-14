@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="hero">
+  <header class="hero" id="home">
     <video
       class="hero__video"
       autoplay
@@ -23,14 +23,27 @@
     <div class="hero__overlay" aria-hidden="true"></div>
 
     <nav class="nav" aria-label="Main navigation">
-      <a class="brand" href="#" aria-label="JK Energy home">
-        <span class="brand__mark" aria-hidden="true">
-          <span class="brand__sun"></span>
-        </span>
-        <span>JK <strong>Energy</strong></span>
-      </a>
+      <div class="nav__identity">
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-controls="site-menu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <a class="brand" href="#home" aria-label="JK Energy home">
+          <span class="brand__mark" aria-hidden="true">
+            <span class="brand__sun"></span>
+          </span>
+          <span>JK <strong>Energy</strong></span>
+        </a>
+      </div>
 
-      <button class="nav__quote" type="button">Get a Quotation</button>
+      <button class="nav__quote js-open-quote" type="button">Get a Quotation</button>
     </nav>
 
     <div class="hero__content">
@@ -41,7 +54,7 @@
         sustainable tomorrow.
       </p>
       <div class="hero__actions">
-        <button class="button button--primary" type="button">Get a Quotation</button>
+        <button class="button button--primary js-open-quote" type="button">Get a Quotation</button>
         <button class="button button--outline" type="button">
           <span class="button__phone" aria-hidden="true">☎</span>
           Call Now
@@ -56,35 +69,199 @@
   </header>
 
   <main>
-    <section class="quote-preview" aria-labelledby="quote-title">
-      <div class="quote-preview__intro">
-        <p class="section-label">Start your solar journey</p>
-        <h2 id="quote-title">A brighter home starts with one conversation.</h2>
+    <section class="services section" id="services" aria-labelledby="services-title">
+      <div class="section__heading">
+        <div>
+          <p class="section-label">What we install</p>
+          <h2 id="services-title">Solar built around the way you use energy.</h2>
+        </div>
         <p>
-          Tell us a little about your property and energy goals. Our team will
-          help shape the right solar plan for you.
+          From family homes to growing businesses, JK Energy designs practical
+          solar systems around each property’s space and power needs.
         </p>
       </div>
 
-      <div class="quote-card" aria-label="Quotation form preview">
-        <div class="quote-card__top">
-          <span>Free solar quotation</span>
-          <span class="quote-card__badge">No obligation</span>
-        </div>
-        <div class="quote-card__fields">
-          <div class="field-preview">
-            <span>Your name</span>
-            <strong>Full name</strong>
-          </div>
-          <div class="field-preview">
-            <span>Property type</span>
-            <strong>Residential</strong>
-          </div>
-        </div>
-        <button class="button button--dark" type="button">Request My Quote</button>
-        <p class="quote-card__note">Demo preview only. No information is collected.</p>
+      <div class="service-grid">
+        <article class="service-card service-card--residential">
+          <div class="service-card__number">01</div>
+          <div class="service-card__icon" aria-hidden="true">⌂</div>
+          <p class="service-card__type">For homeowners</p>
+          <h3>Residential solar installation</h3>
+          <p>
+            A clean, considered system designed to reduce household energy
+            costs and make better use of your roof.
+          </p>
+          <button class="text-button js-open-quote" type="button">Explore residential <span>→</span></button>
+        </article>
+
+        <article class="service-card service-card--commercial">
+          <div class="service-card__number">02</div>
+          <div class="service-card__icon" aria-hidden="true">▦</div>
+          <p class="service-card__type">For businesses</p>
+          <h3>Commercial solar installation</h3>
+          <p>
+            Scalable solar planning for offices, warehouses, retail spaces,
+            and commercial properties with bigger energy demands.
+          </p>
+          <button class="text-button js-open-quote" type="button">Explore commercial <span>→</span></button>
+        </article>
       </div>
     </section>
+
+    <section class="about section" id="about" aria-labelledby="about-title">
+      <div class="about__visual" aria-hidden="true">
+        <div class="about__sun"></div>
+        <div class="about__metric">
+          <strong>Clean power</strong>
+          <span>Designed for what comes next</span>
+        </div>
+      </div>
+      <div class="about__content">
+        <p class="section-label">About JK Energy</p>
+        <h2 id="about-title">Straightforward solar, thoughtfully delivered.</h2>
+        <p>
+          JK Energy is presented as a modern solar partner focused on clear
+          advice, dependable installation, and systems that fit real energy
+          goals. This demo shows how that customer journey can feel.
+        </p>
+        <div class="about__points">
+          <div><strong>01</strong><span>Understand your property</span></div>
+          <div><strong>02</strong><span>Design the right system</span></div>
+          <div><strong>03</strong><span>Plan a smooth installation</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-cta section" id="quotation" aria-labelledby="quote-cta-title">
+      <div>
+        <p class="section-label">Free solar quotation</p>
+        <h2 id="quote-cta-title">See if solar could be the right fit.</h2>
+        <p>
+          Answer five quick questions about your property and energy use.
+          It takes less than a minute.
+        </p>
+      </div>
+      <button class="button button--primary button--large js-open-quote" type="button">
+        Start My Quotation
+      </button>
+    </section>
+
+    <section class="contact section" id="contact" aria-labelledby="contact-title">
+      <div class="contact__details">
+        <p class="section-label">Contact us</p>
+        <h2 id="contact-title">Let’s talk about brighter energy.</h2>
+        <p>
+          This is a demo contact area. Use it to preview how customers could
+          reach JK Energy before real contact details are connected.
+        </p>
+        <div class="contact-cards">
+          <article>
+            <span aria-hidden="true">☎</span>
+            <div><small>Call our team</small><strong>Demo phone number</strong></div>
+          </article>
+          <article>
+            <span aria-hidden="true">✉</span>
+            <div><small>Email us</small><strong>hello@jkenergy.demo</strong></div>
+          </article>
+          <article>
+            <span aria-hidden="true">⌖</span>
+            <div><small>Service area</small><strong>Residential &amp; commercial</strong></div>
+          </article>
+        </div>
+      </div>
+
+      <form class="contact-form" id="contact-form" novalidate>
+        <div class="contact-form__heading">
+          <h3>Send a demo message</h3>
+          <span>No data is sent</span>
+        </div>
+        <label>
+          <span>Name</span>
+          <input type="text" name="contactName" autocomplete="name" placeholder="Your full name" required>
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" name="contactEmail" autocomplete="email" placeholder="you@example.com" required>
+        </label>
+        <label>
+          <span>Message</span>
+          <textarea name="contactMessage" rows="4" placeholder="Tell us what you are looking for" required></textarea>
+        </label>
+        <p class="form-message" id="contact-form-message" role="status" aria-live="polite"></p>
+        <button class="button button--dark" type="submit">Send Demo Message</button>
+      </form>
+    </section>
   </main>
+
+  <footer class="footer">
+    <a class="brand brand--footer" href="#home" aria-label="JK Energy home">
+      <span class="brand__mark" aria-hidden="true"><span class="brand__sun"></span></span>
+      <span>JK <strong>Energy</strong></span>
+    </a>
+    <p>Demo solar landing page. No information is collected or stored.</p>
+    <span>© 2026 JK Energy</span>
+  </footer>
+
+  <div class="drawer-layer" id="drawer-layer" hidden>
+    <button class="drawer-backdrop" type="button" aria-label="Close navigation menu"></button>
+    <aside class="drawer" id="site-menu" aria-label="Site menu" aria-hidden="true">
+      <div class="drawer__header">
+        <span>Navigation</span>
+        <button class="icon-button drawer__close" type="button" aria-label="Close navigation menu">×</button>
+      </div>
+      <nav class="drawer__nav" aria-label="Section navigation">
+        <a href="#home"><span>01</span>Home</a>
+        <a href="#services"><span>02</span>Services</a>
+        <a href="#about"><span>03</span>About Us</a>
+        <a href="#contact"><span>04</span>Contact Us</a>
+      </nav>
+      <div class="drawer__footer">
+        <p>Ready to explore solar?</p>
+        <button class="button button--primary js-open-quote" type="button">Get a Quotation</button>
+        <small>Demo experience. No data is submitted.</small>
+      </div>
+    </aside>
+  </div>
+
+  <div class="quiz-layer" id="quiz-layer" hidden>
+    <section
+      class="quiz"
+      id="quote-quiz"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="quiz-title"
+      aria-describedby="quiz-description"
+    >
+      <header class="quiz__header">
+        <a class="brand brand--dark" href="#home" tabindex="-1">
+          <span class="brand__mark" aria-hidden="true"><span class="brand__sun"></span></span>
+          <span>JK <strong>Energy</strong></span>
+        </a>
+        <div class="quiz__progress-wrap">
+          <span id="quiz-progress-label">Question 1 of 6</span>
+          <div class="quiz__progress" aria-hidden="true"><span id="quiz-progress-bar"></span></div>
+        </div>
+        <button class="icon-button quiz__close" type="button" aria-label="Close quotation">×</button>
+      </header>
+
+      <div class="quiz__body">
+        <div class="quiz__panel" id="quiz-panel">
+          <p class="quiz__kicker">Your free solar quotation</p>
+          <h2 id="quiz-title"></h2>
+          <p class="quiz__description" id="quiz-description"></p>
+          <div class="quiz__answers" id="quiz-answers"></div>
+          <p class="quiz__error" id="quiz-error" role="alert"></p>
+        </div>
+      </div>
+
+      <footer class="quiz__footer">
+        <button class="quiz__back" id="quiz-back" type="button">← Back</button>
+        <p><span aria-hidden="true">●</span> Demo only. Nothing is sent or stored.</p>
+        <button class="button button--dark quiz__next" id="quiz-next" type="button">Continue</button>
+      </footer>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
