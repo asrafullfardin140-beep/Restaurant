@@ -3,18 +3,88 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A new solar website is coming soon.">
-  <title>Solar Website | Coming Soon</title>
+  <meta name="description" content="JK Energy delivers dependable solar energy solutions for homes and businesses.">
+  <title>JK Energy | Powering a Brighter Future</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="coming-soon">
-    <div class="sun" aria-hidden="true"></div>
-    <p class="eyebrow">A brighter future is on the way</p>
-    <h1>Solar website coming soon.</h1>
-    <p class="message">
-      We are preparing a new home for clean, reliable solar energy solutions.
-    </p>
+  <header class="hero">
+    <video
+      class="hero__video"
+      autoplay
+      muted
+      loop
+      playsinline
+      poster="assets/hero-poster.jpg"
+      aria-hidden="true"
+    >
+      <source src="assets/hero-installation.mp4" type="video/mp4">
+    </video>
+    <div class="hero__overlay" aria-hidden="true"></div>
+
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="#" aria-label="JK Energy home">
+        <span class="brand__mark" aria-hidden="true">
+          <span class="brand__sun"></span>
+        </span>
+        <span>JK <strong>Energy</strong></span>
+      </a>
+
+      <button class="nav__quote" type="button">Get a Quotation</button>
+    </nav>
+
+    <div class="hero__content">
+      <p class="eyebrow">Solar energy made simple</p>
+      <h1>Power your future with <span>clean energy.</span></h1>
+      <p class="hero__copy">
+        Smarter solar solutions built to lower energy costs and create a more
+        sustainable tomorrow.
+      </p>
+      <div class="hero__actions">
+        <button class="button button--primary" type="button">Get a Quotation</button>
+        <button class="button button--outline" type="button">
+          <span class="button__phone" aria-hidden="true">☎</span>
+          Call Now
+        </button>
+      </div>
+    </div>
+
+    <div class="hero__scroll" aria-hidden="true">
+      <span></span>
+      Explore
+    </div>
+  </header>
+
+  <main>
+    <section class="quote-preview" aria-labelledby="quote-title">
+      <div class="quote-preview__intro">
+        <p class="section-label">Start your solar journey</p>
+        <h2 id="quote-title">A brighter home starts with one conversation.</h2>
+        <p>
+          Tell us a little about your property and energy goals. Our team will
+          help shape the right solar plan for you.
+        </p>
+      </div>
+
+      <div class="quote-card" aria-label="Quotation form preview">
+        <div class="quote-card__top">
+          <span>Free solar quotation</span>
+          <span class="quote-card__badge">No obligation</span>
+        </div>
+        <div class="quote-card__fields">
+          <div class="field-preview">
+            <span>Your name</span>
+            <strong>Full name</strong>
+          </div>
+          <div class="field-preview">
+            <span>Property type</span>
+            <strong>Residential</strong>
+          </div>
+        </div>
+        <button class="button button--dark" type="button">Request My Quote</button>
+        <p class="quote-card__note">Demo preview only. No information is collected.</p>
+      </div>
+    </section>
   </main>
 </body>
 </html>
