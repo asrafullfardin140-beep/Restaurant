@@ -1,5 +1,17 @@
 const quoteSteps = [
   {
+    id: "solution",
+    title: "What are you looking for?",
+    description: "Choose one option to personalize your quote.",
+    products: true,
+    options: [
+      ["Solar System", "Solar panels for your property", "solar"],
+      ["Heat Pump", "Efficient heating and cooling", "pump"],
+      ["Solar System & Heat Pump", "A complete renewable energy setup", "combo"],
+      ["Additional Battery Storage", "Store more of the energy you generate", "battery"],
+    ],
+  },
+  {
     id: "propertyType",
     title: "What type of property is this for?",
     description: "Choose the option that best describes your solar project.",
@@ -61,7 +73,7 @@ const quoteSteps = [
 
 const state = {
   step: 0,
-  answers: {},
+  answers: { solution: "Solar System" },
   lastFocused: null,
 };
 
@@ -144,17 +156,58 @@ function createOption(option, step) {
   const [label, detail, icon] = option;
   const button = document.createElement("button");
   button.type = "button";
-  button.className = "quiz-option";
+  button.className = step.products ? "quiz-option quiz-option--product" : "quiz-option";
   button.dataset.value = label;
   button.setAttribute("aria-pressed", String(state.answers[step.id] === label));
   if (state.answers[step.id] === label) button.classList.add("is-selected");
-  button.innerHTML = `
-    <span class="quiz-option__icon" aria-hidden="true">${icon}</span>
-    <span class="quiz-option__copy"><strong>${label}</strong><small>${detail}</small></span>
-    <span class="quiz-option__check" aria-hidden="true">✓</span>
-  `;
+  button.innerHTML = step.products
+    ? `
+      ${productArt(icon)}
+      <span class="quiz-option__copy"><strong>${label}</strong><small>${detail}</small></span>
+      <span class="quiz-option__check" aria-hidden="true">✓</span>
+    `
+    : `
+      <span class="quiz-option__icon" aria-hidden="true">${icon}</span>
+      <span class="quiz-option__copy"><strong>${label}</strong><small>${detail}</small></span>
+      <span class="quiz-option__check" aria-hidden="true">✓</span>
+    `;
   button.addEventListener("click", () => selectOption(button, step));
   return button;
+}
+
+function productArt(type) {
+  if (type === "solar") {
+    return `
+      <span class="product-art product-art--solar" aria-hidden="true">
+        <span class="product-art__glow"></span>
+        <span class="product-art__panel"></span>
+        <span class="product-art__panel product-art__panel--rear"></span>
+      </span>
+    `;
+  }
+  if (type === "pump") {
+    return `
+      <span class="product-art product-art--pump" aria-hidden="true">
+        <span class="product-art__glow"></span>
+        <span class="product-art__unit"><span class="product-art__fan"></span></span>
+      </span>
+    `;
+  }
+  if (type === "combo") {
+    return `
+      <span class="product-art product-art--combo" aria-hidden="true">
+        <span class="product-art__glow"></span>
+        <span class="product-art__unit"><span class="product-art__fan"></span></span>
+        <span class="product-art__panel"></span>
+      </span>
+    `;
+  }
+  return `
+    <span class="product-art product-art--battery" aria-hidden="true">
+      <span class="product-art__glow"></span>
+      <span class="product-art__battery"><i></i></span>
+    </span>
+  `;
 }
 
 function selectOption(button, step) {
@@ -207,12 +260,28 @@ function escapeHtml(value) {
 
 function renderStep(direction = "forward") {
   const step = quoteSteps[state.step];
+  let productStage = quizPanel.querySelector(".product-stage");
+  if (!productStage) {
+    productStage = document.createElement("div");
+    productStage.className = "product-stage";
+    productStage.setAttribute("aria-label", "Quotation stage 1 of 3");
+    productStage.innerHTML = `
+      <span class="is-current">1</span><i></i><span>2</span><i></i><span>3</span>
+    `;
+    quizPanel.insertBefore(productStage, quizPanel.firstChild);
+  }
+  productStage.hidden = !step.products;
   quizPanel.classList.remove("is-forward", "is-backward");
   quizPanel.classList.add(direction === "back" ? "is-backward" : "is-forward");
+  quizPanel.classList.toggle("quiz__panel--wide", Boolean(step.products));
   quizTitle.textContent = step.title;
   quizDescription.textContent = step.description;
   quizAnswers.innerHTML = "";
-  quizAnswers.className = step.contact ? "quiz__answers quiz__answers--contact" : "quiz__answers";
+  quizAnswers.className = step.contact
+    ? "quiz__answers quiz__answers--contact"
+    : step.products
+      ? "quiz__answers quiz__answers--products"
+      : "quiz__answers";
   quizError.textContent = "";
 
   if (step.contact) {
@@ -289,6 +358,7 @@ function showThankYou() {
       team would review your answers and get in touch with the next steps.
     </p>
     <div class="thanks__summary">
+      <span>${escapeHtml(state.answers.solution)}</span>
       <span>${escapeHtml(state.answers.propertyType)}</span>
       <span>${escapeHtml(state.answers.monthlyBill)}</span>
       <span>${escapeHtml(state.answers.timeframe)}</span>
@@ -306,7 +376,7 @@ function showThankYou() {
 
 function resetQuiz() {
   state.step = 0;
-  state.answers = {};
+  state.answers = { solution: "Solar System" };
   quizPanel.className = "quiz__panel";
   document.querySelector(".quiz__progress-wrap").hidden = false;
   document.querySelector(".quiz__footer").hidden = false;
